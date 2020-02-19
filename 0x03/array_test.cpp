@@ -18,24 +18,24 @@ void insert_test(){
   cout << "***** insert_test *****\n";
   int arr[10] = {10, 20, 30};
   int len = 3;
-  insert(3, 40, arr, len);
-  printArr(arr, len); // 10 20 30 40
-  insert(1, 50, arr, len);
-  printArr(arr, len); // 10 50 20 30 40
-  insert(0, 15, arr, len);
-  printArr(arr, len); // 15 10 50 20 30 40
+  insert(3, 40, arr, len); // 10 20 30 40
+  printArr(arr, len);
+  insert(1, 50, arr, len); // 10 50 20 30 40
+  printArr(arr, len);
+  insert(0, 15, arr, len); // 15 10 50 20 30 40
+  printArr(arr, len);
 }
 
 void erase_test(){
   cout << "***** erase_test *****\n";
   int arr[10] = {10, 50, 40, 30, 70, 20};
   int len = 6;
-  erase(4, arr, len);
-  printArr(arr, len); // 10 50 40 30 20
-  erase(1, arr, len);
-  printArr(arr, len); // 10 40 30 20
-  erase(3, arr, len);
-  printArr(arr, len); // 10 40 30
+  erase(4, arr, len); // 10 50 40 30 20
+  printArr(arr, len);
+  erase(1, arr, len); // 10 40 30 20
+  printArr(arr, len);
+  erase(3, arr, len); // 10 40 30
+  printArr(arr, len);
 }
 
 int main(void) {

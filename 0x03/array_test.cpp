@@ -38,7 +38,6 @@ void erase_test(){
   printArr(arr, len); // 10 40 30
 }
 
-
 int main(void) {
   insert_test();
   erase_test();

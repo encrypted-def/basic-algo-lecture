@@ -14,6 +14,7 @@ int main(void) {
 
   vector<int> v4; // {}
   v4 = v3; // {1,2,4}
+  cout << v4[0] << v4[1] << v4[2] << '\n';
   v4.pop_back(); // {1,2}
   v4.clear(); // {}
 }

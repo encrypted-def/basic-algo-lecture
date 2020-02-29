@@ -1,4 +1,4 @@
-// http://boj.kr/3c736db6075546b693cad9a55ccfc68e
+// http://boj.kr/84654f16875542e6a84d3da7e4cf0dac
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -13,17 +13,17 @@ int main(void) {
   int q;
   cin >> q;
   while (q--) {
-    string op;
+    char op;
     cin >> op;
-    if (op[0] == 'P') {
-      string add;
+    if (op == 'P') {
+      char add;
       cin >> add;
-      L.insert(cursor, add[0]);
+      L.insert(cursor, add);
     }
-    else if (op[0] == 'L') {
+    else if (op == 'L') {
       if (cursor != L.begin()) cursor--;
     }
-    else if (op[0] == 'D') {
+    else if (op == 'D') {
       if (cursor != L.end()) cursor++;
     }
     else { // 'B'

@@ -5,11 +5,11 @@ const int MX = 1000005;
 int dat[MX], pre[MX], nxt[MX];
 int unused = 1;
 
-void insert(int idx, int num){
+void insert(int addr, int num){
 
 }
 
-void erase(int idx){
+void erase(int addr){
 
 }
 

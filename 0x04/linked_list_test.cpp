@@ -33,6 +33,7 @@ void insert_test(){
   insert(1, 20); // 30 40 10 20(address=4)
   traverse();
   insert(4, 70); // 30 40 10 20 70(address=5)
+  traverse();
 }
 
 void erase_test(){

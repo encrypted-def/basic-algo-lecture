@@ -1,8 +1,8 @@
-// http://boj.kr/0c072aebeb2b4a14b950bfed68f69806
+// http://boj.kr/000e663f39e747d8944794fb277b6f17
 #include <bits/stdc++.h>
 using namespace std;
 
-const int MX = 10000007;
+const int MX = 1000005;
 int dat[MX];
 int pos;
 

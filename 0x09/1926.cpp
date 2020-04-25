@@ -1,4 +1,4 @@
-// http://boj.kr/6a8e108a6ce046cab0ac278c03517be1
+// http://boj.kr/2edfa3c97260480d81e3133d389c119f
 #include <bits/stdc++.h>
 using namespace std;
 #define X first

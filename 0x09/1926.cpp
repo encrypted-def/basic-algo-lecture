@@ -8,7 +8,7 @@ bool vis[502][502]; // 해당 칸을 방문했는지 여부를 저장
 int n,m;
 int dx[4] = {1,0,-1,0};
 int dy[4] = {0,1,0,-1}; // 상하좌우 네 방향을 의미
-int main(){
+int main(void){
   ios::sync_with_stdio(0);
   cin.tie(0);
   cin >> n >> m;

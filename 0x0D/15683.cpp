@@ -15,15 +15,15 @@ bool OOB(int a, int b){ // Out Of Bounds 확인
   return a < 0 || a >= n || b < 0 || b >= m;
 }
 
-// (x,y)에서 dir 방향으로 진행하면서 벽을 만날 때 까지 지나치는 모든 빈 칸을 7로 바꿔버림
+// (x,y)에서 dir 방향으로 진행하면서 벽을 만날 때 까지 지나치는 모든 빈칸을 7로 바꿔버림
 void upd(int x, int y, int dir){
   dir %= 4;
   while(1){
     x += dx[dir];
     y += dy[dir];
     if(OOB(x,y) || board2[x][y] == 6) return; // 범위를 벗어났거나 벽을 만나면 함수를 탈출
-    if(board2[x][y] != 0) continue; // 해당 칸이 빈 칸이 아닐 경우(=cctv가 있을 경우) 넘어감
-    board2[x][y] = 7; // 빈 칸을 7로 덮음
+    if(board2[x][y] != 0) continue; // 해당 칸이 빈칸이 아닐 경우(=cctv가 있을 경우) 넘어감
+    board2[x][y] = 7; // 빈칸을 7로 덮음
   }
 }
 

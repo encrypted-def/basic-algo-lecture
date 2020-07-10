@@ -15,7 +15,7 @@ bool OOB(int a, int b){ // Out Of Bounds 확인
   return a < 0 || a >= n || b < 0 || b >= m;
 }
 
-// (x,y)에서 dir 방향으로 진행하면서 벽을 만날때까지 모든 빈 칸을 7로 바꿔버림
+// (x,y)에서 dir 방향으로 진행하면서 벽을 만날 때 까지 지나치는 모든 빈 칸을 7로 바꿔버림
 void upd(int x, int y, int dir){
   dir %= 4;
   while(1){

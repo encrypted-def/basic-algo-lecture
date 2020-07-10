@@ -5,7 +5,7 @@ using namespace std;
 #define Y second
 
 int dx[4] = {1,0,-1,0};
-int dy[4] = {0,1,0,-1}; // 북쪽, 동쪽, 남쪽, 서쪽 순서
+int dy[4] = {0,1,0,-1}; // 남쪽, 동쪽, 북쪽, 서쪽 순서
 int n, m;
 int board1[10][10]; // 최초에 입력받은 board를 저장할 변수
 int board2[10][10]; // 사각 지대의 개수를 세기 위해 사용할 변수

@@ -1,4 +1,4 @@
-// http://boj.kr/dea021d78bc64c2b837dd5679b260d7f
+// http://boj.kr/c961e6bf6107428caf200c11c964f9e1
 #include <bits/stdc++.h>
 using namespace std;
 #define X first
@@ -42,10 +42,10 @@ int main(void) {
   }
   // 1 << (2*cctv.size())는 4의 cctv.size()승을 의미.
   for(int tmp = 0; tmp < (1<<(2*cctv.size())); tmp++){ // tmp를 4진법으로 뒀을 때 각 자리수를 cctv의 방향으로 생각할 것이다.
-    int brute = tmp;
     for(int i = 0; i < n; i++)
       for(int j = 0; j < m; j++)
         board2[i][j] = board1[i][j];
+    int brute = tmp;    
     for(int i = 0; i < cctv.size(); i++){
       int dir = brute % 4;
       brute /= 4;

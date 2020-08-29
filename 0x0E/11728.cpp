@@ -6,7 +6,7 @@ int n, m;
 int a[1000005], b[1000005], c[2000005];
 
 int main(void) {
-  ios_base::sync_with_stdio(0);
+  ios::sync_with_stdio(0);
   cin.tie(0);
   
   cin >> n >> m;

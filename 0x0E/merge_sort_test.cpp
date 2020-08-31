@@ -13,7 +13,7 @@ void merge(int st, int en){
 
 // arr[st:en]을 정렬하고 싶다.
 void merge_sort(int st, int en){
-  if(en-st == 1) return; // 길이 1인 경우
+  if(???????????) return; // 길이 1인 경우
   int mid = (st+en)/2;
   merge_sort(st, mid); // arr[st:mid]을 정렬한다.
   merge_sort(mid, en); // arr[mid:en]을 정렬한다.

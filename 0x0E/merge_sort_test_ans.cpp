@@ -13,7 +13,7 @@ void merge(int st, int en){
   for(int i = st; i < en; i++){
     if(ridx == en) tmp[i] = arr[lidx++];
     else if(lidx == mid) tmp[i] = arr[ridx++];
-    else if(arr[lidx] < arr[ridx]) tmp[i] = arr[lidx++];
+    else if(arr[lidx] <= arr[ridx]) tmp[i] = arr[lidx++];
     else tmp[i] = arr[ridx++];
   }
   for(int i = st; i < en; i++) arr[i] = tmp[i]; // tmp에 임시저장해둔 값을 a로 다시 옮김

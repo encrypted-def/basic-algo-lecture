@@ -1,4 +1,4 @@
-// http://boj.kr/d4e0d2b6ceed40de9b6628394b3d20e5
+// http://boj.kr/eff70b5b64974fdebbcd7d2a1fdf29a5
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -16,7 +16,7 @@ int main(void) {
   for(int i = 0; i < n+m; i++){
     if(bidx == m) c[i] = a[aidx++];
     else if(aidx == n) c[i] = b[bidx++];
-    else if(a[aidx] < b[bidx]) c[i] = a[aidx++];
+    else if(a[aidx] <= b[bidx]) c[i] = a[aidx++];
     else c[i] = b[bidx++]; 
   }
   for(int i = 0; i < n+m; i++) cout << c[i] << ' ';

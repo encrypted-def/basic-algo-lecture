@@ -1,6 +1,7 @@
 // http://boj.kr/eeee207545644480a1971a2723769d93
 #include <bits/stdc++.h>
 using namespace std;
+
 int freq[2000001];
 int main() {
   ios_base::sync_with_stdio(0);

@@ -11,7 +11,7 @@ int main(void){
   cin.tie(0);
   cin >> n;
   for(int i = 1; i <= n; i++) cin >> s[i];
-  if(n==1){
+  if(n == 1){
     cout << s[1];
     return 0;
   }

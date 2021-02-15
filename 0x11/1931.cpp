@@ -9,9 +9,8 @@ int main(void){
   ios::sync_with_stdio(0);
   cin.tie(0);
   cin >> n;
-  for(int i = 0; i < n; i++){
+  for(int i = 0; i < n; i++)
     cin >> s[i].second >> s[i].first;
-  }
   sort(s,s+n); // 먼저 끝나는 시간을 비교하고, 끝나는 시간이 동일하면 시작 시간 순으로 정렬
   int ans = 0;
   int t = 0; // 현재 시간

@@ -1,3 +1,5 @@
+**중요한 공지** : 📡문제집 풀이 집단 지성 프로젝트📡를 진행중입니다. [링크](https://github.com/encrypted-def/basic-algo-lecture/solution-request.md)를 참고해주세요.
+
 # 🐕 바킹독의 실전 알고리즘 🐕
 
 ## 설명

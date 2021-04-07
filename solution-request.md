@@ -48,7 +48,7 @@ int main(void){
 - [규칙9] `define`, `typedef`는 `#define X first`, `#define Y second`, `#typedef long long ll;`만 허용합니다. `#define pb push_back`, `#define all(x) (x).begin(), (x).end()` 등은 사용하지 않습니다.
 - [규칙10] 탭은 **공백문자 2개**를 사용해야 합니다.
 - [규칙11] BFS 혹은 기타 좌표 개념이 들어가는 문제에서 가로와 세로는 강의에서 설명한 방향을 따라야 합니다.
-- [규칙12] 입출력은 C++ stream을 이용해야 합니다.
+- [규칙12] 입출력은 C++ stream을 이용해야 하고 `ios::sync_with_stdio(0); cin.tie(0);`을 main 함수의 제일 처음에 써야 하며 `endl`을 사용하지 않아야 합니다.
 - [규칙13] `new`, `malloc`과 같은 동적 할당을 사용하지 않아야 합니다.
 - [규칙14] 구조체 혹은 클래스를 사용하지 않아야 합니다.
 - [규칙15] 꼭 실수(`float, double`)로 계산을 해야하는 경우가 아니라면 모든 연산은 정수에서 이루어져야 합니다.

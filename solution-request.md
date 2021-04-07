@@ -66,6 +66,7 @@ int main(void){
 - [규칙22] 주석은 꼭 필요한 경우에만 간결하게 작성하는 것을 권장합니다.
 - [규칙23] 변수는 전역 변수로 선언하든 지역 변수로 선언하든 상관없습니다. 배열의 경우에는 전역 변수로 선언하는 것을 권장하고 칸 수 또한 `+1 to +10` 정도의 여유를 두는 것을 권장합니다.
 - [규칙24] 코드에 불필요한 로직이 없게끔 최대한 정리를 한 후에 PR하는 것을 부탁드립니다.
+- [규칙25] 자주 반복되는 루틴은 적절하게 함수로 분리하는 것을 권장합니다. `적절하게`의 기준은 사람마다 다를 수 있기 때문에 강의 내에서 제가 작성했던 코드들을 참고해주세요. ([예시 1](https://github.com/encrypted-def/basic-algo-lecture/blob/master/0x0D/12100.cpp), [예시 2](https://github.com/encrypted-def/basic-algo-lecture/blob/master/0x0D/15683.cpp), [예시 3](https://github.com/encrypted-def/basic-algo-lecture/blob/master/0x0D/18808.cpp))
 
 ## 마무리
 

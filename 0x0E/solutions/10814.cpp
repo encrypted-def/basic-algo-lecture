@@ -1,7 +1,7 @@
 // Authored by : hgmhc
-// Co-authored by : -
-// http://boj.kr/0a6c583b11b74b169e7d471200c059bc
-#include <iostream>
+// Co-authored by : BaaaaaaaaaaarkingDog
+// http://boj.kr/9e42012f919544dfa94544e08b2ee1fe
+#include <bits/stdc++.h>
 using namespace std;
 
 int main(void){

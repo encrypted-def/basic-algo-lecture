@@ -1,6 +1,6 @@
 // Authored by : heheHwang
-// Co-authored by : -
-// http://boj.kr/9ba8b386c9a14b838392339c75447d7b
+// Co-authored by : BaaaaaaaaaaarkingDog
+// http://boj.kr/40081492d92a4e1d9c805d23bf485942
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -46,11 +46,9 @@ int main(void) {
       Q.push({ vk, nx, ny });
     }
   }
-  vector<int> res;
   int ans = 0x7f7f7f7f;
   for (int i = 0; i < Kn + 1; i++)
-    res.push_back(vis[i][bX - 1][bY - 1]);
-  for (auto r : res) if (r) ans = min(ans, r);
+    if(vis[i][bX - 1][bY - 1]) ans = min(ans, vis[i][bX - 1][bY - 1]);
   if (ans != 0x7f7f7f7f) cout << ans - 1;
   else cout << -1;
 }

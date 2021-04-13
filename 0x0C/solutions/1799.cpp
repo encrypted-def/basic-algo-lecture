@@ -4,7 +4,9 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-vector<pair<int, int>> board[2][20];
+// 체스판의 색깔((r,c)에 대해 r+c가 짝수일 경우 0에 대응, 홀수일 경우 1에 대응)에 따라 분리해서 계산
+
+vector<pair<int, int>> board[2][20]; // board[i][j] : 색깔 i에 대해 \ 방향 대각선에 포함되는 칸들을 저장하는 vector
 bool used[2][20];
 int ans[2];
 int N;

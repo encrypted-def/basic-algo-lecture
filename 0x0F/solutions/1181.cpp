@@ -17,7 +17,7 @@ int main(void){
     if(ul!=vl) return ul < vl;
     return u < v;
   });
-  a.erase(unique(a.begin(), a.end()), a.end());
+  a.erase(unique(a.begin(), a.end()), a.end()); // a에서 중복된 원소를 제거하는 명령
   for(string& s : a) cout<<s<<'\n';
   return 0;
 }

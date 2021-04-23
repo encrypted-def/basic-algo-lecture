@@ -1,6 +1,6 @@
 // Authored by : tongnamuu
 // Co-authored by : -
-// http://boj.kr/****************
+// http://boj.kr/463f7849219d4db6a9740a40f381cbfb
 #include <bits/stdc++.h>
 using namespace std;
 int a[101];

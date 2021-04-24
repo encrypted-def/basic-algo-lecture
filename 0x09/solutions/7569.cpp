@@ -1,91 +1,64 @@
 // Authored by : BueVonHun
 // Co-authored by : -
-// http://boj.kr/26fca2e8039644fcb98da0d74f8100a6
+// http://boj.kr/2f20289998684fcda4d28da3fd3a8a26
 #include <bits/stdc++.h>
+#include "iostream"
+#include "queue"
+#include "tuple"
+
 using namespace std;
 
-const int kappa = 101;
-int nx[6] = {0, 0, 1, -1, kappa, -kappa};
-int ny[6] = {1, -1, 0, 0, 0, 0};
-
-int Board[10100][100];
-int Board2[10100][100];
-bool vis[10100][100];
-int dist[10100][100];
-using namespace std;
-
-void bfs(pair<int, int> start) {
-    queue<pair<int, int>> que;
-    vis[start.first][start.second]=true;
-    dist[start.first][start.second]=0;
-    que.push(start);
-    while (!que.empty()) {
-        pair<int, int> cur = que.front();que.pop();
-        for (int i = 0; i < 6; i++) {
-            int nxtX = cur.first+nx[i];
-            int nxtY = cur.second+ny[i];
-            if (nxtX<0 || nxtX >= 10100) continue;
-            if (nxtY<0 || nxtY >= 100) continue;
-            if (vis[nxtX][nxtY]) {
-                if (Board[nxtX][nxtY]==0) {
-                    if (dist[nxtX][nxtY] > dist[cur.first][cur.second]+1) {
-                        Board2[nxtX][nxtY]=1;
-                        dist[nxtX][nxtY] = dist[cur.first][cur.second]+1;
-                        que.push({nxtX, nxtY});
-                    }
-                }
-            }
-            else {
-                if (Board[nxtX][nxtY]==0) {
-                    vis[nxtX][nxtY]=true;
-                    Board2[nxtX][nxtY]=1;
-                    dist[nxtX][nxtY]=dist[cur.first][cur.second]+1;
-                    que.push({nxtX, nxtY});
-                }
-            }
-        }
-    }
-}
-
+int dx[6] = {0, 0, 1, -1, 0, 0};
+int dy[6] = {1, -1, 0, 0, 0, 0};
+int dz[6] = {0, 0, 0, 0, 1, -1};
+int board[1003][1003][1003];
+int dist[1003][1003][1003];
+queue<tuple<int, int, int>> Q;
+int m, n, h;
 int main(void) {
-    ios_base::sync_with_stdio(false);
-    cin.tie(0);
-
-    int m,n,h;
-    cin >> m >> n >> h;
-    vector<pair<int, int>> start;
-    for (int i = 0; i < 10100; i++)
-        for (int j = 0; j < 100; j++) {
-            Board[i][j]=-1;
-            Board2[i][j]=-1;
-        }
-    for (int i = 0; i < h; i++) {
-        for (int j = 0; j < n; j++) {
-            for (int k = 0; k < m; k++) {
-                int tmp;
-                cin >> tmp;
-                Board[j+i*kappa][k]=tmp;
-                Board2[j+i*kappa][k]=tmp;
-                if (tmp==1)
-                    start.push_back({j+i*kappa, k});
-            }
-        }
+  ios_base::sync_with_stdio(false);
+  cin.tie(0);
+  cin >> m >> n >> h;
+  for (int i = 0; i < h; i++) {
+    for (int j = 0; j < n; j++) {
+	  for (int k = 0; k < m; k++) {
+	    int tmp;
+	    cin >> tmp;
+		board[j][k][i] = tmp;
+		if (tmp==1) Q.push({j, k, i});
+        if (tmp==0) dist[j][k][i] = -1;
+	  }
     }
-    int ans = 0;
-    bool f = true;
-    for (auto cur:start) {
-        if (!vis[cur.first][cur.second]) {
-            bfs(cur);
-        }
-    }
+  }
 
-    for (int i = 0; i < 10100; i++)
-        for (int j = 0; j < 100; j++)
-            if (Board2[i][j]==0) f = false;
-    for (int i = 0; i < 10100; i++)
-        for (int j = 0; j < 100; j++)
-            ans=max(dist[i][j], ans);
-    if (f) cout << ans << "\n";
-    else cout << -1 << "\n";
-    return 0;
+  while (!Q.empty()) {
+    auto cur = Q.front(); Q.pop();
+	int curX = get<0>(cur);
+    int curY = get<1>(cur);
+    int curZ = get<2>(cur);
+    for (int dir = 0; dir < 6; dir++) {
+      int nx = curX + dx[dir];
+      int ny = curY + dy[dir];
+      int nz = curZ + dz[dir];
+      if (nx < 0 || nx >= n || ny < 0 || ny >= m || nz < 0 || nz >= h) continue;
+      if (dist[nx][ny][nz] >= 0) continue;
+      dist[nx][ny][nz] = dist[curX][curY][curZ] + 1;
+      Q.push({nx, ny, nz});
+    }
+  }
+
+  int ans = 0;
+  for (int i = 0; i < h; i++) {
+    for (int j = 0; j < n; j++) {
+      for (int k = 0; k < m; k++) {
+        if (dist[j][k][i]==-1) {
+          cout << -1 << "\n";
+          return 0;
+        }
+        ans = max(ans, dist[j][k][i]);
+      }
+    }
+  }
+  cout << ans << "\n";
+  return 0;
 }

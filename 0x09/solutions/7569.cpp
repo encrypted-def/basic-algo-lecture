@@ -4,7 +4,6 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int main(void){
 const int kappa = 101;
 int nx[6] = {0, 0, 1, -1, kappa, -kappa};
 int ny[6] = {1, -1, 0, 0, 0, 0};
@@ -89,6 +88,4 @@ int main(void) {
     if (f) cout << ans << "\n";
     else cout << -1 << "\n";
     return 0;
-}
-  
 }

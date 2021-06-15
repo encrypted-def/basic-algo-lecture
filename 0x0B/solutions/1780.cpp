@@ -6,34 +6,34 @@ using namespace std;
 
 int N;
 int paper[2200][2200];
-int cnt[3]; //-1, 0, 1·Î Ã¤¿öÁø Á¾ÀÌ °¹¼ö
+int cnt[3]; //-1, 0, 1ë¡œ ì±„ì›Œì§„ ì¢…ì´ ê°¯ìˆ˜
 
-//ÇØ´ç Á¾ÀÌ ³»ºÎ¿¡ °°Àº ¼ıÀÚ·Î¸¸ Ã¤¿öÁ³´ÂÁö È®ÀÎÇÏ´Â ÇÔ¼ö
+//í•´ë‹¹ ì¢…ì´ ë‚´ë¶€ì— ê°™ì€ ìˆ«ìë¡œë§Œ ì±„ì›Œì¡ŒëŠ”ì§€ í™•ì¸í•˜ëŠ” í•¨ìˆ˜
 bool check(int x, int y, int n) {
   for (int i = x; i < x + n; i++)
-	for (int j = y; j < y + n; j++)
-	  if (paper[x][y] != paper[i][j])
-		return false;
+  for (int j = y; j < y + n; j++)
+    if (paper[x][y] != paper[i][j])
+    return false;
   return true;
 }
 void solve(int x, int y, int z)
 {
   if (check(x, y, z)) {
-	cnt[paper[x][y] + 1] += 1;
-	return;
-}
+    cnt[paper[x][y] + 1] += 1;
+    return;
+  }
   int n = z / 3;
   for (int i = 0; i < 3; i++)
-	for (int j = 0; j < 3; j++)
-	  solve(x + i * n, y + j * n, n);
+  for (int j = 0; j < 3; j++)
+    solve(x + i * n, y + j * n, n);
 }
 int main(void) {
   ios::sync_with_stdio(0);
   cin.tie(0);
   cin >> N;
   for (int i = 0; i < N; i++)
-	for (int j = 0; j < N; j++)
-	  cin >> paper[i][j];
+  for (int j = 0; j < N; j++)
+    cin >> paper[i][j];
   solve(0, 0, N);
   for (int i = 0; i < 3; i++) cout << cnt[i] << "\n";
 }

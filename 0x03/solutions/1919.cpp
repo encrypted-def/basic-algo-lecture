@@ -1,5 +1,5 @@
-// Authored by : BaaaaaaaaaaarkingDog
-// Co-authored by : twinkite
+// Authored by : twinkite
+// Co-authored by : BaaaaaaaaaaarkingDog
 // http://boj.kr/ae5d8d2f69f04530b4df0c591e9b07d5
 #include <bits/stdc++.h>
 using namespace std;

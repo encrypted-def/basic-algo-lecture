@@ -11,9 +11,9 @@ int main(){
   ios_base::sync_with_stdio(0);
   cin.tie(0);
 
-  stack<pii> tower;
   int N, temp; 
   cin>>N;
+  stack<pii> tower;
   tower.push({100000001,0});
   for(int i=1;i<=N;i++){
       cin>>temp;

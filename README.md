@@ -1,6 +1,6 @@
 ### 중요한 공지
 
-📡문제집 풀이 집단 지성 프로젝트📡를 진행중입니다. [링크](https://github.com/encrypted-def/basic-algo-lecture/blob/master/solution-request.md)를 참고해주세요.
+📡문제집 풀이 집단 지성 프로젝트📡를 진행중입니다. [링크](solution-request.md)를 참고해주세요.
 
 ---
 
@@ -87,5 +87,5 @@ C언어는 알고 있는데 C++을 잘 모른다고 하면 강의를 따라오�
 - [실전 알고리즘 강좌 블로그](https://blog.encrypted.gg/category/%EA%B0%95%EC%A2%8C/%EC%8B%A4%EC%A0%84%20%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98)
 - [유튜브](https://www.youtube.com/c/baaarkingdog)
 - [깃헙 리포지토리](https://github.com/encrypted-def/basic-algo-lecture)
-- [문제집 링크](https://github.com/encrypted-def/basic-algo-lecture/blob/master/workbook.md)
+- [문제집 링크](workbook/workbook.md)
 - 메일 주소 : admin [at] encrypted.gg

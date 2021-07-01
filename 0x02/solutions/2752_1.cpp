@@ -1,6 +1,6 @@
-// Authored by : BaaaaaaaaaaarkingDog
-// Co-authored by : -
-// http://boj.kr/c58003e0efd546baad2e58671aa8f7f3
+// Authored by : twinkite
+// Co-authored by : BaaaaaaaaaaarkingDog
+// http://boj.kr/47ed3d4621a546b28422297d8fb6a7ba
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -8,11 +8,12 @@ int main(void){
   ios::sync_with_stdio(0);
   cin.tie(0);
 
-  int a, b, c; // 입력
-  cin >> a >> b >> c;
-  int d, e, f; // 크기 순으로 출력할 세 수
-  d = min({a,b,c});
-  f = max({a,b,c});
-  e = a+b+c-d-f;
-  cout << d << ' ' << e << ' ' << f;
+  int arr[4];
+  for(int i=0;i<3;i++){
+    cin>>arr[i];
+  }
+  sort(arr, arr+3);
+  for(int i=0;i<3;i++){
+    cout<<arr[i]<<" ";
+  }
 }

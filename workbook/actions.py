@@ -67,6 +67,7 @@ int main(void){
         prob_table += f'| {prob_id} | [{prob_name}](https://www.acmicpc.net/problem/{prob_id}) | {code_attr} |\n'
     with open(attr[0]+'.md', 'w', encoding="UTF-8") as f:
       # progress bar
+      f.write(f'# {attr[1]}\n\n')
       f.write(f'![100%](https://progress-bar.dev/{solution_num}/?scale={len(problem_infos)}&title=progress&width=500&color=babaca&suffix=/{len(problem_infos)})\n\n')
       f.write(f'[문제집 링크]({attr[2]})\n\n')
       f.write(prob_table)

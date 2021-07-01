@@ -56,7 +56,7 @@ int main(void){
           f.write(txt)
       codes = open(file_path + '.cpp', 'r', encoding="UTF-8").read()
       if codes == txt:
-        prob_table += f'| {prob_id} | {prob_name} | - |\n'        
+        prob_table += f'| {prob_id} | [{prob_name}](https://www.acmicpc.net/problem/{prob_id}) | - |\n'        
       else:
         solution_num += 1
         code_attr = f'[정답 코드]({file_path}.cpp)'
@@ -64,10 +64,11 @@ int main(void){
         for i in range(1, MAX_DIFFERENT_SOLUTION+1):
           if os.path.exists(file_path+'_'+str(i)+'.cpp'):
             code_attr += f", [별해 {i}]({file_path+'_'+str(i)+'.cpp'})"
-        prob_table += f'| {prob_id} | {prob_name} | {code_attr} |\n'
+        prob_table += f'| {prob_id} | [{prob_name}](https://www.acmicpc.net/problem/{prob_id}) | {code_attr} |\n'
     with open(attr[0]+'.md', 'w', encoding="UTF-8") as f:
       # progress bar
       f.write(f'![100%](https://progress-bar.dev/{solution_num}/?scale={len(problem_infos)}&title=progress&width=500&color=babaca&suffix=/{len(problem_infos)})\n\n')
+      f.write(f'[문제집 링크]({attr[2]})\n\n')
       f.write(prob_table)
     
 # ['0x11', '그리디', 'https://www.acmicpc.net/workbook/view/7320']

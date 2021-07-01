@@ -22,7 +22,8 @@ jobs:
         pip install requests        
     - name: run code
       run: |
-        python workbook/actions.py
+        cd workbook
+        python actions.py
     - name: commits
       run: |
         git config --local user.email "autoaction@autoaction.com"

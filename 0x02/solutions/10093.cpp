@@ -1,6 +1,6 @@
 // Authored by : pha-ran (soft18)
-// Co-authored by : -
-// http://boj.kr/b8dd85f62e494e5585190f114bb59e45
+// Co-authored by : BaaaaaaaaaaarkingDog
+// http://boj.kr/c6e91442976c4a2a8e6c626462aceced
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -10,10 +10,11 @@ int main(void){
   
   long long a, b;
   cin >> a >> b;
-  if (a > b) swap(a, b);
+  if (a > b) swap(a,b);
   if (a == b || b - a == 1) cout << 0;
   else {
     cout << b - a - 1 << "\n";
-    while (++a < b) cout << a << " ";
+    for(long long i = a+1; i < b; i++)
+      cout << i << " ";
   }
 }

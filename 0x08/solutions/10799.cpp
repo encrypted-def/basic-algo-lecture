@@ -1,8 +1,8 @@
 // Authored by : BueVonHun
-// Co-authored by : -
-// http://boj.kr/926a4c383a464de3a85607a1d9db87a4
+// Co-authored by : BaaaaaaaaaaarkingDog
+// http://boj.kr/0e7137cb9b634cbcad7683ad783d432c
 #include <bits/stdc++.h>
-#define ll long long
+typedef long long ll;
 using namespace std;
 string s;
 ll ans = 0;
@@ -10,25 +10,26 @@ stack<char> st;
 int main(void){
   ios::sync_with_stdio(0);
   cin.tie(0);
+  cin >> s;
   int sz = s.length();
-  bool f = false;
   for (int i = 0; i < sz; i++) {
-    if (s[i]=='(') {
-      f = true;
+    if (s[i]=='(')
       st.push(s[i]);
-    }
-    else if(s[i]==')') {
-      if (f) {
-        st.pop();
-        ans+=st.size();
+    else {
+      if (s[i-1] == '(') { // 레이저일 경우
+        st.pop(); // 앞에서 막대라고 착각하고 stack에 s[i]를 넣었으므로 pop
+        ans+=st.size(); // 막대의 개수만큼 ans에 추가
       }
-      else {
-        st.pop();
-        ans++;
+      else { // 막대의 끝일 경우
+        st.pop();  // 막대의 개수를 1 감소
+        ans++; // 막대 1개가 절단된 것과 동일한 상황이므로 ans에 1 추가
       }
-      f = false;
     }
   }
   cout << ans << "\n";
   return 0;
 }
+
+/*
+굳이 stack을 쓰지 말고 막의의 개수를 저장할 cnt 변수를 둬서 +1, -1을 하는 방법도 있다.
+*/

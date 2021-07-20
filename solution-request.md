@@ -45,7 +45,7 @@ int main(void){
 
 - [규칙7] `bits/stdc++.h`를 제외한 다른 헤더파일을 include해서는 안됩니다.
 - [규칙8] `using namespace std`를 꼭 써야 합니다.
-- [규칙9] `define`, `typedef`는 `#define X first`, `#define Y second`, `#typedef long long ll;`만 허용합니다. `#define pb push_back`, `#define all(x) (x).begin(), (x).end()` 등은 사용하지 않습니다.
+- [규칙9] `define`, `typedef`는 `#define X first`, `#define Y second`, `typedef long long ll;`만 허용합니다. `#define pb push_back`, `#define all(x) (x).begin(), (x).end()` 등은 사용하지 않습니다.
 - [규칙10] 탭은 **공백문자 2개**를 사용해야 합니다.
 - [규칙11] BFS 혹은 기타 좌표 개념이 들어가는 문제에서 가로와 세로는 강의에서 설명한 방향을 따라야 합니다.
 - [규칙12] 입출력은 C++ stream을 이용해야 하고 `ios::sync_with_stdio(0); cin.tie(0);`을 main 함수의 제일 처음에 써야 하며 `endl`을 사용하지 않아야 합니다.

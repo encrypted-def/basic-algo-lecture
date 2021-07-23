@@ -39,13 +39,13 @@ int main(void){
 - [규칙3] 한 번의 PR은 하나의 코드만 담고 있어야 합니다. 만약 여러 코드를 작성했고 모두 PR을 하고 싶다면 각 문제에 대해 branch를 따로 두어 여러 개의 PR을 보내야 합니다.
 - [규칙4] `Allow edits by maintainers` 옵션을 허용으로 둬야합니다.
 - [규칙5] 이미 다른 사람이 등록해서 master branch에 올라간 문제의 코드는 기존의 풀이와 아예 다른 알고리즘 혹은 자료구조를 사용하는 것과 같이 **풀이의 방향이 완벽히 다른 경우에만 PR할 수 있습니다.** 이 경우 이름을 *probID_1.cpp, probID_2.cpp*와 같은 방식으로 지정하셔야 합니다.
-- [규칙6] 해당 단원 혹은 이전 단원에서 배운 적 없는 알고리즘으로 해결한 풀이는 ~~등록할 수 없습니다.~~ → 해당 단원의 알고리즘을 *probID_1.cpp*에 우선적으로 배치한 후 등록합니다.
+- [규칙6] 해당 단원 혹은 이전 단원에서 배운 적 없는 알고리즘으로 해결한 풀이는 ~~등록할 수 없습니다.~~ → 해당 단원의 알고리즘을 *probID.cpp*에 우선적으로 배치한 후 등록합니다.
 
 #### 코딩 컨벤션
 
 - [규칙7] `bits/stdc++.h`를 제외한 다른 헤더파일을 include해서는 안됩니다.
 - [규칙8] `using namespace std`를 꼭 써야 합니다.
-- [규칙9] `define`, `typedef`는 `#define X first`, `#define Y second`, `#typedef long long ll;`만 허용합니다. `#define pb push_back`, `#define all(x) (x).begin(), (x).end()` 등은 사용하지 않습니다.
+- [규칙9] `define`, `typedef`는 `#define X first`, `#define Y second`, `typedef long long ll;`만 허용합니다. `#define pb push_back`, `#define all(x) (x).begin(), (x).end()` 등은 사용하지 않습니다.
 - [규칙10] 탭은 **공백문자 2개**를 사용해야 합니다.
 - [규칙11] BFS 혹은 기타 좌표 개념이 들어가는 문제에서 가로와 세로는 강의에서 설명한 방향을 따라야 합니다.
 - [규칙12] 입출력은 C++ stream을 이용해야 하고 `ios::sync_with_stdio(0); cin.tie(0);`을 main 함수의 제일 처음에 써야 하며 `endl`을 사용하지 않아야 합니다.
@@ -67,6 +67,8 @@ int main(void){
 - [규칙23] 변수는 전역 변수로 선언하든 지역 변수로 선언하든 상관없습니다. 배열의 경우에는 전역 변수로 선언하는 것을 권장하고 칸 수 또한 `+1 to +10` 정도의 여유를 두는 것을 권장합니다.
 - [규칙24] 코드에 불필요한 로직이 없게끔 최대한 정리를 한 후에 PR하는 것을 부탁드립니다.
 - [규칙25] 자주 반복되는 루틴은 적절하게 함수로 분리하는 것을 권장합니다. `적절하게`의 기준은 사람마다 다를 수 있기 때문에 강의 내에서 제가 작성했던 코드들을 참고해주세요. ([예시 1](https://github.com/encrypted-def/basic-algo-lecture/blob/master/0x0D/12100.cpp), [예시 2](https://github.com/encrypted-def/basic-algo-lecture/blob/master/0x0D/15683.cpp), [예시 3](https://github.com/encrypted-def/basic-algo-lecture/blob/master/0x0D/18808.cpp))
+- [규칙26] 발상이 어렵거나, 해당 단원 혹은 이전 단원에서 배운 적 없는 알고리즘으로 해결했거나, 코드만 보고서는 풀이를 이해하기 어렵다고 판단될 경우 `/* */` 주석을 이용해 코드 하단에 간단하게 풀이를 설명해주시면 감사하겠습니다. ([예시 1](https://github.com/encrypted-def/basic-algo-lecture/blob/master/0x11/solutions/11000.cpp), [예시 2](https://github.com/encrypted-def/basic-algo-lecture/blob/master/0x0F/solutions/7795_1.cpp))
+
 
 ## 마무리
 

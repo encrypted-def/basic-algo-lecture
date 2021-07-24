@@ -17,3 +17,4 @@
 0x10,다이나믹 프로그래밍,https://www.acmicpc.net/workbook/view/7319
 0x11,그리디,https://www.acmicpc.net/workbook/view/7320
 0x12,수학,https://www.acmicpc.net/workbook/view/8174
+0x13,이분탐색,https://www.acmicpc.net/workbook/view/8400

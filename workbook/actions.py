@@ -47,6 +47,7 @@ int main(void){
       continue
     solution_num = 0
     solution_path = f'../{attr[0]}/solutions/'
+
     problem_infos = get_problem_info(attr[2])
     prob_table = '| 문제 | 문제 제목 | 정답 코드 |\n| :--: | :--: | :--: |\n'
     for prob_id, prob_name in problem_infos:

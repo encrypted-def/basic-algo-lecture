@@ -21,6 +21,7 @@
 | 0x10 | [다이나믹 프로그래밍](workbook/0x10.md) |
 | 0x11 | [그리디](workbook/0x11.md) |
 | 0x12 | [수학](workbook/0x12.md) |
+| 0x13 | [이분탐색](workbook/0x13.md) |
 
 # 문제집 (개정 전 버전)
 

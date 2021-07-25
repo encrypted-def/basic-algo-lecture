@@ -1,33 +1,11 @@
 // Authored by : BaaaaaaaaaaarkingDog
 // Co-authored by : -
-// http://boj.kr/e78b47fa3e08436faada666bafcf9501
+// http://boj.kr/78ba45c70b3c4128ae11ded0b1015d71
 #include <bits/stdc++.h>
 using namespace std;
 
 int a[500005];
 int n;
-
-int lower_idx(int target, int len){
-  int st = 0;
-  int en = len;
-  while(st < en){
-    int mid = (st+en)/2;
-    if(a[mid] >= target) en = mid;
-    else st = mid+1;
-  }
-  return st;
-}
-
-int upper_idx(int target, int len){
-  int st = 0;
-  int en = len;
-  while(st < en){
-    int mid = (st+en)/2;
-    if(a[mid] > target) en = mid;
-    else st = mid+1;
-  }
-  return st;
-}
 
 int main(void) {
   ios::sync_with_stdio(0);
@@ -40,6 +18,6 @@ int main(void) {
   while(m--){
     int t;
     cin >> t;
-    cout << upper_idx(t,n)-lower_idx(t,n) << '\n';
+    cout << upper_bound(a,a+n,t)-lower_bound(a,a+n,t) << '\n';
   }
 }

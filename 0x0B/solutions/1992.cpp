@@ -26,10 +26,10 @@ void solve(int n, int y, int x)
     cout << 1;
   else {
     cout << "(";
-    solve(n / 2, y, x); //¿ŞÂÊ À§
-    solve(n / 2, y, x + n / 2); //¿À¸¥ÂÊ À§
-    solve(n / 2, y + n / 2, x); //¿ŞÂÊ ¾Æ·¡
-    solve(n / 2, y + n / 2, x + n / 2); //¿À¸¥ÂÊ ¾Æ·¡
+    solve(n / 2, y, x); //ì™¼ìª½ ìœ„
+    solve(n / 2, y, x + n / 2); //ì˜¤ë¥¸ìª½ ìœ„
+    solve(n / 2, y + n / 2, x); //ì™¼ìª½ ì•„ë˜
+    solve(n / 2, y + n / 2, x + n / 2); //ì˜¤ë¥¸ìª½ ì•„ë˜
     cout << ")";
   }
   return;

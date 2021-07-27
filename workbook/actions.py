@@ -36,7 +36,6 @@ def gen_ind_workbook(attrs):
 // http://boj.kr/****************
 #include <bits/stdc++.h>
 using namespace std;
-
 int main(void){
   ios::sync_with_stdio(0);
   cin.tie(0);
@@ -55,7 +54,12 @@ int main(void){
       if not os.path.exists(file_path + '.cpp'):
         with open(file_path + '.cpp', 'w', encoding="UTF-8") as f:
           f.write(txt)
-      codes = open(file_path + '.cpp', 'r', encoding="UTF-8").read()
+      try:
+        codes = open(file_path + '.cpp', 'r', encoding="UTF-8").read()
+      except: # EUC-KR -> UTF-8
+        codes = open(file_path + '.cpp', 'r', encoding="EUC-KR").read()
+        with open(file_path + '.cpp', 'w', encoding="UTF-8") as fw:
+          fw.write(codes)
       if codes == txt:
         prob_table += f'| {prob_id} | [{prob_name}](https://www.acmicpc.net/problem/{prob_id}) | - |\n'        
       else:
@@ -77,7 +81,6 @@ int main(void){
 def gen_total_workbook(attrs):
   with open('../workbook.md', 'w', encoding="UTF-8") as f:
     f.write('''# 문제집 (개정 후 버전)
-
 | 번호 | 주제 |
 | :--: | :--: |\n''')
     for attr in attrs:
@@ -87,7 +90,6 @@ def gen_total_workbook(attrs):
         f.write(f'| {attr[0]} | [{attr[1]}](workbook/{attr[0]}.md) |\n')
     f.write('''
 # 문제집 (개정 전 버전)
-
 | 번호 | 주제 |
 | :---: | :---: |
 | 0x01 | [시간복잡도와 기초 지식](https://www.acmicpc.net/workbook/view/7286) |

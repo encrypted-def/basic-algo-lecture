@@ -17,3 +17,7 @@ int main(void) {
   for (int i = 0; i < M; i++)
     cout << binary_search(sg, sg + N, card[i]) << ' ';
 }
+
+/*
+굳이 card[i]로 저장하지 않고 각 카드를 매번 입력받으면서 바로 binary_search를 실행해도 됨
+*/

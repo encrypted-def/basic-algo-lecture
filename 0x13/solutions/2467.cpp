@@ -9,7 +9,7 @@ ll cur_zero_closed = INT_MAX;
 pair<ll, ll> answer;
 
 int main(void) {
-  ios_base::sync_with_stdio(0);
+  ios::sync_with_stdio(0);
   cin.tie(0);
   int N;
   cin >> N;

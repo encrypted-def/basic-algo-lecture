@@ -20,8 +20,7 @@ int main(void){
     
   for(int i = 1; i <= 10; i++) {
     int a, b;
-    cin >> a >> b;
-        
+    cin >> a >> b;        
     reverse(a, b);
   }
     

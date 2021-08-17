@@ -1,6 +1,6 @@
 // Authored by : BaaaaaaaaaaarkingDog
 // Co-authored by : OceanShape
-// http://boj.kr/95fabdf15bf3499d88bb197069629cf8
+// http://boj.kr/fefbce1d30c9442db611909c690df1a8
 #include <bits/stdc++.h>
 using namespace std;
 

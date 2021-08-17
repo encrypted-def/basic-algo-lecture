@@ -1,8 +1,9 @@
 // Authored by : OceanShape
 // Co-authored by : BaaaaaaaaaaarkingDog
-// http://boj.kr/5bbbd57a699946759acf53355d886879
+// http://boj.kr/be312f0135b040c0acf8960181870067
 #include <bits/stdc++.h>
 using namespace std;
+
 int main() {
   ios::sync_with_stdio(0);
   cin.tie(0);

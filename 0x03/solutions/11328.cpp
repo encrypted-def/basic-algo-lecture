@@ -1,6 +1,6 @@
 // Authored by : OceanShape
-// Co-authored by : -
-// http://boj.kr/2aa686e6604e4e1286fa7d91ae74531a
+// Co-authored by : BaaaaaaaaaaarkingDog
+// http://boj.kr/a3d03c0124b544759d306668e55bbf4b
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -20,9 +20,12 @@ int main() {
 
     // 0이 아닌 배열의 요소가 있을 경우, 개수가 다른 문자가 존재하므로 false
     bool isPossible = true;
-    for (int i : a) if (i != 0) {isPossible = false;};
+    // 중괄호가 없어도 문제는 없으나 가독성을 위해 삽입
+    for (int i : a){
+      if (i != 0) isPossible = false;
+    }
 
-    isPossible ? cout << "Possible" : cout << "Impossible" ;
-    cout << '\n';
+    if(isPossible) cout << "Possible\n";
+    else cout << "Impossible\n";
   }
 }

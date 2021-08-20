@@ -1,6 +1,6 @@
 // Authored by : OceanShape
-// Co-authored by : -
-// http://boj.kr/1de61c141eca477e8cfe37a0c389fc48
+// Co-authored by : BaaaaaaaaaaarkingDog
+// http://boj.kr/44ac0b41904946a9a949367142961056
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -19,12 +19,14 @@ int main(void){
   }
 
   cin >> x;
-  for (int i=1; i<=1000000 && x-i>0; ++i) {
+  for (int i = 1; i < (x+1)/2; ++i) {
     // 합이 x가 되는 서로 다른 자연수 (i,x-i)가 존재할 경우
-    if (i!=x-i && a[i]==1 && a[x-i]==1) {
-      --a[i];--a[x-i];  // 쌍을 두 번 만들지 않도록 지워준다
-      ++ans;
-    }
+    if (a[i]==1 && a[x-i]==1) ans++;
   }
   cout << ans;
 }
+
+/*
+x가 짝수일 때에는 (x/2 - 1)까지, 홀수일 때에는 (x-1)/2까지 탐색할 수 있도록 하기 위해서
+i < (x+1)/2로 뒀음. 직접 x가 10일 때 / 11일 때를 생각해보면 이해 가능
+*/

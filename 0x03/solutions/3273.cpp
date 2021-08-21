@@ -1,11 +1,12 @@
 // Authored by : OceanShape
 // Co-authored by : BaaaaaaaaaaarkingDog
-// http://boj.kr/44ac0b41904946a9a949367142961056
+// http://boj.kr/2c0c9a326c174019bdaca18ea29b2be8
 #include <bits/stdc++.h>
 using namespace std;
 
-// 각 자연수의 존재 여부를 저장하는 배열
-int a[1000001]={};
+// 각 자연수의 존재 여부를 저장하는 배열, 배열의 크기를 200만으로 두어
+// 25번째 줄에서 x-i의 범위를 별도로 체크하지 않아도 되게끔 했다.
+int a[2000001]={};
 
 int main(void){
   ios::sync_with_stdio(0);

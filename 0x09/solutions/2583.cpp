@@ -1,6 +1,6 @@
 // Authored by : 0silver00
-// Co-authored by : -
-// http://boj.kr/7daa30318d98480985e402b4e3a14bc1
+// Co-authored by : BaaaaaaaaaaarkingDog
+// http://boj.kr/d0c205b6ead644d896fec013b6e64129
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -10,7 +10,7 @@ int dx[4] = { 1, 0, -1, 0 };
 int dy[4] = { 0, 1, 0, -1 };
 int m, n, k;
 int board[102][102];
-int dist[102][102];
+int vis[102][102];
 
 int main(void){
   ios::sync_with_stdio(0);
@@ -30,10 +30,10 @@ int main(void){
 	
   for (int i = 0; i < m; i++) {
     for (int j = 0; j < n; j++) {
-      if (board[i][j] == 1 || dist[i][j] == 1)
+      if (board[i][j] == 1 || vis[i][j] == 1)
         continue;
       queue<pair<int, int>> Q;
-      dist[i][j] = 1;
+      vis[i][j] = 1;
       Q.push({ i, j });
       int width = 1;
       count++;
@@ -45,10 +45,10 @@ int main(void){
           int ny = cur.Y + dy[dir];
           if (nx < 0 || nx >= m || ny < 0 || ny >= n)
             continue;
-          if (board[nx][ny] == 1 || dist[nx][ny] == 1)
+          if (board[nx][ny] == 1 || vis[nx][ny] == 1)
             continue;
           Q.push({ nx, ny });
-          dist[nx][ny] = 1;
+          vis[nx][ny] = 1;
           width++;
         }
       }

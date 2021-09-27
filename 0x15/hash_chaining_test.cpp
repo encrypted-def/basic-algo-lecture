@@ -63,7 +63,6 @@ void test(){
   cout << "good!\n";
 }
 
-
 int main(){
   fill(head, head+M, -1);
   fill(pre, pre+MX, -1);

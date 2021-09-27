@@ -60,7 +60,7 @@ int main(void) {
       if (nxt[cursor] != -1) cursor = nxt[cursor];
     }
     else { // 'B'
-      if (cursor != 0) {
+      if (pre[cursor] != -1) {
         erase(cursor);
         cursor = pre[cursor];
       }

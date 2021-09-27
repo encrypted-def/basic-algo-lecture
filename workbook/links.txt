@@ -19,3 +19,4 @@
 0x12,수학,https://www.acmicpc.net/workbook/view/8174
 0x13,이분탐색,https://www.acmicpc.net/workbook/view/8400
 0x14,투 포인터,https://www.acmicpc.net/workbook/view/8709
+0x15,해시,https://www.acmicpc.net/workbook/view/9063

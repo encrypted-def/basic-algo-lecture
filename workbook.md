@@ -22,6 +22,7 @@
 | 0x12 | [수학](workbook/0x12.md) |
 | 0x13 | [이분탐색](workbook/0x13.md) |
 | 0x14 | [투 포인터](workbook/0x14.md) |
+| 0x15 | [해시](workbook/0x15.md) |
 
 # 문제집 (개정 전 버전)
 | 번호 | 주제 |

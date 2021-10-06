@@ -30,3 +30,7 @@ int main(void) {
   } 
   cout << dist[k];
 }
+
+/*
+0-1 BFS로 해결한 풀이
+*/

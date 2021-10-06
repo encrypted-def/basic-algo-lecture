@@ -41,3 +41,7 @@ int main(void) {
   }
   cout << board[bro]-1;
 }
+
+/*
+teleport 함수를 이용해 현재 보고 있는 v / nv의 2의 거듭제곱을 한 번에 처리하는 방식으로 풀이한 코드
+*/

@@ -1,64 +1,51 @@
 // Authored by : windowdong11
-// Co-authored by : -
-// http://boj.kr/472174a0b78b4e9e8285a1f4406c9a4d
+// Co-authored by : BaaaaaaaaaaarkingDog
+// http://boj.kr/aedfb7aa7cdb43c4862ce55cc140c48b
 #include <bits/stdc++.h>
 using namespace std;
 #define X first
 #define Y second
 
-template <class Ty, class Tx>
-bool isInArea2d(pair<Ty, Tx> cur, pair<Ty, Tx> minSize, pair<Ty, Tx> maxSize) {
-  return minSize.first <= cur.first && cur.first < maxSize.first
-    && minSize.second <= cur.second && cur.second < maxSize.second;
-}
-
-pair<int, int> ways4[] = {
-    {0, 1},
-    {1, 0},
-    {0, -1},
-    {-1, 0},
-};
+int dx[4] = {0,1,0,-1};
+int dy[4] = {1,0,-1,0};
 
 char board[1000][1000];
 pair<int, int> boardEnd;
-int cost[1000][1000][2];
-// cost[x][y][0] : 벽을 하나도 부수지 않고 (x,y)까지 오는데 걸리는 비용
-// cost[x][y][1] : 벽을 하나만 부수고 (x,y)까지 오는데 걸리는 비용, (x,y)가 벽이라서 부수는 경우 포함
+int dist[1000][1000][2];
+// dist[x][y][0] : 벽을 하나도 부수지 않고 (x,y)까지 오는데 걸리는 비용
+// dist[x][y][1] : 벽을 하나만 부수고 (x,y)까지 오는데 걸리는 비용, (x,y)가 벽이라서 부수는 경우 포함
 int n, m;
+
+bool OOB(int x, int y){
+  return x < 0 || x >= n || y < 0 || y >= m;
+}
 
 int bfs() {
   for (int i = 0; i < n; ++i)
     for (int j = 0; j < m; ++j)
-      cost[i][j][0] = cost[i][j][1] = -1;
-  cost[0][0][0] = cost[0][0][1] = 1;
-  queue<pair<bool, pair<int, int>>> q;
-  q.push({ false, {0, 0} });
+      dist[i][j][0] = dist[i][j][1] = -1;
+  dist[0][0][0] = dist[0][0][1] = 1;
+  queue<tuple<int, int, int>> q;
+  q.push({0,0,0});
   while (!q.empty()) {
-    bool broken = q.front().first;
-    pair<int, int> cur = q.front().second;
-    int nextCost = cost[cur.X][cur.Y][broken] + 1;
+    int x, y, broken;
+    tie(x, y, broken) = q.front();
+    if(x == n-1 && y == m-1) return dist[x][y][broken];
     q.pop();
-    for (int i = 0; i < 4; ++i) {
-      pair<int, int> next = { cur.X + ways4[i].X, cur.Y + ways4[i].Y };
-      if (next == boardEnd) return nextCost;
-      if (isInArea2d(next, { 0, 0 }, { n, m })) {
-        if (broken) {
-          if (board[next.X][next.Y] == '0' && cost[next.X][next.Y][1] == -1) {
-            cost[next.X][next.Y][1] = nextCost;
-            q.push({ 1, next });
-          }
-        }
-        else {
-          if (board[next.X][next.Y] == '0' && cost[next.X][next.Y][0] == -1) {
-            cost[next.X][next.Y][0] = cost[next.X][next.Y][1] = nextCost;
-            q.push({ 0, next });
-          }
-          else if (board[next.X][next.Y] == '1' && cost[next.X][next.Y][1] == -1) {
-            cost[next.X][next.Y][1] = nextCost;
-            q.push({ 1, next });
-          }
-        }
-      }
+    int nextdist = dist[x][y][broken] + 1;
+    for (int dir = 0; dir < 4; ++dir) {
+      int nx = x + dx[dir];
+      int ny = y + dy[dir];
+      if(OOB(nx, ny)) continue;      
+      if (board[nx][ny] == '0' && dist[nx][ny][broken] == -1) {
+        dist[nx][ny][broken] = nextdist;
+        q.push({nx, ny, broken});
+      }      
+      // (nx, ny)를 부수는 경우
+      if (!broken && board[nx][ny] == '1' && dist[nx][ny][1] == -1) {
+        dist[nx][ny][1] = nextdist;
+        q.push({nx, ny, 1});
+      }      
     }
   }
   return -1;
@@ -68,11 +55,9 @@ int main(void) {
   ios_base::sync_with_stdio(false);
   cin.tie(0); cout.tie(0);
   cin >> n >> m;
-  boardEnd = { n - 1, m - 1 };
   for (int i = 0; i < n; ++i)
     for (int j = 0; j < m; ++j)
       cin >> board[i][j];
-  if (n == 1 && m == 1) cout << 1;
-  else cout << bfs();
+  cout << bfs();
   return 0;
 }

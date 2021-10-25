@@ -1,6 +1,6 @@
 // Authored by : windowdong11
 // Co-authored by : BaaaaaaaaaaarkingDog
-// http://boj.kr/aedfb7aa7cdb43c4862ce55cc140c48b
+// http://boj.kr/234d6a92de444d5c8d78bfae0286be7d
 #include <bits/stdc++.h>
 using namespace std;
 #define X first
@@ -10,7 +10,6 @@ int dx[4] = {0,1,0,-1};
 int dy[4] = {1,0,-1,0};
 
 char board[1000][1000];
-pair<int, int> boardEnd;
 int dist[1000][1000][2];
 // dist[x][y][0] : 벽을 하나도 부수지 않고 (x,y)까지 오는데 걸리는 비용
 // dist[x][y][1] : 벽을 하나만 부수고 (x,y)까지 오는데 걸리는 비용, (x,y)가 벽이라서 부수는 경우 포함
@@ -52,8 +51,8 @@ int bfs() {
 }
 
 int main(void) {
-  ios_base::sync_with_stdio(false);
-  cin.tie(0); cout.tie(0);
+  ios::sync_with_stdio(0);
+  cin.tie(0);
   cin >> n >> m;
   for (int i = 0; i < n; ++i)
     for (int j = 0; j < m; ++j)

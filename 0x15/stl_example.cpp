@@ -24,7 +24,7 @@ void unordered_multiset_example(){
   cout << '\n';
   cout << ms.erase(15) << '\n'; // {-10, -10, 100}, 2
   ms.erase(ms.find(-10)); // {-10, 100}
-  ms.insert(100);
+  ms.insert(100); // {-10, 100, 100}
   cout << ms.count(100) << '\n'; // 2
 }
 

@@ -49,7 +49,7 @@ using namespace std;
 int main(void){
   ios::sync_with_stdio(0);
   cin.tie(0);
-   
+  
 }'''
   chapter_idx = 0
   for attr in attrs:
@@ -73,7 +73,7 @@ int main(void){
         codes = open(file_path + '.cpp', 'r', encoding="EUC-KR").read()
         with open(file_path + '.cpp', 'w', encoding="UTF-8") as fw:
           fw.write(codes)
-      if codes == txt:
+      if codes[:100] == txt[:100]:
         prob_table += f'| {CATEGORY[category_idx]} | {prob_id} | [{prob_name}](https://www.acmicpc.net/problem/{prob_id}) | - |\n'
       else:
         solution_num += 1

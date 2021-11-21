@@ -1,16 +1,19 @@
 // Authored by : seeys
-// Co-authored by : -
-// http://boj.kr/032a4aa61296423d99d2af6d31a4b037
+// Co-authored by : BaaaaaaaaaaarkingDog
+// http://boj.kr/20ec8f31333242aea8a390180c710f99
 #include <bits/stdc++.h>
 using namespace std;
+
 #define X first
 #define Y second
+
 int board[51][51];
 bool visited[51][51];
 int dx[4] = { 1,0,-1,0 };
 int dy[4] = { 0,1,0,-1 };
 int m, n, k;
 queue <pair<int, int >> q;
+
 void bfs(int x, int y) {
   q.push({ x,y });
   while (!q.empty()) {
@@ -26,8 +29,8 @@ void bfs(int x, int y) {
     }
   }
 }
-int main(void) 
-{
+
+int main(void) {
   ios::sync_with_stdio(0);
   cin.tie(0);
   int t;
@@ -49,8 +52,10 @@ int main(void)
       }
     }
     cout << res << "\n";
-    memset(board, 0, sizeof(board));
-    memset(visited, false, sizeof(visited));
+    for(int i = 0; i < n; i++){
+      fill(board[i], board[i]+m, 0);
+      fill(visited[i], visited[i]+m, false);			
+    }
   }
   return 0;
 }

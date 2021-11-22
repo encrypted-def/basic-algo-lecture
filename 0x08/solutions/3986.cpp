@@ -1,6 +1,6 @@
 // Authored by : yongjunleeme
-// Co-authored by : -
-// http://boj.kr/0aaffc76df1f4dd4872b53a3f1b3b277
+// Co-authored by : BaaaaaaaaaaarkingDog
+// http://boj.kr/216c90b92a494e9ba701e13ca9b7d7aa
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -11,21 +11,15 @@ int main(void) {
   cin.tie(0);
 
   cin >> n;
-  while (n--){
+  while (n--) {
     string a;
-   cin >> a;
-   stack <int> S;
-
-   for (auto c: a){
-     if (!S.empty()){
-       if (S.top() == 'A' && c == 'A') S.pop();
-       else if (S.top() == 'B' && c == 'B') S.pop();
-        else S.push(c);
-      }
+    cin >> a;
+    stack<int> S;
+    for (auto c : a) {
+      if (!S.empty() && S.top() == c) S.pop();
       else S.push(c);
-   }
-   if (S.empty()) ans++;
+    }
+    if (S.empty()) ans++;
   }
-
   cout << ans << "\n";
 }

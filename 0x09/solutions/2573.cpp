@@ -1,13 +1,13 @@
 // Authored by : std-freejia
-// Co-authored by : -
-// http://boj.kr/54d4c0432f9c4dee93956353098fd54a
+// Co-authored by : BaaaaaaaaaaarkingDog
+// http://boj.kr/f04bee3141834b83b6d1e0a6cd8c59b6
 #include <bits/stdc++.h>
-#define X first
-#define Y second
 using namespace std;
 
-int n, m, year, areacnt;
-bool goflag = true;
+#define X first
+#define Y second
+
+int n, m, year;
 int area[303][303];
 int vis[303][303];
 
@@ -22,54 +22,57 @@ void initvis(){
   for(int i = 0; i < n; i++) fill(vis[i], vis[i] + m, 0);
 }
 
-int melting(){ // 녹는 높이 계산해서 0이 된 칸의 개수를 센다
-
+// 1년의 시간 흐름을 진행
+void melting(){ 
   int zero[303][303] = {0};
-  int zerocnt = 0;
-
   for(int i = 0; i < n; i++){
     for(int j = 0; j < m; j++){
       if(area[i][j] == 0) continue;
-      for(int z = 0; z < 4; z++){ // 주변의 0의 개수를 센다
-        int nx = i + dx[z];
-        int ny = j + dy[z];
-        if(!check(nx, ny)) continue; // 유효 인덱스 체크
-        if(area[nx][ny] == 0) zero[i][j]++;
+      for(int dir = 0; dir < 4; dir++){ // 주변의 0의 개수를 센다
+        int nx = i + dx[dir];
+        int ny = j + dy[dir];
+        if(check(nx, ny) && area[nx][ny] == 0) zero[i][j]++;
       }
     }
   }
-
   for(int i = 0; i < n; i++){
-    for(int j = 0; j < m; j++){
-      area[i][j] = area[i][j]- zero[i][j];
-      if(area[i][j] > 0) continue;
-      area[i][j] = 0; zerocnt++; // 0이 된 칸의 개수
-    }
+    for(int j = 0; j < m; j++)
+      area[i][j] = max(0, area[i][j] - zero[i][j]);    
   }
-
-  return zerocnt;
 }
 
-void bfs(int x, int y){
-
-  queue<pair<int,int> > qu; // {좌표 x, y}
-
-  vis[x][y] = 1; // 현재 위치 방문
-  qu.push({x, y});
-
-  while(!qu.empty()){
-    int curx = qu.front().X;
-    int cury = qu.front().Y;
-    qu.pop();
-
-    for(int i = 0; i < 4; i++){
-      int nx = curx + dx[i];
-      int ny = cury + dy[i];
-      if(!check(nx, ny) || vis[nx][ny] == 1 || area[nx][ny] <= 0) continue; // 정상 범위, 첫 방문, 이동가능 체크
-      vis[nx][ny] = 1; // 방문표시
-      qu.push({nx, ny}); // 이동
+// 0 : 빙산이 다 녹음, 1 : 아직 한 덩이, 2 : 분리됨
+int status(){
+  int x = -1, y = -1;
+  int cnt1 = 0; // 빙산의 개수
+  // 빙산이 남아있는 아무 칸이나 선택
+  for(int i = 0; i < n; i++){
+    for(int j = 0; j < m; j++){
+      if(area[i][j]){
+        x = i;
+        y = j;
+        cnt1++;
+      }
     }
   }
+  if(cnt1 == 0) return 0; // 빙산이 남아있는 칸이 없음
+  int cnt2 = 0; // (x, y)와 붙어있는 빙산의 수
+  queue<pair<int,int> > q;
+  vis[x][y] = 1; // 현재 위치 방문
+  q.push({x, y});
+  while(!q.empty()){
+    auto cur = q.front(); q.pop();
+    cnt2++;
+    for(int i = 0; i < 4; i++){
+      int nx = cur.X + dx[i];
+      int ny = cur.Y + dy[i];
+      if(!check(nx, ny) || vis[nx][ny] == 1 || area[nx][ny] <= 0) continue; // 정상 범위, 첫 방문, 이동가능 체크
+      vis[nx][ny] = 1; // 방문표시
+      q.push({nx, ny}); // 이동
+    }
+  }
+  if(cnt1 == cnt2) return 1; // 전체 빙산의 수와 (x, y)와 붙어있는 빙산의 수가 일치하므로 아직 한 덩이
+  return 2;
 }
 
 int main(void) {
@@ -78,30 +81,28 @@ int main(void) {
 
   cin >> n >> m;
   for(int i = 0; i < n; i++){
-    for(int j = 0; j < m; j++) {
+    for(int j = 0; j < m; j++)
       cin >> area[i][j];
-    }
   }
 
-  while(goflag){
-
-    // 빙산 녹이기. 다 녹았으면 탈출.
-    if(melting() == (m*n)){ year = 0; break; }
-
+  while(true){    
     year++; // 1년 추가
+    melting(); // 빙산 녹이기
     initvis(); // 방문배열 초기화
-    areacnt = 0; // 덩어리 개수
-
-    for(int i = 0; i < n; i++) {
-      for (int j = 0; j < m && goflag; j++) {
-        if(area[i][j] <= 0 || vis[i][j]) continue; // 첫방문, 높이존재 여부
-        bfs(i, j);
-        areacnt++;
-        if(areacnt > 1){ goflag = false; break;} // 덩어리 2개 이상면 탈출
-      }
+    int check = status(); // 빙산의 상태 확인
+    if(check == 0){
+      cout << 0;
+      return 0;
     }
+    else if(check == 1) continue; // 아직 한 덩이
+    else break; // check = 2, 분리됨
   }
-
   cout << year;
   return 0;
 }
+
+/*
+이 코드는 O(NM * year)에 동작. 최악의 데이터를 넣어도 year가 대략 500 이하여서 시간 초과가 발생하지 않지만
+구현을 하기 전에 이 코드의 시간복잡도가 얼마일지, year가 어떤 경우에 가장 클지, 그 경우 year는 얼마일지
+고민해볼 필요가 있다.
+*/

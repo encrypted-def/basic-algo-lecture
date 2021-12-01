@@ -1,6 +1,6 @@
 // Authored by : haneulkimdev
-// Co-authored by : -
-// http://boj.kr/1731ef56b7594c7f99972859d2d979bb
+// Co-authored by : BaaaaaaaaaaarkingDog
+// http://boj.kr/6d1d0cec49bb4e0d94616c2ab82a3688
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -15,9 +15,9 @@ int main(void) {
     stack<char> s;
     bool is_valid = true;
     for (auto c : a) {
-      if (c == '(') {
+      if (c == '(')
         s.push(c);
-      } else if (c == ')') {
+      else { // c == ')'
         if (s.empty() || s.top() != '(') {
           is_valid = false;
           break;
@@ -26,9 +26,8 @@ int main(void) {
       }
     }
     if (!s.empty()) is_valid = false;
-    if (is_valid)
-      cout << "YES\n";
-    else
-      cout << "NO\n";
+    
+    if (is_valid) cout << "YES\n";
+    else cout << "NO\n";
   }
 }

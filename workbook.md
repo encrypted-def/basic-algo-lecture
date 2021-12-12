@@ -48,6 +48,8 @@
 | 0x14 | [투 포인터](workbook/0x14.md) |
 | 0x15 | [해시](workbook/0x15.md) |
 | 0x16 | [이진 검색 트리](workbook/0x16.md) |
+| 0x17 | [우선순위 큐](workbook/0x17.md) |
+| 0x18 | [그래프](workbook/0x18.md) |
 
 # 문제집 (개정 전 버전)
 | 번호 | 주제 |

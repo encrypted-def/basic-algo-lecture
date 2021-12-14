@@ -1,6 +1,6 @@
 // Authored by : erolf0123
 // Co-authored by : -
-// http://boj.kr/89fc9e00412045bcb2802bd07f21545f
+// http://boj.kr/3914322728a54b0d8ab87da84db0354b
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -22,8 +22,6 @@ int main(void){
   dist[1] = 1;
   while(q.size()) {
     int here = q.front();
-    if(here == n)
-      return cout << dist[here], 0;
     q.pop();
     for(int next: v[here])
       if(!dist[next]) {
@@ -31,5 +29,5 @@ int main(void){
         dist[next] = dist[here] + (next <= n);
       }
   }
-  cout << -1;
+  cout << (dist[n] ? : -1);
 }

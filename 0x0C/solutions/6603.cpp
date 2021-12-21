@@ -1,11 +1,34 @@
-// Authored by : BaaaaaaaaaaarkingDog
+// Authored by : heheHwang
 // Co-authored by : -
-// http://boj.kr/****************
+// http://boj.kr/2b87ad6475bc4dd0b42d5127c9524d8e
 #include <bits/stdc++.h>
 using namespace std;
 
-int main(void){
+int k, arr[15], mask[15];
+int main(void) {
   ios::sync_with_stdio(0);
   cin.tie(0);
-  
+
+  while (1) {
+    cin >> k;
+    if (!k) break;
+
+    for (int i = 0; i < k; i++)
+      cin >> arr[i];
+    for (int i = 6; i < k; i++)
+      mask[i] = 1; // 뽑히지 않아야 할 원소를 표시
+    do {
+      for (int i = 0; i < k; i++) {
+        if (!mask[i]) cout << arr[i] << " ";
+      }
+      cout << '\n';
+    } while (next_permutation(mask, mask + k));
+    cout << '\n';
+  }
 }
+/* 
+원래 한 실행에 여러 개의 케이스를 받는 문제의 경우에는
+다음 케이스를 받기 전에 배열을 초기화 시켜주어야 하나,
+본 문제의 경우에는 이전 케이스의 정보가 덮어씌워지므로
+관련 과정을 생략하였습니다.
+*/

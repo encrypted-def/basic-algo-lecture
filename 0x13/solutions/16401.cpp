@@ -1,48 +1,41 @@
 // Authored by : unluckyjung
-// Co-authored by : -
-// https://www.acmicpc.net/source/share/d2361474c79c496b81d06711d7e7ba5c
+// Co-authored by : BaaaaaaaaaaarkingDog
+// http://boj.kr/64af97a2770445c3a53daa9403c1cf46
 #include <bits/stdc++.h>
-
 using namespace std;
 
-int humanCount, cookieCount;
-int cookies[1000002];
-int maxCookieSize;
-int answer;
+using ll = long long;
 
-bool isCanDivide(int cookieSize) {
-  if (cookieSize == 0) return false;
-  int dividedCookieCount = 0;
-  for (int i = 0; i < cookieCount; ++i) {
-    dividedCookieCount += cookies[i] / cookieSize;
+int m, n;
+int l[1000002];
+
+// 막대 과자의 길이가 x일 경우 m조각 이상이 나오는가?
+bool solve(int x) {
+  if (x == 0) return true;
+  ll cnt = 0;
+  for (int i = 0; i < n; ++i) {
+    cnt += l[i] / x;
   }
-  return dividedCookieCount >= humanCount;
+  return cnt >= m;
 }
 
 int main() {
-  ios_base::sync_with_stdio(0);
+  ios::sync_with_stdio(0);
   cin.tie(0);
 
-  cin >> humanCount >> cookieCount;
-  for (int i = 0; i < cookieCount; ++i) {
-    cin >> cookies[i];
-    maxCookieSize = max(maxCookieSize, cookies[i]);
-  }
+  cin >> m >> n;
+  for (int i = 0; i < n; ++i)
+    cin >> l[i];
 
   int st = 0;
-  int ed = maxCookieSize;
-  int mid;
+  int en = *max_element(l, l+n);
 
-  while (st <= ed) {
-    mid = st + (ed - st) / 2;
-    if (isCanDivide(mid)) {
-      answer = mid;
-      st = mid + 1;
-    } else {
-      ed = mid - 1;
-    }
+  while (st < en) {
+    int mid = (st + en + 1) / 2;
+    if (solve(mid))
+      st = mid;
+    else
+      en = mid - 1;
   }
-
-  cout << answer << "\n";
-  return 0;
+  cout << st << "\n";
 }

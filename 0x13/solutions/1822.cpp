@@ -1,47 +1,36 @@
 // Authored by : unluckyjung
 // Co-authored by : -
-// http://boj.kr/b569f45926cd477d8a56d73c1538657f
+// http://boj.kr/5cd27ecd3608402da947337b18e2baad
 #include <bits/stdc++.h>
-
 using namespace std;
 
-vector<int> nums1, nums2;
-
-void solve() {
-  vector<int> answer;
-  for (const int &num : nums1) {
-    if (binary_search(nums2.begin(), nums2.end(), num)) continue;
-    answer.push_back(num);
-  }
-
-  cout << answer.size() << "\n";
-  for (const int &num : answer) {
-    cout << num << " ";
-  }
-}
+vector<int> A, B;
 
 int main() {
-  ios_base::sync_with_stdio(0);
+  ios::sync_with_stdio(0);
   cin.tie(0);
 
-  int num1Count, num2Count;
-  cin >> num1Count >> num2Count;
+  int n, m;
+  cin >> n >> m;
 
   int num;
-  for (int i = 0; i < num1Count; ++i) {
+  for (int i = 0; i < n; ++i) {
     cin >> num;
-    nums1.push_back(num);
+    A.push_back(num);
+  }
+  for (int i = 0; i < m; ++i) {
+    cin >> num;
+    B.push_back(num);
   }
 
-  for (int i = 0; i < num2Count; ++i) {
-    cin >> num;
-    nums2.push_back(num);
+  sort(A.begin(), A.end());
+  sort(B.begin(), B.end());
+
+  vector<int> ans;
+  for (int num : A) {
+    if (binary_search(B.begin(), B.end(), num)) continue;
+    ans.push_back(num);
   }
-
-  sort(nums1.begin(), nums1.end());
-  sort(nums2.begin(), nums2.end());
-
-  solve();
-
-  return 0;
+  cout << ans.size() << "\n";
+  for (int num : ans) cout << num << " ";
 }

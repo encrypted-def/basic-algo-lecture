@@ -1,24 +1,23 @@
 // Authored by : std-freejia
-// Co-authored by : -
-//http://boj.kr/a342438cdab4474bb1c8480dc793ff60
+// Co-authored by : BaaaaaaaaaaarkingDog
+// http://boj.kr/94521fc9def24d4bb4e041ec211b2ba4
 #include <bits/stdc++.h>
 using namespace std;
 
 int n;
 string st;
 vector<string> v;
-string numst = "0123456789"; // 숫자 포함 여부 확인용
 
 bool cmp (string& a, string& b){
   int lena = a.size(), lenb = b.size();
   int suma = 0, sumb = 0;
   if(lena != lenb) return lena < lenb;
 
-  for(int i = 0; i < lena; i++){ // 숫자만 더한다.
-    if(numst.find(a[i]) <= numst.size()) suma += (a[i] - '0');
+  for(int i = 0; i < lena; i++){ // 숫자만 더한다. 
+    if(isdigit(a[i])) suma += (a[i] - '0');
   }
   for(int i = 0; i < lenb; i++){
-    if(numst.find(b[i]) <= numst.size()) sumb += (b[i] - '0');
+    if(isdigit(b[i])) sumb += (b[i] - '0');
   }
   if(suma != sumb) return suma < sumb;
   return a < b; // 사전순
@@ -35,5 +34,4 @@ int main(void) {
   }
   sort(v.begin(), v.end(), cmp);
   for(auto i : v) cout << i << '\n';
-  return 0;
 }

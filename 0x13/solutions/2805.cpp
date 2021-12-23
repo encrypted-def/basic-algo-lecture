@@ -1,46 +1,39 @@
 // Authored by : unluckyjung
-// Co-authored by : -
-// http://boj.kr/401857a9215642a79a6fa27be65ce90e
+// Co-authored by : BaaaaaaaaaaarkingDog
+// http://boj.kr/0d301f4f0b4e4beebc7889e220b0145f
 #include <bits/stdc++.h>
-
 using namespace std;
 
 int tree[1000002];
-int treeCount, needTreeSum;
-int maxTreeHeight, answer;
+int n, m;
 
-bool isEnoughTreeSum(int sawHeight) {
-  long long cutTreeSum = 0;
-  for (int i = 0; i < treeCount; ++i) {
-    if (tree[i] <= sawHeight) continue;
-    cutTreeSum += (tree[i] - sawHeight);
+// x만큼 잘라냈을 때 남는 나무의 길이가 m 이상인가?
+bool solve(int x) {
+  long long cur = 0;
+  for (int i = 0; i < n; ++i) {
+    if (tree[i] <= x) continue;
+    cur += (tree[i] - x);
   }
-  return cutTreeSum >= needTreeSum;
+  return cur >= m;
 }
 
 int main() {
-  ios_base::sync_with_stdio(0);
+  ios::sync_with_stdio(0);
   cin.tie(0);
 
-  cin >> treeCount >> needTreeSum;
-  for (int i = 0; i < treeCount; ++i) {
+  cin >> n >> m;
+  for (int i = 0; i < n; ++i)
     cin >> tree[i];
-    maxTreeHeight = max(maxTreeHeight, tree[i]);
-  }
 
   int st = 0;
-  int ed = maxTreeHeight;
+  int en = *max_element(tree, tree+n);
 
-  while (st <= ed) {
-    int mid = st + (ed - st) / 2;
-    if (isEnoughTreeSum(mid)) {
-      answer = mid;
-      st = mid + 1;
-    } else {
-      ed = mid - 1;
-    }
+  while (st < en) {
+    int mid = (st+en+1)/2;
+    if (solve(mid))
+      st = mid;
+    else 
+      en = mid - 1;
   }
-  cout << answer << "\n";
-
-  return 0;
+  cout << st;
 }

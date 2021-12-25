@@ -62,7 +62,7 @@ int main(void){
             continue;
           }
         }
-        // 3. 열쇠
+        // 3. 문서
         else if(board[nx][ny] == '$') cnt++;
         Q.push({nx, ny});
       }

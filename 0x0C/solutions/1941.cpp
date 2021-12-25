@@ -1,13 +1,14 @@
 // Authored by : heheHwang
-// Co-authored by : -
-// http://boj.kr/26322cc46f674b9faf8bb7227c864284
+// Co-authored by : BaaaaaaaaaaarkingDog
+// http://boj.kr/b318d03bfd694a57be91322ff1dcd4ef
 #include <bits/stdc++.h>
 using namespace std;
-using PII = pair<int, int>;
 
 bool mask[25];
 string board[5];
-int ans, dx[4] = {1, 0, -1, 0}, dy[4] = {0, 1, 0, -1};
+int ans;
+int dx[4] = {1, 0, -1, 0};
+int dy[4] = {0, 1, 0, -1};
 int main(void) {
   ios::sync_with_stdio(0);
   cin.tie(0);
@@ -16,9 +17,9 @@ int main(void) {
     cin >> board[i];
 
   // 25명중 칠공주가 될 사람의 후보 조합을 뽑습니다.
-  for (int i = 7; i < 25; i++) mask[i] = true;
+  fill(mask + 7, mask+25, true);
   do {
-    queue<PII> q;
+    queue<pair<int, int>> q;
     // 구성원 중 이다솜파의 수, 가로세로로 인접한 사람의 수
     int dasom = 0, adj = 0;
     bool isp7[5][5] = {}, vis[5][5] = {};
@@ -32,7 +33,8 @@ int main(void) {
         }
       }
     while (!q.empty()) {
-      auto [x, y] = q.front();
+      int x, y;
+      tie(x, y) = q.front();
       q.pop();
       adj++;
       dasom += board[x][y] == 'S';

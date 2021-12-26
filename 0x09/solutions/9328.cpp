@@ -1,6 +1,6 @@
 // Authored by : yongjunleeme
-// Co-authored by : BaaaaaaaaaaarkingDog
-// http://boj.kr/0121f2f15c7b4932a5a82fdf709533b5
+// Co-authored by : BaaaaaaaaaaarkingDog, haneulkimdev
+// http://boj.kr/9b8af3acccc745f186ec88f36af38019
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -62,7 +62,7 @@ int main(void){
             continue;
           }
         }
-        // 3. 열쇠
+        // 3. 문서
         else if(board[nx][ny] == '$') cnt++;
         Q.push({nx, ny});
       }

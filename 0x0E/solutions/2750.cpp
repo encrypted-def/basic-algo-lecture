@@ -1,17 +1,21 @@
 // Authored by : heheHwang
 // Co-authored by : -
-// http://boj.kr/1d051b9816e244069a1a73879cc0ef92
+// http://boj.kr/801d75f3fc57460c94e9bd730172ad02
 #include <bits/stdc++.h>
 using namespace std;
 
+const int MXN = 2000, HALF = MXN / 2;
 int main(void) {
   ios::sync_with_stdio(0);
   cin.tie(0);
 
-  int N;
+  vector<bool> arr(MXN + 2);
+  int N, t;
   cin >> N;
-  vector<int> arr(N);
-  while (N--) cin >> arr[N];
-  sort(arr.begin(), arr.end());
-  for (int v : arr) cout << v << "\n";
+  while (N--) {
+    cin >> t;
+    arr[t + HALF] = true;
+  }
+  for (int i = 0; i <= MXN; i++)
+    if (arr[i]) cout << i - HALF << '\n';
 }

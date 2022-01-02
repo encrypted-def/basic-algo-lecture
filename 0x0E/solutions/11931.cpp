@@ -1,6 +1,6 @@
 // Authored by : heheHwang
-// Co-authored by : -
-// http://boj.kr/59807f1dc1524512a0840b4ebb8998c9
+// Co-authored by : BaaaaaaaaaaarkingDog
+// http://boj.kr/7a7deeedae3b4177a1ed53482685bf15
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -16,6 +16,10 @@ int main(void) {
     cin >> t;
     isnum[t + HALF] = true;
   }
-  for (int i = MXN; 0 <= i; i--)
+  for (int i = MXN; i >= 0; i--)
     if (isnum[i]) cout << i - HALF << '\n';
 }
+
+/*
+수의 등장 여부만 확인, 인덱스를 0에서부터 시작할 수 있게 1,000,000을 더함.
+*/

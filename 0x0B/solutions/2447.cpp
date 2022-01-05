@@ -5,7 +5,7 @@
 using namespace std;
 
 char board[2300][2300];
-// board(n, x, y) : board[x][y] to board[x+n-1][y+n-1]에 올바르게 '*'과 ' '을 넣는 함수
+// solve(n, x, y) : board[x][y] to board[x+n-1][y+n-1]에 올바르게 '*'과 ' '을 넣는 함수
 void solve(int n, int x, int y) {
   if (n == 1) {
     board[x][y] = '*';

@@ -1,9 +1,8 @@
 // Authored by : seondal
 // Co-authored by : -
-// http://boj.kr/eff4d5661d724990be4be596a8ad0c4c
+// http://boj.kr/b17d9819bdf940a1b8284602cbeafdc7
 
-#include <iostream>
-#include <vector>
+#include <bits/stdc++.h>
 
 using namespace std;
 

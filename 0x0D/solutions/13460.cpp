@@ -1,84 +1,54 @@
 // Authored by : jihwan0123
-// Co-authored by : -
-// http://boj.kr/d09be2f4ede54991822d78de575808c6
+// Co-authored by : BaaaaaaaaaaarkingDog
+// http://boj.kr/c6dff411258544ce8393f745f463df33
 #include <bits/stdc++.h>
 using namespace std;
+
+#define X first
+#define Y second
+
 int n, m;
-int rx, ry, bx, by;
-char board[11][11];
-int visited[11][11][11][11]; // (rx, ry, bx, by) 일때 방문 처리
+pair<int,int> red, blue; // 빨간 구슬과 파란 구슬의 위치
+string board[11];
+// dist[a][b][c][d] : 빨간 구슬이 (a, b)이고 파란 구슬이 (c, d)에 위치한 상황에 도달하기 위한 동작의 횟수
+int dist[11][11][11][11]; 
 int dx[4] = {0, 1, 0, -1};
 int dy[4] = {1, 0, -1, 0};
 
 // red_x, red_y : 빨간 구슬 좌표, blue_x, blue_y : 파란 구슬 좌표
-int bfs(int red_x, int red_y, int blue_x, int blue_y) {
-  // 4방향이 벽이면 탈출 불가
-  int chk = 0;
-  for (int i = 0; i < 4; i++) {
-    int x = red_x + dx[i];
-    int y = red_y + dy[i];
-    if (board[x][y] == '#') chk++;
-  }
-  if (chk == 4)
-    return -1;
+int bfs() {
   queue<tuple<int, int, int, int>> q;
-  q.push({red_x, red_y, blue_x, blue_y});
-  visited[red_x][red_y][blue_x][blue_y] = 1;
+  q.push({red.X, red.Y, blue.X, blue.Y});
+  dist[red.X][red.Y][blue.X][blue.Y] = 0;
   while (!q.empty()) {
-    int rx = get<0>(q.front());
-    int ry = get<1>(q.front());
-    int bx = get<2>(q.front());
-    int by = get<3>(q.front());
-    int cnt = visited[rx][ry][bx][by];
+    int rx, ry, bx, by;
+    tie(rx, ry, bx, by) = q.front();
     q.pop();
+    int cnt = dist[rx][ry][bx][by];
     // 10번 넘게 탈출 못하면 -1
-    if (cnt > 10)
+    if (cnt >= 10)
       return -1;
     // 4방향으로 기울이기
     for (int i = 0; i < 4; i++) {
-      int n_rx = rx;
-      int n_ry = ry;
-      int n_bx = bx;
-      int n_by = by;
+      int n_rx = rx, n_ry = ry, n_bx = bx, n_by = by;
+
+      // Blue 이동, 가장자리에 모두 '#'이 있다는 조건으로 인해 OOB를 체크하지 않아도 됨. #나 O의 앞에서 정지함.
+      while (board[n_bx + dx[i]][n_by + dy[i]] == '.'){
+        n_bx += dx[i];
+        n_by += dy[i];
+      }
+      // Blue가 탈출했다면 실패이므로 continue
+      if(board[n_bx + dx[i]][n_by + dy[i]] == 'O') continue;
+
       // Red 이동
-      while (1) {
-        int t_rx = n_rx + dx[i];
-        int t_ry = n_ry + dy[i];
-        if (board[t_rx][t_ry] == '#') {
-          t_rx -= dx[i];
-          t_ry -= dy[i];
-          break;
-        }
-        if (board[t_rx][t_ry] == 'O') {
-          n_rx = t_rx;
-          n_ry = t_ry;
-          break;
-        } else {
-          n_rx = t_rx;
-          n_ry = t_ry;
-        }
+      while (board[n_rx + dx[i]][n_ry + dy[i]] == '.'){
+        n_rx += dx[i];
+        n_ry += dy[i];
       }
-      // Blue 이동
-      while (1) {
-        int t_bx = n_bx + dx[i];
-        int t_by = n_by + dy[i];
-        if (board[t_bx][t_by] == '#') {
-          t_bx -= dx[i];
-          t_by -= dy[i];
-          break;
-        }
-        if (board[t_bx][t_by] == 'O') {
-          n_bx = t_bx;
-          n_by = t_by;
-          break;
-        } else {
-          n_bx = t_bx;
-          n_by = t_by;
-        }
-      }
-      // Blue 탈출했으면 실패 (동시에 빠져도 실패)
-      if (board[n_bx][n_by] == 'O') continue;
-      // Red, Blue 겹쳐진 경우 늦게 출발한 구슬 한칸 뒤로
+      // Red가 탈출했다면 종료, 바로 정답을 반환
+      if(board[n_rx + dx[i]][n_ry + dy[i]] == 'O') return cnt+1;
+
+      // Red, Blue가 겹쳐진 경우 늦게 출발한 구슬을 한칸 뒤로 이동
       if ((n_rx == n_bx) && (n_ry == n_by)) {
         if (i == 0) // 위쪽
           ry < by ? n_ry-- : n_by--;
@@ -89,13 +59,10 @@ int bfs(int red_x, int red_y, int blue_x, int blue_y) {
         else // 왼쪽
           rx > bx ? n_rx++ : n_bx++;
       }
-      // Red 탈출했으면 종료
-      if (board[n_rx][n_ry] == 'O') return cnt;
-      // 방문하지 않았으면 계속 탐색
-      if (!visited[n_rx][n_ry][n_bx][n_by]) {
-        visited[n_rx][n_ry][n_bx][n_by] = cnt + 1;
-        q.push({n_rx, n_ry, n_bx, n_by});
-      }
+      // 이미 (n_rx, n_ry, n_bx, n_by)를 방문한 적이 있다면 continue
+      if (dist[n_rx][n_ry][n_bx][n_by] != -1) continue;
+      dist[n_rx][n_ry][n_bx][n_by] = cnt + 1;
+      q.push({n_rx, n_ry, n_bx, n_by});
     }
   }
   return -1;
@@ -103,18 +70,31 @@ int bfs(int red_x, int red_y, int blue_x, int blue_y) {
 int main(void) {
   ios::sync_with_stdio(0);
   cin.tie(0);
+
+  // 거리 배열 초기화
+  for(int i = 0; i < 10; i++)
+    for(int j = 0; j < 10; j++)
+      for(int k = 0; k < 10; k++)
+        fill(dist[i][j][k], dist[i][j][k]+10, -1);
+  
   cin >> n >> m;
   for (int i = 0; i < n; i++) {
-    for (int j = 0; j < m; j++) {
-      cin >> board[i][j];
-      if (board[i][j] == 'B') {
-        bx = i;
-        by = j;
-      } else if (board[i][j] == 'R') {
-        rx = i;
-        ry = j;
+    cin >> board[i];
+    for (int j = 0; j < m; j++) {      
+      if (board[i][j] == 'B'){
+        blue = {i, j};
+        board[i][j] = '.';
+      }
+      else if (board[i][j] == 'R'){
+        red = {i, j};
+        board[i][j] = '.';
       }
     }
   }
-  cout << bfs(rx, ry, bx, by);
+  
+  cout << bfs();
 }
+/*
+빨간 구슬과 파란 구슬의 좌표를 가지고 4차원에서 BFS를 돌리면 된다. O(N^2M^2)에 동작한다.
+최대 10번이라는 제한이 있기 때문에 O(4^10)의 백트래킹으로도 통과가 가능하다.
+*/

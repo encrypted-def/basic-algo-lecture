@@ -50,6 +50,9 @@
 | 0x16 | [이진 검색 트리](workbook/0x16.md) |
 | 0x17 | [우선순위 큐](workbook/0x17.md) |
 | 0x18 | [그래프](workbook/0x18.md) |
+| 0x19 | [트리](workbook/0x19.md) |
+| 0x1A | [위상 정렬](workbook/0x1A.md) |
+| 0x1B | [최소 신장 트리](workbook/0x1B.md) |
 
 # 문제집 (개정 전 버전)
 | 번호 | 주제 |

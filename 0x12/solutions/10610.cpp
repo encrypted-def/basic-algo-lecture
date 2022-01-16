@@ -1,6 +1,6 @@
 // Authored by : heheHwang
-// Co-authored by : -
-// http://boj.kr/f505b71c5ee74665b76e9258b2e0ebb4
+// Co-authored by : BaaaaaaaaaaarkingDog
+// http://boj.kr/8e68f1b3f5684e9ca58fb356ea86aa2f
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -16,7 +16,7 @@ int main(void) {
 
   sort(nums.begin(), nums.end(), greater<int>());
   int sum = accumulate(nums.begin(), nums.end(), 0);
-  if (!(sum % 3 + *(nums.end() - 1)))
+  if (sum % 3 == 0 && nums.back() == 0)
     for (int n : nums) cout << n;
   else
     cout << -1;

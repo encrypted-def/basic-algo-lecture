@@ -1,6 +1,6 @@
 // Authored by : heheHwang
-// Co-authored by : -
-// http://boj.kr/aea1460306194c019788557b4185c9f6
+// Co-authored by : BaaaaaaaaaaarkingDog
+// http://boj.kr/20eb099e71a94245b5ef25f23214130a
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -17,9 +17,7 @@ int main(void) {
     string a, b;
     while (N--) {
       cin >> a >> b;
-      if (clothings.find(b) == clothings.end()) clothings[b] = 1;
-      else
-        clothings[b]++;
+      clothings[b]++;
     }
     for (auto v : clothings) ans *= v.second + 1;
     cout << ans - 1 << '\n';  // 알몸인 경우를 제외합니다.

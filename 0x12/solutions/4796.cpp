@@ -1,6 +1,6 @@
 // Authored by : heheHwang
-// Co-authored by : -
-// http://boj.kr/315381ca33a546b3b328747e31c36db9
+// Co-authored by : BaaaaaaaaaaarkingDog
+// http://boj.kr/d52d24386b4f4b1a9b3afe25dfc3eea2
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -12,7 +12,7 @@ int main(void) {
   while (1) {
     int L, P, V;
     cin >> L >> P >> V;
-    if (!(L + P + V)) break;
+    if (V == 0) break;
     cout << "Case " << i++ << ": " << V / P * L + min(V % P, L) << '\n';
   }
 }

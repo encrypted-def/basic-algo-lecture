@@ -1,28 +1,29 @@
 // Authored by : heheHwang
-// Co-authored by : -
-// http://boj.kr/99ae176e3df145bb860d092f53e4c2c4
+// Co-authored by : BaaaaaaaaaaarkingDog
+// http://boj.kr/54b50eddaf3f4f1289c03a0f8b3ff229
 #include <bits/stdc++.h>
 using namespace std;
 
-int N, K, st, en, cnt, ans;
+int n, k, ans;
+int arr[1000005];
 int main(void) {
   ios::sync_with_stdio(0);
   cin.tie(0);
 
-  cin >> N >> K;
-  vector<int> arr(N);
-  for (int i = 0; i < N; i++)
+  cin >> n >> k;
+  for (int i = 0; i < n; i++)
     cin >> arr[i];
 
-  for (; en < N; en++) {
-    cnt += arr[en] % 2;
-    /* 
-    지금 삭제한 홀수들이 K보다 많으면
-    st를 앞으로 옮기며 삭제합니다.
-    */
-    while (K < cnt)
-      cnt -= arr[st++] % 2;
-    ans = max(ans, en - st - cnt + 1);
+  int cnt = 0; // 현재 보고 있는 arr[st] to arr[en] 구간에서 홀수의 개수
+  if(arr[0] % 2 == 1) cnt++;
+  int en = 0;
+  for(int st = 0; st < n; st++){
+    while(en < n-1 && cnt + arr[en+1] % 2 <= k){
+      en++;
+      cnt += arr[en] % 2;
+    }
+    ans = max(ans, en - st + 1 - cnt);
+    cnt -= arr[st] % 2;
   }
   cout << ans;
 }

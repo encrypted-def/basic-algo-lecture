@@ -1,13 +1,12 @@
 // Authored by : sukam09
-// Co-authored by : -
-// http://boj.kr/a8b987e8cc75401a937679849c4a3b73
-
+// Co-authored by : BaaaaaaaaaaarkingDog
+// http://boj.kr/a0c4059281d8484789b8431dc7be6f8e
 #include <bits/stdc++.h>
 using namespace std;
 
 int n;
 int board[21][21];
-int dp[21][21][8];  // i는 행, j는 열, k는 0, 1, 2일 때 각각 가로, 세로, 대각선 아래 방향을 나타냄
+int dp[21][21][3];  // i는 행, j는 열, k는 0, 1, 2일 때 각각 가로, 세로, 대각선 아래 방향을 나타냄
 int ans;
 
 int main() {
@@ -42,3 +41,6 @@ int main() {
     ans += dp[n - 1][n - 1][i];
   cout << ans;
 }
+/*
+DP를 이용한 풀이
+*/

@@ -1,6 +1,6 @@
 // Authored by : sukam09
-// Co-authored by : -
-// http://boj.kr/912ca4eb4b7848d6be85483b8df46f22
+// Co-authored by : BaaaaaaaaaaarkingDog
+// http://boj.kr/f3ac816bd3b44b69baddacb66eaba2f9
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -11,18 +11,19 @@ int scores[33] = {
   22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 13,
   16, 19, 25, 30, 35, 22, 24, 28, 27, 26, 0
 };
-int special[33];  // 파란색 화살표가 가리키는 칸, 없으면 0
+int special[33];  // 특수 칸일 경우 파란색 화살표가 가리키는 칸
 int nxt[32];  // 빨간색 화살표가 가리키는 칸
 int ans;
 
-void sim(int idx, int tot, vector<int>& locs) {
+// idx번째 수를 처리, 현재 점수는 tot
+void sim(int idx, int tot) {
   if (idx == 10) {
     if (tot > ans) ans = tot;
     return;
   }
 
   int dice = dices[idx];
-
+  // i번째 말을 선택
   for (int i = 0; i < 4; i++) {
     int loc = locs[i];
     
@@ -42,7 +43,7 @@ void sim(int idx, int tot, vector<int>& locs) {
     
     int tmp = locs[i];
     locs[i] = loc;
-    sim(idx + 1, tot + scores[loc], locs);
+    sim(idx + 1, tot + scores[loc]);
     locs[i] = tmp;
   }
 }
@@ -62,12 +63,12 @@ int main(void) {
   nxt[28] = 24;
   nxt[31] = 24;
 
-  sim(0, 0, locs);
+  sim(0, 0);
   cout << ans;
 }
 /*
 윷놀이판에 다음과 같이 번호를 붙인다. 시작 칸은 0, 도착 칸은 32로 정의한다.
-파란색 화살표가 있는 10, 20, 30번 칸은 특수 칸으로 정의한다.
+파란색 화살표가 있는 5, 10, 15번 칸은 특수 칸으로 정의한다.
 0          32
 1          20 19
 2                18

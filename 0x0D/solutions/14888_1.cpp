@@ -33,6 +33,5 @@ int main() {
     mx = max(mx, res);
     mn = min(mn, res);
   } while (next_permutation(ops + 1, ops + n));
-  cout << mx << '\n'
-       << mn;
+  cout << mx << '\n' << mn;
 }

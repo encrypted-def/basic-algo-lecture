@@ -1,3 +1,4 @@
+// http://boj.kr/e4f29928a7134304ba3af3c377b31afe
 #include<bits/stdc++.h>
 using namespace std;
 
@@ -8,7 +9,7 @@ int v,e,st;
 
 // {비용, 정점 번호}
 vector<pair<int,int>> adj[20005];
-const int INF = 1e9+10;
+const int INF = 0x3f3f3f3f;
 int d[20005]; // 최단 거리 테이블
 int main()
 {

@@ -1,4 +1,4 @@
-// http://boj.kr/e4f29928a7134304ba3af3c377b31afe
+// http://boj.kr/2ecc5e3e8209416d84a6858c21448d81
 #include<bits/stdc++.h>
 using namespace std;
 
@@ -11,8 +11,7 @@ int v,e,st;
 vector<pair<int,int>> adj[20005];
 const int INF = 0x3f3f3f3f;
 int d[20005]; // 최단 거리 테이블
-int main()
-{
+int main(void) {
   ios::sync_with_stdio(0);
   cin.tie(0);
   cin >> v >> e >> st;

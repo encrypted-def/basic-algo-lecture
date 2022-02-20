@@ -1,55 +1,48 @@
 // Authored by : SciEm
 // Co-authored by : -
-// http://boj.kr/8ec01fe1e1244dcd8e6bea1a2b4d547f
+// http://boj.kr/86f2dbc3aaf549e1a41a104623c74e6a
 #include <bits/stdc++.h>
 using namespace std;
 #define X first
 #define Y second
 
-int nums[12];
 bool ladder[32][12];
-pair<int, int> brute[3];
+int idxs[3];
+vector<pair<int, int>> coords;  // 고를 수 있는 가로선만을 저장할 벡터
 int n, m, h;
 
-void run() {
-  // 초기화
-  for (int i = 1; i <= n; i++)
-    nums[i] = i;
-  // 사다리 타기
-  for (int i = 1; i <= h; i++)
-    for (int j = 1; j < n; j++)
-      if (ladder[i][j]) swap(nums[j], nums[j + 1]);
-}
-
-// i번째가 i인지 확인
+// i번째가 i인지 사다리를 타며 확인
 bool check() {
-  for (int i = 1; i <= n; i++)
-    if (nums[i] != i) return false;
+  for (int j = 1; j <= n; j++) {
+    int cur = j;
+    for (int i = 1; i <= h; i++) {
+      if (ladder[i][cur - 1]) cur--;
+      else if (ladder[i][cur]) cur++; 
+    }
+    if (cur != j) return false;
+  }
   return true;
 }
 
-// 최대 깊이 l, 현재 깊이 k의 dfs
 void backtracking(int l, int k) {
   if (k == l) {
-    run();
     if (check()) {
       cout << l;
       exit(0);
     }
     return;
   }
-  // 행의 시작점 x_st
-  int x_st = k ? (brute[k - 1].Y == n - 1 ? brute[k - 1].X + 1 : brute[k - 1].X) : 1;
-  for (int i = x_st; i <= h; i++) {
-    // 열의 시작점 y_st
-    int y_st = (k && brute[k - 1].X == i) ? brute[k - 1].Y + 1 : 1;
-    for (int j = y_st; j < n; j++) {
-      if (ladder[i][j - 1] || ladder[i][j] || ladder[i][j + 1]) continue;
-      brute[k] = {i, j};
-      ladder[i][j] = true;
-      backtracking(l, k + 1);
-      ladder[i][j] = false;
-    }
+  int st = 0;
+  if (k) {
+    if (coords[idxs[k - 1]].Y == n - 1)  // 이전 선택이 마지막 열이면
+      st = idxs[k - 1] + 1;              // 그 다음 좌표(다음 행, 첫 열)부터 시작해도 인접하지 않음
+    else st = idxs[k - 1] + 2;           // 아니면 다다음 좌표부터
+  }
+  for (int i = st; i < coords.size(); i++) {
+    idxs[k] = i;
+    ladder[coords[i].X][coords[i].Y] = true;
+    backtracking(l, k + 1);
+    ladder[coords[i].X][coords[i].Y] = false;
   }
 }
 
@@ -63,6 +56,13 @@ int main() {
     cin >> a >> b;
     ladder[a][b] = true;
   }
+
+  for (int i = 1; i <= h; i++)
+    for (int j = 1; j < n; j++) {
+      // 인접한 것은 애초에 넣지 않음
+      if (ladder[i][j - 1] || ladder[i][j] || ladder[i][j + 1]) continue;
+      coords.push_back({i, j});
+    }
 
   for (int l = 0; l <= 3; l++)
     backtracking(l, 0);

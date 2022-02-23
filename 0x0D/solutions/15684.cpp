@@ -1,8 +1,9 @@
 // Authored by : SciEm
-// Co-authored by : -
-// http://boj.kr/86f2dbc3aaf549e1a41a104623c74e6a
+// Co-authored by : BaaaaaaaaaaarkingDog
+// http://boj.kr/74da3b10100849d68340661e3e748159
 #include <bits/stdc++.h>
 using namespace std;
+
 #define X first
 #define Y second
 
@@ -17,33 +18,11 @@ bool check() {
     int cur = j;
     for (int i = 1; i <= h; i++) {
       if (ladder[i][cur - 1]) cur--;
-      else if (ladder[i][cur]) cur++; 
+      else if (ladder[i][cur]) cur++;
     }
     if (cur != j) return false;
   }
   return true;
-}
-
-void backtracking(int l, int k) {
-  if (k == l) {
-    if (check()) {
-      cout << l;
-      exit(0);
-    }
-    return;
-  }
-  int st = 0;
-  if (k) {
-    if (coords[idxs[k - 1]].Y == n - 1)  // 이전 선택이 마지막 열이면
-      st = idxs[k - 1] + 1;              // 그 다음 좌표(다음 행, 첫 열)부터 시작해도 인접하지 않음
-    else st = idxs[k - 1] + 2;           // 아니면 다다음 좌표부터
-  }
-  for (int i = st; i < coords.size(); i++) {
-    idxs[k] = i;
-    ladder[coords[i].X][coords[i].Y] = true;
-    backtracking(l, k + 1);
-    ladder[coords[i].X][coords[i].Y] = false;
-  }
 }
 
 int main() {
@@ -64,7 +43,32 @@ int main() {
       coords.push_back({i, j});
     }
 
-  for (int l = 0; l <= 3; l++)
-    backtracking(l, 0);
-  cout << -1;
+
+  if(check()){
+    cout << 0;
+    return 0;
+  }
+
+  int ans = 0x7f7f7f7f;
+  int sz = coords.size();
+  for(int i = 0; i < sz; i++){
+    ladder[coords[i].X][coords[i].Y] = true;
+    if(check()) ans = min(ans, 1);
+    for(int j = i+1; j < sz; j++){
+      ladder[coords[j].X][coords[j].Y] = true;
+      if(check()) ans = min(ans, 2);
+      for(int k = j+1; k < sz; k++){
+        ladder[coords[k].X][coords[k].Y] = true;
+        if(check()) ans = min(ans, 3);
+        ladder[coords[k].X][coords[k].Y] = false;
+      }
+      ladder[coords[j].X][coords[j].Y] = false;
+    }
+    ladder[coords[i].X][coords[i].Y] = false;
+  }
+  if(ans == 0x7f7f7f7f) ans = -1;
+  cout << ans;
 }
+/*
+3중 for문 대신 백트래킹을 써도 됨
+*/

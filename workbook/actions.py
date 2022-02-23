@@ -16,7 +16,8 @@ def parse_category():
   return category
 
 def get_problem_info(workbook_url):
-  txt = requests.get(workbook_url).text
+  headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.95 Safari/537.36'}
+  txt = requests.get(workbook_url, headers=headers).text
   pattern = '/problem/'
   ret = []
   while True:

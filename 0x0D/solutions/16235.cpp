@@ -1,6 +1,6 @@
 // Authored by : SciEm
 // Co-authored by : -
-// http://boj.kr/edd3300dccf34b009ee9345fc1905003
+// http://boj.kr/e3d3c8665e4c499b9c591afa0ae78916
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -8,21 +8,21 @@ int dx[8] = {-1, 0, 1, -1, 1, -1, 0, 1};
 int dy[8] = {-1, -1, -1, 0, 0, 1, 1, 1};
 int field[12][12];
 int S2D2[12][12];
-// 각 좌표별로 나무의 나이를 deque에 저장
-deque<int> tree[12][12];
+// 각 좌표별로 나무의 나이를 벡터에 저장
+vector<int> tree[12][12];
 int n, m, k;
 
 void run1(int x, int y) {
-  auto& dq = tree[x][y];
+  auto& v = tree[x][y];
   // 봄
-  auto it = dq.begin();
-  for (; it != dq.end() && *it <= field[x][y]; it++)
-    field[x][y] -= (*it)++;
-  auto tmp = it;
+  auto rit = v.rbegin();
+  for (; rit != v.rend() && *rit <= field[x][y]; rit++)
+    field[x][y] -= (*rit)++;
+  auto vend = rit.base();
   // 여름
-  for (; it != dq.end(); it++)
-    field[x][y] += *it / 2;
-  dq.erase(tmp, dq.end());
+  for (; rit != v.rend(); rit++)
+    field[x][y] += *rit / 2;
+  v.erase(v.begin(), vend);
 }
 
 void run2(int x, int y) {
@@ -30,7 +30,7 @@ void run2(int x, int y) {
   for (auto age : tree[x][y])
     if (!(age % 5))
       for (int dir = 0; dir < 8; dir++)
-        tree[x + dx[dir]][y + dy[dir]].push_front(1);
+        tree[x + dx[dir]][y + dy[dir]].push_back(1);
 }
 
 int main() {
@@ -46,7 +46,7 @@ int main() {
   while (m--) {
     int x, y, z;
     cin >> x >> y >> z;
-    tree[x][y].push_front(z);
+    tree[x][y].push_back(z);
   }
 
   while (k--) {

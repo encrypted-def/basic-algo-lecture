@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-vector<string> split(string s, string sep){
+vector<string> split(string& s, string& sep){
   vector<string> ret;
   int pos = 0;
   while(pos < s.size()){

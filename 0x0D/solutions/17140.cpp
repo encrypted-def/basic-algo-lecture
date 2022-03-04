@@ -1,10 +1,10 @@
 // Authored by : SciEm
 // Co-authored by : -
-// http://boj.kr/dff3f04b468a4834b915b0f7cc5406ae
+// http://boj.kr/70b3f0b9cc54499fb75be717e215e4f2
 #include <bits/stdc++.h>
 using namespace std;
-#define freq first
-#define num second
+#define X first
+#define Y second
 
 int A[105][105];
 int n = 3, m = 3;
@@ -22,24 +22,20 @@ void transpose() {
 void freq_sort(int arr[]) {
   // 문제 조건에 맞게 정렬하는 벡터
   vector<pair<int, int>> v;
-  for (int j = 1; j <= m; j++) {
-    if (!arr[j]) continue;
-    bool isnew = true;
-    for (auto& p : v) {
-      if (arr[j] != p.num) continue;
-      p.freq++;
-      isnew = false;
-      break;
-    }
-    if (isnew) v.push_back({1, arr[j]});
+  int freq[101] = {};  // freq[0]는 dummy
+  for (int j = 1; j <= m; j++)
+    freq[arr[j]]++;
+  for (int i = 1; i <= 100; i++) {
+    if (!freq[i]) continue;
+    v.push_back({freq[i], i});
   }
   sort(v.begin(), v.end());
   // 벡터를 기존 배열에 삽입
   int j = 0;
   for (const auto& p : v) {
     if (j == 100) break;
-    arr[++j] = p.num;
-    arr[++j] = p.freq;
+    arr[++j] = p.Y;
+    arr[++j] = p.X;
   }
   m = max(m, j);
   fill(arr + j + 1, arr + m + 1, 0);

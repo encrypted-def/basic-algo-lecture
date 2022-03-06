@@ -1,6 +1,6 @@
 // Authored by : unluckyjung
-// Co-authored by : -
-// http://boj.kr/357fbc7fbbee4a08bc35d9806233f6ac
+// Co-authored by : BaaaaaaaaaaarkingDog
+// http://boj.kr/a3aef39bd578432d814a0be26957bc9c
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -13,7 +13,7 @@ int main() {
 
   cin >> n >> m;
 
-  for (int curIndex = 0; curIndex < n; ++curIndex) {
+  for (int i = 0; i < n; ++i) {
     int num;
     cin >> num;
 
@@ -24,10 +24,10 @@ int main() {
     }
     
     // 새로운 숫자는 항상 삽입됩니다.
-    dq.push_back({curIndex, num});
+    dq.push_back({i, num});
 
     // 주어진 구간을 벗어나는 outdate된 숫자들은 제거해줍니다.
-    if (dq.front().first <= curIndex - m) {
+    if (dq.front().first <= i - m) {
       dq.pop_front();
     }
 

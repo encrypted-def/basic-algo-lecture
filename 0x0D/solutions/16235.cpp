@@ -1,6 +1,6 @@
 // Authored by : SciEm
-// Co-authored by : -
-// http://boj.kr/4a2716a7e1464152812bb968b64b0b54
+// Co-authored by : BaaaaaaaaaaarkingDog
+// http://boj.kr/a8b4cfe4ec394b73877d7f3c316bdf50
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -14,14 +14,18 @@ int n, m, k;
 void run1(int x, int y) {
   auto& v = tree[x][y];
   // 봄
-  auto rit = v.rbegin();
-  for (; rit != v.rend() && *rit <= field[x][y]; rit++)
-    field[x][y] -= (*rit)++;
-  auto vend = rit.base();
+  int idx = (int)v.size() - 1;
+  for(; idx >= 0; idx--){
+    if(field[x][y] < v[idx]) break;
+    field[x][y] -= v[idx];
+    v[idx]++;
+  }
+  // v[idx..0]에는 봄에 죽은 나무가 저장됨
   // 여름
-  for (; rit != v.rend(); rit++)
-    field[x][y] += *rit / 2;
-  v.erase(v.begin(), vend);
+  for(int i = 0; i <= idx; i++)
+    field[x][y] += v[i] / 2;
+  
+  v.erase(v.begin(), v.begin() + idx + 1);
 }
 
 void run2(int x, int y) {
@@ -65,3 +69,4 @@ int main() {
       ans += tree[i][j].size();
   cout << ans;
 }
+// tree vector에는 반드시 나무가 나이에 대한 내림차순으로 저장이 되어 있다.

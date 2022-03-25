@@ -1,6 +1,6 @@
 // Authored by : SciEm
 // Co-authored by : -
-// http://boj.kr/f10dafa7b28241d7a173b2be389804bf
+// http://boj.kr/78692d69bc014987b88c4b288ca1c95d
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -16,7 +16,7 @@ int main() {
   int i = e;
   for (; i % 28 != s; i += 15);
 
-  int j = i;
-  for (; j % 19 != m; j += lcm(15, 28));
+  int j = i, l = lcm(15, 28);
+  for (; j % 19 != m; j += l);
   cout << j + 1;
 }

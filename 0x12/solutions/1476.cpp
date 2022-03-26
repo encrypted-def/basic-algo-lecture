@@ -16,7 +16,7 @@ int main() {
   int i = e;
   for (; i % 28 != s; i += 15);
 
-  int j = i, l = lcm(15, 28);
-  for (; j % 19 != m; j += l);
-  cout << j + 1;
+  int l = lcm(15, 28);
+  for (; i % 19 != m; i += l);
+  cout << i + 1;
 }

@@ -1,13 +1,16 @@
-// Authored by : BaaaaaaaaaaarkingDog
-// Co-authored by : diyamea
-// http://boj.kr/22b96fcb29164a9a837a72d5010d1188
+// Authored by : diyamea
+// Co-authored by : BaaaaaaaaaaarkingDog
+// http://boj.kr/848301746aac4a92872d58a8a5e8d596
 #include <bits/stdc++.h>
 using namespace std;
+
+#define X first
+#define Y second
 
 int main(void){
   ios::sync_with_stdio(0);
   cin.tie(0);
-
+  
   int k,l;
   cin >> k >> l;
   unordered_map<string, int> signup{};
@@ -22,14 +25,11 @@ int main(void){
       signup[student_num] = i;
   }
   vector<pair<string,int>> slist (signup.begin(), signup.end());
-  sort(slist.begin(), slist.end(), [](auto& a, auto& b) { return a.second < b.second;});
+  // 이 문법이 익숙하지 않으면 익명 함수 or 람다 식 검색
+  sort(slist.begin(), slist.end(), [](auto& a, auto& b) { return a.Y < b.Y;});
 
-  auto en = k;
-  if(k > slist.size())
-    en = slist.size();
+  int en = min(k, (int)slist.size());
 
-  for(int i=0; i<en; ++i) {
-    auto [x, _] = slist[i];
-    cout << x << '\n';
-  }
+  for(int i = 0; i < en; ++i) 
+    cout << slist[i].X << '\n';
 }

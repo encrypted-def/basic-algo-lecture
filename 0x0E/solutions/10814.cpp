@@ -15,3 +15,6 @@ int main(void){
   });
   for (auto p : x) cout << p.first << ' ' << p.second << '\n';
 }
+/*
+13 to 15번째 줄의 코드가 낯설면 람다 함수 키워드로 구글링 추천
+*/

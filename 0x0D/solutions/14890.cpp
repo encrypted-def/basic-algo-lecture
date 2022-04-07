@@ -1,6 +1,6 @@
 // Authored by : jihwan0123
 // Co-authored by : BaaaaaaaaaaarkingDog
-// http://boj.kr/9187f01ead404a5388ea1df4e7140121
+// http://boj.kr/f7b9b1367b054a08a753f1096b829b26
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -25,7 +25,7 @@ bool check(vector<int>& line){
     }
     else {  // 다음 칸이 더 낮으면
       // l 길이 만큼 길이 없으면 경사로 설치 불가
-      if (idx + l > n) return 0;
+      if (idx + l >= n) return 0;
       for (int i = idx + 1; i < idx + l; i++)
         if (line[i] != line[i + 1]) return 0;
       idx = idx + l; // 경사로 설치했으면, 설치한 칸부터 다음칸과 비교

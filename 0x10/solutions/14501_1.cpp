@@ -1,30 +1,34 @@
-// Authored by : sukam09
-// Co-authored by : -
-// http://boj.kr/f954e10df8224f1189c74c9a8566396d
+// Authored by : Hot6Mania
+// Co-authored by : BaaaaaaaaaaarkingDog
+// http://boj.kr/5d3cab9ae35648e3b0c6613432975e97
 #include <bits/stdc++.h>
 using namespace std;
 
-int t[20];
-int p[20];
-int d[20]; // i번째 일에 상담을 시작했을 때 얻을 수 있는 최대 수익
+int n;
+int t[20], p[20], d[20];
+
+// d[i] : i-1번째 날까지 상담을 했을 때 벌 수 있는 최대 금액
 
 int main(void){
   ios::sync_with_stdio(0);
   cin.tie(0);
   
-  int n;
   cin >> n;
+  for(int i = 1; i <= n; ++i) cin >> t[i] >> p[i];
   
-  for (int i = 1; i <= n; i++) cin >> t[i] >> p[i];
-  
-  for (int i = n; i >= 1; i--) {
-    // i번째 일에 상담을 할 수 있을 경우
-    if (i + t[i] <= n + 1) {
-      // i번째 일에 상담을 했을 때와 상담을 하지 않았을 때 얻을 수 있는 수익 중 최대 수익을 취함
-      d[i] = max(d[i + t[i]] + p[i], d[i + 1]);
-    }
-    else d[i] = d[i + 1];
-  }
+  for(int i = 1; i <= n; ++i){
+    // d[i]값 확정
+    d[i] = max(d[i], d[i-1]);
 
-  cout << *max_element(d, d + n + 1);
+    // i번째 날 상담을 할 경우 i+t[i]-1은 상담이 종료되는 날
+    if(i + t[i]-1 <= n) // 상담이 n일 이전에 종료될 경우
+      d[i + t[i]] = max(d[i + t[i]], d[i] + p[i]); // d[i+t[i]] 갱신
+  } 
+  cout << max(d[n], d[n+1]);
 }
+
+/*
+테이블을 채워나가는 방식이 조금 낯설 수 있으나,
+d[i] = max(d[i], d[i-1]); 를 한 순간 d[i]값이 확정되고 이후
+d[i+t[i]]를 갱신한다고 이해할 수 있다.
+*/

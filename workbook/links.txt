@@ -28,3 +28,4 @@
 0x1B,최소 신장 트리,https://www.acmicpc.net/workbook/view/9907
 0x1C,플로이드 알고리즘,https://www.acmicpc.net/workbook/view/10318
 0x1D,다익스트라 알고리즘,https://www.acmicpc.net/workbook/view/10433
+0x1E,KMP,https://www.acmicpc.net/workbook/view/12205

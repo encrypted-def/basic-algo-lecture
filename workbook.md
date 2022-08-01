@@ -55,6 +55,7 @@
 | 0x1B | [최소 신장 트리](workbook/0x1B.md) |
 | 0x1C | [플로이드 알고리즘](workbook/0x1C.md) |
 | 0x1D | [다익스트라 알고리즘](workbook/0x1D.md) |
+| 0x1E | [KMP](workbook/0x1E.md) |
 
 # 문제집 (개정 전 버전)
 | 번호 | 주제 |

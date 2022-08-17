@@ -1,7 +1,6 @@
 // Authored by : diyamea
-// Co-authored by : -
-// http://boj.kr/260be750bc42457787ca285051b931c2
-
+// Co-authored by : BaaaaaaaaaaarkingDog
+// http://boj.kr/83a68d1bac5641b7927f9c4bab434237
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -14,12 +13,14 @@ int cdx[4] = {0,-1,0,1};
 int cdy[4] = {1,0,-1,0};
 
 int r,c,t;
-array<array<int, 55>, 55> room;
-array<array<int, 55>, 55> dummy;
-array<array<int, 55>, 55> dummy2;
+int room[55][55];
+
+
 int machine_bottom;
 
 void dust_spread() {
+  int dummy[55][55] = {};
+  int dummy2[55][55] = {};
   for(int i{}; i<r; ++i) {
     for(int j{}; j<c; ++j) {
       if(room[i][j] <= 0) continue;
@@ -40,8 +41,6 @@ void dust_spread() {
       room[i][j] = dummy[i][j]+dummy2[i][j];
     }
   }
-  dummy = {};
-  dummy2 = {};
 }
 
 void clockwise_wind(int i, int j, int dir, int prev_dust) {
@@ -98,8 +97,8 @@ int dust_sum() {
 }
 
 int main() {
-  ios::sync_with_stdio(false);
-  cin.tie(NULL);
+  ios::sync_with_stdio(0);
+  cin.tie(0);
 
   cin >> r >> c >> t;
 

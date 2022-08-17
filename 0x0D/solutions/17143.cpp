@@ -1,7 +1,6 @@
 // Authored by : diyamea
-// Co-authored by : -
-// http://boj.kr/b69617a14eeb4e32b842eb75ff58718d
-
+// Co-authored by : BaaaaaaaaaaarkingDog
+// http://boj.kr/d1a144e4330c4034b70fd7befaacd314
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -13,16 +12,16 @@ int r, c, m;
 int fisherman_pos = 0;
 int sum = 0;
 
-array<array<vector<tuple<int,int,int>>,105>,105> board;
-array<array<vector<tuple<int,int,int>>,105>,105> dummy;
-// std::array supports the ==, = operaion.
+vector<tuple<int,int,int>> board[105][105];
+vector<tuple<int,int,int>> dummy[105][105];
 
 bool shark_exist(int i, int j) {
   return board[i][j].size() >= 1;
 }
 
 void shark_move(int i, int j) {
-  auto [velocity, dir, size] = *board[i][j].begin();
+  int velocity, dir, size;
+  tie(velocity, dir, size) = board[i][j][0];
   board[i][j].pop_back();
 
   // Up Or Down
@@ -62,22 +61,27 @@ void eat(int i, int j) {
 }
 
 void sharks_move() {
-  for(int i{1}; i<=r; ++i)
-    for(int j{1};j<=c; ++j)
+  for(int i = 1; i <= r; ++i)
+    for(int j = 1;j <= c; ++j)
       if(shark_exist(i,j))
         shark_move(i,j);
 
-  board = dummy;
-  dummy = {};
+  for(int i = 1; i <= r; i++){
+    for(int j = 1; j <= c; j++){
+      board[i][j] = dummy[i][j];
+      dummy[i][j].clear();
+    }
+  }
 
-  for(int i{1}; i<=r; ++i)
-    for(int j{1}; j<=c; ++j)
+  for(int i = 1; i<=r; ++i)
+    for(int j = 1; j<=c; ++j)
       if(board[i][j].size() > 1)
         eat(i,j);
 }
 
 int catch_shark(int i, int j) {
-  auto [v,dir,size] = *board[i][j].begin();
+  int v, dir, size;
+  tie(v, dir, size) = board[i][j][0];
   board[i][j].pop_back();
   return size;
 }
@@ -92,8 +96,8 @@ void fisherman_turn() {
 }
 
 int main() {
-  ios::sync_with_stdio(false);
-  cin.tie(NULL);
+  ios::sync_with_stdio(0);
+  cin.tie(0);
 
   cin >> r >> c >> m;
   int x, y, velocity, dir, size;

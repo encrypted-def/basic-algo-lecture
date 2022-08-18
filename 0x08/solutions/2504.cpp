@@ -1,5 +1,5 @@
 // Authored by : std-freejia
-// Co-authored by : BaaaaaaaaaaarkingDog
+// Co-authored by : BaaaaaaaaaaarkingDog, rhsnfl1122
 // http://boj.kr/cbef82389d1048db80c9652d18b71304
 #include <bits/stdc++.h>
 using namespace std;

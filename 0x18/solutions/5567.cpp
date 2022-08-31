@@ -1,12 +1,12 @@
 // Authored by : yongjunleeme
-// Co-authored by : -
-// http://boj.kr/dcc73d8e52bf47508847c0322138251c
+// Co-authored by : BaaaaaaaaaaarkingDog
+// http://boj.kr/53b784b27d784dd2beb62f5a59ad1598
 #include <bits/stdc++.h>
 using namespace std;
 
 int n, m, a, b;
-vector <int> adj[10005];
-int vis[10005];
+vector <int> adj[505];
+int vis[505];
 int ans = 0;
 int cnt = 0;
 
@@ -14,7 +14,7 @@ void dfs(){
   stack<int> s;
   s.push(1);
   while(!s.empty()){
-    if (cnt == 2) break;
+    if (cnt == 2) break; // 친구의 친구이니 2단계까지만 들어감
     int cur = s.top(); s.pop();
     vis[cur] = 1;
     for(auto nxt : adj[cur]){

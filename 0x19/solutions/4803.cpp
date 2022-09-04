@@ -10,9 +10,9 @@ bool vis[MXN], isTree;
 int n, m, u, v, tc, trees;
 void dfs(int cur, int prev) {
   for (int nxt : adj[cur]) {
-    if (nxt == prev)
+    if (nxt == prev) // next가 부모(prev)일 경우 건너뜀
       continue;
-    if (vis[nxt]) {
+    if (vis[nxt]) { // 트리일 경우 자식은 반드시 이전에 방문한 적이 없었어야 하고, 이전에 방문을 했다면 현재 보고 있는 connected component가 트리가 아님을 의미
       isTree = false;
       continue;
     }

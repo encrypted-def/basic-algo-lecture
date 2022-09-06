@@ -56,6 +56,7 @@
 | 0x1C | [플로이드 알고리즘](workbook/0x1C.md) |
 | 0x1D | [다익스트라 알고리즘](workbook/0x1D.md) |
 | 0x1E | [KMP](workbook/0x1E.md) |
+| 0x1F | [트라이](workbook/0x1F.md) |
 
 # 문제집 (개정 전 버전)
 | 번호 | 주제 |

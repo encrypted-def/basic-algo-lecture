@@ -1,5 +1,5 @@
 // Authored by : std-freejia
-// Co-authored by : BaaaaaaaaaaarkingDog
+// Co-authored by : BaaaaaaaaaaarkingDog, rhsnfl1122
 // http://boj.kr/cbef82389d1048db80c9652d18b71304
 #include <bits/stdc++.h>
 using namespace std;
@@ -40,7 +40,7 @@ int main(void) {
       }
       if(str[i-1] == '[') sum += num; // 직전 괄호가 여는 괄호였다면 sum에 값 추가
       s.pop();
-      num /= 3; // 소괄호 쌍이 사라졌으니 2로 나눔
+      num /= 3; // 대괄호 쌍이 사라졌으니 3로 나눔
     }
   }
   if(s.empty()) cout << sum;

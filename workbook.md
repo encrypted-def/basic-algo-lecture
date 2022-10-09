@@ -22,7 +22,7 @@
 
 정리하자면 문제집에서 **연습 문제**, **기본 문제✔**, **응용 문제✔** 까지 풀고 다음 단원으로 넘어가는걸 추천드립니다. **응용 문제✔**는 풀이를 참고해도 괜찮지만 **연습 문제**, **기본 문제✔**는 강의의 내용을 잘 이해했다면 풀이를 참고하지 않고 구현할 수 있기 때문에 혼자 힘으로 풀어보길 권장합니다. 만약 **응용 문제✔**를 푸는데에 어려움이 있다면 **응용 문제✔** 대신 **기본 문제**를 더 풀고 다음 단원으로 넘어가도 괜찮습니다.
 
-# 문제집 (개정 후 버전)
+# 문제집
 | 번호 | 주제 |
 | :--: | :--: |
 | 0x00 | 오리엔테이션 (문제집 X) |
@@ -52,27 +52,8 @@
 | 0x18 | [그래프](workbook/0x18.md) |
 | 0x19 | [트리](workbook/0x19.md) |
 | 0x1A | [위상 정렬](workbook/0x1A.md) |
-
-# 문제집 (개정 전 버전)
-| 번호 | 주제 |
-| :---: | :---: |
-| 0x01 | [시간복잡도와 기초 지식](https://www.acmicpc.net/workbook/view/7286) |
-| 0x02 | [배열과 연결 리스트](https://www.acmicpc.net/workbook/view/7287) |
-| 0x03 | [스택, 큐, 덱](https://www.acmicpc.net/workbook/view/7288) |
-| 0x04 | [스택 1(수식의 괄호 쌍)](https://www.acmicpc.net/workbook/view/7289) |
-| 0x05 | [BFS, DFS](https://www.acmicpc.net/workbook/view/7290) |
-| 0x06 | [재귀](https://www.acmicpc.net/workbook/view/7291) |
-| 0x07 | [백트래킹, 시뮬레이션](https://www.acmicpc.net/workbook/view/7292) |
-| 0x08 | [정렬](https://www.acmicpc.net/workbook/view/7293) |
-| 0x09 | [다이나믹 프로그래밍](https://www.acmicpc.net/workbook/view/7294) |
-| 0x0A | [그리디](https://www.acmicpc.net/workbook/view/7295) |
-| 0x0B | [수학](https://www.acmicpc.net/workbook/view/7296) |
-| 0x0C | [이분탐색](https://www.acmicpc.net/workbook/view/7297) |
-| 0x0D | [해쉬, 이진 검색 트리, 힙](https://www.acmicpc.net/workbook/view/7298) |
-| 0x0E | [문자열(KMP, 라빈 카프)](https://www.acmicpc.net/workbook/view/7299) |
-| 0x0F | [그래프](https://www.acmicpc.net/workbook/view/7300) |
-| 0x10 | [트리](https://www.acmicpc.net/workbook/view/7301) |
-| 0x11 | [위상 정렬](https://www.acmicpc.net/workbook/view/7302) |
-| 0x12 | [최소 신장 트리](https://www.acmicpc.net/workbook/view/7303) |
-| 0x13 | [플로이드 알고리즘](https://www.acmicpc.net/workbook/view/7304) |
-| 0x14 | [다익스트라 알고리즘](https://www.acmicpc.net/workbook/view/7305) |    
+| 0x1B | [최소 신장 트리](workbook/0x1B.md) |
+| 0x1C | [플로이드 알고리즘](workbook/0x1C.md) |
+| 0x1D | [다익스트라 알고리즘](workbook/0x1D.md) |
+| 0x1E | [KMP](workbook/0x1E.md) |
+| 0x1F | [트라이](workbook/0x1F.md) |

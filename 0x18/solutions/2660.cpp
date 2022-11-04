@@ -1,6 +1,6 @@
 // Authored by : scsc3204
 // Co-authored by : BaaaaaaaaaaarkingDog
-// http://boj.kr/4447fba3f67d4eb8a579f827223e587c
+// http://boj.kr/ac7620713b584538a952a5d919324cbb
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -11,7 +11,7 @@ int score[52]; // 각 사람의 점수
 
 int bfs(int st){ // st의 점수 계산
   queue<int> q;
-	int dist[52];
+  int dist[52];
   fill(dist, dist+n+1, -1);
 
   dist[st] = 0;
@@ -42,14 +42,14 @@ int main(){
   }
 
   for(int i = 1; i <= n; i++)
-		score[i] = bfs(i);
+    score[i] = bfs(i);
   
-	int mnscore = *min_element(score+1, score+n+1);
-	vector<int> cand; // 후보 목록
-	for(int i = 1; i <= n; i++){
-		if(score[i] == mnscore)
-			cand.push_back(i);
-	}
+  int mnscore = *min_element(score+1, score+n+1);
+  vector<int> cand; // 후보 목록
+  for(int i = 1; i <= n; i++){
+    if(score[i] == mnscore)
+      cand.push_back(i);
+  }
 
   cout << mnscore << ' ' << cand.size() << '\n';
   for(int c : cand) cout << c << ' ';

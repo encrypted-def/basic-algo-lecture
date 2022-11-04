@@ -1,31 +1,32 @@
 // Authored by : scsc3204
-// Co-authored by : -
-// http://boj.kr/131d930506174c38a8f03cc187885c75
+// Co-authored by : BaaaaaaaaaaarkingDog
+// http://boj.kr/4447fba3f67d4eb8a579f827223e587c
 #include <bits/stdc++.h>
 using namespace std;
 
 int n;
 vector<int> adj[52];
 vector<pair<int, int>> candsc;
-int score[52];
+int score[52]; // 각 사람의 점수
 
-int bfs(int st){
+int bfs(int st){ // st의 점수 계산
   queue<int> q;
-  fill(score, score + n + 2, -1);
+	int dist[52];
+  fill(dist, dist+n+1, -1);
 
-  score[st] = 0;
+  dist[st] = 0;
   q.push(st);
   while(!q.empty()) {
     int cur = q.front(); q.pop();
     for(int fr : adj[cur]) {
-      if(score[fr] != -1) continue;
-      score[fr] = score[cur] + 1;
+      if(dist[fr] != -1) continue;
+      dist[fr] = dist[cur] + 1;
       q.push(fr);
     }
   }
-  int mxidx = max_element(score + 1, score + n + 1) - score;
-  if(score[mxidx] == 0) return 100;
-  else return score[mxidx];
+  int val = *max_element(dist + 1, dist + n + 1); // 가장 거리가 먼 사람
+  if(val == 0) return 100; // 친구가 아예 없으면 val은 0이 됨
+  return val;
 }
 
 int main(){
@@ -41,23 +42,15 @@ int main(){
   }
 
   for(int i = 1; i <= n; i++)
-    candsc.push_back({bfs(i), i});
-  sort(candsc.begin(), candsc.end());
+		score[i] = bfs(i);
+  
+	int mnscore = *min_element(score+1, score+n+1);
+	vector<int> cand; // 후보 목록
+	for(int i = 1; i <= n; i++){
+		if(score[i] == mnscore)
+			cand.push_back(i);
+	}
 
-  vector<int> cand;
-  auto it = candsc.begin();
-  int minsc = (*it).first;
-  cand.push_back((*it).second);
-  it++;
-
-  int cnt = 1;
-  while(it != candsc.end()) {
-    int sc = (*it).first;
-    if(sc != minsc) break;
-    cand.push_back((*it).second);
-    it++; cnt++;
-  }
-
-  cout << minsc << ' ' << cnt << '\n';
+  cout << mnscore << ' ' << cand.size() << '\n';
   for(int c : cand) cout << c << ' ';
 }

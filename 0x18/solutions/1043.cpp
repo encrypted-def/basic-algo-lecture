@@ -1,33 +1,28 @@
 // Authored by : scsc3204
-// Co-authored by : -
-// http://boj.kr/76d3c341789a4dafa200633dcfb8fbd9
+// Co-authored by : BaaaaaaaaaaarkingDog	
+// http://boj.kr/83a8df989dd6444caa83e4a225d7f0fe
 #include <bits/stdc++.h>
 using namespace std;
 
 int n, m, t;
 vector<int> pt[52];
 vector<int> adj[52];
-bool tr[52];
-bool vis[52];
+bool tr[52]; // 진실을 아는지 여부
 
+// 굳이 vis 배열을 쓸 필요 없이 tr을 vis처럼 쓰면 됨
 void bfs() {
-  for(int i = 1; i <= n; i++) {
-    if(!tr[i]) continue;
-    fill(vis, vis + n + 2, 0);
-
-    queue<int> q;
-    q.push(i);
-    vis[i] = 1;
-    while(!q.empty()) {
-      int cur = q.front(); q.pop();
-      for(int nxt : adj[cur]) {
-        if(vis[nxt]) continue;
-        vis[nxt] = 1;
-        tr[nxt] = 1;
-        q.push(nxt);
-      }
-    }
-  }
+	queue<int> q;
+	for(int i = 1; i <= n; i++)
+		if(tr[i]) q.push(i);
+	
+	while(!q.empty()) {
+		int cur = q.front(); q.pop();
+		for(int nxt : adj[cur]) {
+			if(tr[nxt]) continue;
+			tr[nxt] = 1;
+			q.push(nxt);
+		}
+	}
 }
 
 int main(void){
@@ -51,16 +46,16 @@ int main(void){
       cin >> nxt;
       pt[i].push_back(nxt);
       adj[nxt].push_back(prv);
-      adj[prv].push_back(nxt);
+      adj[prv].push_back(nxt); // 동일한 파티에 참석한 앞뒤 사람끼리 간선이 연결되어있다고 생각
       swap(prv, nxt);
     }
   }
 
-  bfs();
+  bfs(); // bfs를 돌리면 간선을 통해 연결된 사람들에게로 진실이 전파됨
 
   int cnt = 0;
   for(int i = 0; i < m; i++) {
-    bool known = 0;
+    bool known = 0; // 진실을 아는 사람이 파티 내에 있는지
     for(int p : pt[i]) if(tr[p]) known = 1;
     if(!known) cnt++;
   }

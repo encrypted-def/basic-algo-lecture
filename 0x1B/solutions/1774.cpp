@@ -1,6 +1,6 @@
 // Authored by : scsc3204
-// Co-authored by : -
-// http://boj.kr/ffd20fd3f70d4aadb7f41d6ddb9e8a74
+// Co-authored by : BaaaaaaaaaaarkingDog
+// http://boj.kr/0025fc1eaf484e7cb9924f4693a56586
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -18,7 +18,7 @@ int find(int x) {
   return p[x] = find(p[x]);
 }
 
-bool areindiffgr(int a, int b) {
+bool merge(int a, int b) {
   a = find(a); b = find(b);
   if(a == b) return 0;
   if(p[a] == p[b]) p[a]--;
@@ -42,8 +42,8 @@ int main(void){
   int cnt = 0;
   for(int i = 0; i < m; i++) {
     cin >> x >> y;
-    areindiffgr(x, y);
-    cnt++;
+    if(merge(x, y)) // 이미 연결된 두명을 묶음
+      cnt++; // 이전에 묶여있지 않았을 경우 cnt 1 증가
   }
 
   ll len;
@@ -61,7 +61,7 @@ int main(void){
   double ans = 0;
   for(auto cur : e) {
     tie(len, x, y) = cur;
-    if(!areindiffgr(x, y)) continue;
+    if(!merge(x, y)) continue;
     ans += sqrt(len);
     cnt++;
     if(cnt == n - 1) break;

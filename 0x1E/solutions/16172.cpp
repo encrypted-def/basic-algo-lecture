@@ -1,6 +1,6 @@
 // Authored by : scsc3204
-// Co-authored by : -
-// http://boj.kr/d9ea37b3af8d44648f962fbbef11c440
+// Co-authored by : BaaaaaaaaaaarkingDog
+// http://boj.kr/5849938b717a43aabe59af004a48b8e1
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -8,8 +8,8 @@ vector<int> f_fun;
 
 vector<int> failure(string& s){
   vector<int> f(s.size());
-  for(int i = 1; i < (int)s.size(); i++){
-    int j = f[i-1];
+  int j = 0;
+  for(int i = 1; i < (int)s.size(); i++){    
     while(j > 0 && s[i] != s[j]) j = f[j-1];
     if(s[i] == s[j]) f[i] = ++j;
   }

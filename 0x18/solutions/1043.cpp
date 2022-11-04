@@ -1,6 +1,6 @@
 // Authored by : scsc3204
 // Co-authored by : BaaaaaaaaaaarkingDog	
-// http://boj.kr/83a8df989dd6444caa83e4a225d7f0fe
+// http://boj.kr/94d8ab3641884643ae3aeb2f2c10d853
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -11,18 +11,18 @@ bool tr[52]; // 진실을 아는지 여부
 
 // 굳이 vis 배열을 쓸 필요 없이 tr을 vis처럼 쓰면 됨
 void bfs() {
-	queue<int> q;
-	for(int i = 1; i <= n; i++)
-		if(tr[i]) q.push(i);
-	
-	while(!q.empty()) {
-		int cur = q.front(); q.pop();
-		for(int nxt : adj[cur]) {
-			if(tr[nxt]) continue;
-			tr[nxt] = 1;
-			q.push(nxt);
-		}
-	}
+  queue<int> q;
+  for(int i = 1; i <= n; i++)
+    if(tr[i]) q.push(i);
+  
+  while(!q.empty()) {
+    int cur = q.front(); q.pop();
+    for(int nxt : adj[cur]) {
+      if(tr[nxt]) continue;
+      tr[nxt] = 1;
+      q.push(nxt);
+    }
+  }
 }
 
 int main(void){

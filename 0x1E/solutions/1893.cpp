@@ -1,18 +1,18 @@
 // Authored by : scsc3204
-// Co-authored by : -
-// http://boj.kr/32db9c3660c54c549b12fd917227d0cc
+// Co-authored by : BaaaaaaaaaaarkingDog
+// http://boj.kr/45a28ac784dd40769670ad654bb67f81
 #include <bits/stdc++.h>
 using namespace std;
 
-vector<int> f_fun, ans;
+vector<int> f, ans;
 string a, w, s;
 int cnt[64];
 int oa[257], ma[257];
 
 vector<int> failure(){
   vector<int> f(w.size());
+  int j = 0;
   for(int i = 1; i < w.size(); i++){
-    int j = f[i-1];
     while(j > 0 && w[i] != w[j]) j = f[j-1];
     if(w[i] == w[j]) f[i] = ++j;
   }
@@ -27,10 +27,10 @@ void solve(){
 
     int j = 0;
     for(int i = 0; i < s.size(); i++){
-      while(j > 0 && oa[s[i]] != ma[w[j]]) j = f_fun[j-1];
+      while(j > 0 && oa[s[i]] != ma[w[j]]) j = f[j-1];
       if(oa[s[i]] == ma[w[j]]) j++;
       if(j == w.size()){
-        j = f_fun[j-1];
+        j = f[j-1];
         cnt[k]++;
       }
     }
@@ -43,14 +43,14 @@ int main(void){
 
   int t; cin >> t;
   while(t--){
-    vector<int> ().swap(f_fun);
+    vector<int> ().swap(f);
     vector<int> ().swap(ans);
     fill(cnt, cnt + 64, 0);
 
     cin >> a >> w >> s;
     for(int i = 0; i < a.size(); i++) oa[a[i]] = i;
 
-    f_fun = failure();
+    f = failure();
     solve();
 
     for(int k = 0; k < a.size(); k++)
@@ -79,17 +79,4 @@ oa를 k만큼 쉬프트한 값을 ma에 할당한다.
 이렇게 각 문자를 번호로 바꾸며,
 암호문 내에 원문 패턴이 몇 번 나오는지 KMP로 카운트하여
 ans 벡터에 넣고 'cnt[k] == 1'인 k를 출력 형식에 맞춰 출력한다.
-
-알파벳 순서를 1-indexed로 설정하고
-31번째 줄에 따라 'j == w.size()'에 도달했다 하자.
-이 경우 w[j]가 '\0'일 때 ma['\0']을 가져오면 0이 되고,
-알파벳 중 0이 없기 때문에 if가 성립될 수 없다.
-따라서 j가 w.size()를 초과할 일이 없다.
-
-그러나, 0-indexed로 설정한 경우에는 이렇게 가져온 값이
-첫번째 문자와 비교되는 경우에 j++이 일어나
-j = w.size() + 1이 될 수 있고,
-이를 가지고 w를 인덱싱하면
-segmentation_fault가 발생한다.
-이를 방지하기 위한 예외처리 구문은 33번째 줄과 같다.
 */

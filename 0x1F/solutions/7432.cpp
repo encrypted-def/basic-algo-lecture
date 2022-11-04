@@ -31,7 +31,7 @@ void dfs(int v) {
     for (int i = 0; i < depth[v]; i++) cout << ' ';
     cout << name[v] << '\n';
   }
-  // nxt[v]가 map이므로 vector로 바꾼 뒤 노드 이름을 이용해서 sort
+  // nxt[v]가 unordered map이므로 vector로 바꾼 뒤 노드 이름을 이용해서 sort
   vector<pair<string, int>> m(nxt[v].begin(), nxt[v].end());
   sort(m.begin(), m.end());
   for (auto mm : m) dfs(mm.Y);

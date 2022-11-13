@@ -23,10 +23,10 @@
 정리하자면 문제집에서 **연습 문제**, **기본 문제✔**, **응용 문제✔** 까지 풀고 다음 단원으로 넘어가는걸 추천드립니다. **응용 문제✔**는 풀이를 참고해도 괜찮지만 **연습 문제**, **기본 문제✔**는 강의의 내용을 잘 이해했다면 풀이를 참고하지 않고 구현할 수 있기 때문에 혼자 힘으로 풀어보길 권장합니다. 만약 **응용 문제✔**를 푸는데에 어려움이 있다면 **응용 문제✔** 대신 **기본 문제**를 더 풀고 다음 단원으로 넘어가도 괜찮습니다.
 
 # 문제집
-| 번호 | 주제 |
-| :--: | :--: |
-| 0x00 | 오리엔테이션 (문제집 X) |
-| 0x01 | 기초 코드 작성 요령 I (문제집 X) |
+| 번호 | 주제 | 진행도 |
+| :--: | :--: | :--: |
+| 0x00 | 오리엔테이션 (문제집 X) | |
+| 0x01 | 기초 코드 작성 요령 I (문제집 X) | |
 | 0x02 | [기초 코드 작성 요령 II](workbook/0x02.md) | ![100%](https://progress-bar.dev/27/?scale=27&title=progress&width=500&color=babaca&suffix=/27) |
 | 0x03 | [배열](workbook/0x03.md) | ![100%](https://progress-bar.dev/8/?scale=8&title=progress&width=500&color=babaca&suffix=/8) |
 | 0x04 | [연결 리스트](workbook/0x04.md) | ![100%](https://progress-bar.dev/3/?scale=3&title=progress&width=500&color=babaca&suffix=/3) |
@@ -35,7 +35,7 @@
 | 0x07 | [덱](workbook/0x07.md) | ![100%](https://progress-bar.dev/4/?scale=4&title=progress&width=500&color=babaca&suffix=/4) |
 | 0x08 | [스택의 활용(수식의 괄호 쌍)](workbook/0x08.md) | ![100%](https://progress-bar.dev/5/?scale=5&title=progress&width=500&color=babaca&suffix=/5) |
 | 0x09 | [BFS](workbook/0x09.md) | ![100%](https://progress-bar.dev/30/?scale=30&title=progress&width=500&color=babaca&suffix=/30) |
-| 0x0A | DFS (문제집 X) |
+| 0x0A | DFS (문제집 X) | |
 | 0x0B | [재귀](workbook/0x0B.md) | ![100%](https://progress-bar.dev/10/?scale=10&title=progress&width=500&color=babaca&suffix=/10) |
 | 0x0C | [백트래킹](workbook/0x0C.md) | ![100%](https://progress-bar.dev/20/?scale=20&title=progress&width=500&color=babaca&suffix=/20) |
 | 0x0D | [시뮬레이션](workbook/0x0D.md) | ![100%](https://progress-bar.dev/34/?scale=61&title=progress&width=500&color=babaca&suffix=/61) |

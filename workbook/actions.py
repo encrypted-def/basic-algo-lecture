@@ -1,5 +1,8 @@
-import requests, os
+import os
 
+import requests
+
+pbars = []
 # ['0x11', '그리디', 'https://www.acmicpc.net/workbook/view/7320']
 def parse_links():
   attrs = []
@@ -55,6 +58,7 @@ int main(void){
   chapter_idx = 0
   for attr in attrs:
     if len(attr) < 3: # No workbook
+      pbars.append("")
       continue
     solution_num = 0
     solution_path = f'../{attr[0]}/solutions/'
@@ -87,7 +91,9 @@ int main(void){
     with open(attr[0]+'.md', 'w', encoding="UTF-8") as f:
       # progress bar
       f.write(f'# {attr[1]}\n\n')
-      f.write(f'![100%](https://progress-bar.dev/{solution_num}/?scale={len(problem_infos)}&title=progress&width=500&color=babaca&suffix=/{len(problem_infos)})\n\n')
+      pbar = f'![100%](https://progress-bar.dev/{solution_num}/?scale={len(problem_infos)}&title=progress&width=500&color=babaca&suffix=/{len(problem_infos)})\n\n'
+      pbars.append(pbar)
+      f.write(pbar)
       f.write(f'[문제집 링크]({attr[2]})\n\n')
       f.write(prob_table)
     chapter_idx += 1
@@ -122,14 +128,13 @@ def gen_total_workbook(attrs):
 # 문제집
 | 번호 | 주제 |
 | :--: | :--: |\n''')
-
-    for attr in attrs:
+    for attr, pbar in zip(attrs, pbars):
       if len(attr) < 3: # No workbook
         f.write(f'| {attr[0]} | {attr[1]} |\n')
       else:
-        f.write(f'| {attr[0]} | [{attr[1]}](workbook/{attr[0]}.md) |\n')
+        f.write(f'| {attr[0]} | [{attr[1]}](workbook/{attr[0]}.md) | {pbar} |\n')
 
 attrs = parse_links()
 category = parse_category()
-gen_total_workbook(attrs)
 gen_ind_workbook(attrs, category)
+gen_total_workbook(attrs)

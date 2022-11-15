@@ -1,6 +1,6 @@
 // Authored by : scsc3204
-// Co-authored by : -
-// http://boj.kr/93e6c43095fe4c228898e228a317aa56
+// Co-authored by : BaaaaaaaaaaarkingDog
+// http://boj.kr/ab41dfbdcc9249aebe5aebea3797a27b
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -8,7 +8,7 @@ int k, v, e;
 int gr[20002];
 vector<int> adj[20002];
 
-string solve() {
+bool solve() {
   fill(gr, gr + v + 1, -1);
   
   for(int i = 1; i <= v; i++) {
@@ -22,7 +22,7 @@ string solve() {
       int cur = q.front(); q.pop();
       for(int nxt : adj[cur]) {
         if(gr[nxt] != -1){
-          if(gr[nxt] == gr[cur]) return "NO";
+          if(gr[nxt] == gr[cur]) return false;
           else continue;
         }
         gr[nxt] = (gr[cur] + 1)%2;
@@ -30,7 +30,7 @@ string solve() {
       }
     }
   }
-  return "YES";
+  return true;
 }
 
 int main(void){
@@ -42,7 +42,7 @@ int main(void){
     cin >> v >> e;
 
     for(int i = 1; i <= v; i++)
-      vector<int> ().swap(adj[i]);
+      adj[i].clear();
 
     int i, j;
     while(e--) {
@@ -50,7 +50,8 @@ int main(void){
       adj[i].push_back(j);
       adj[j].push_back(i);
     }
-    cout << solve() << '\n';
+    if(solve()) cout << "YES\n";
+    else cout << "NO\n";
   }
 }
 

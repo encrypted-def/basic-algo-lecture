@@ -31,6 +31,6 @@ int main(void) {
   while(m--){
     int t;
     cin >> t;
-    cout << BinarySearch(t) << '\n';
+    cout << binarysearch(t) << '\n';
   }
 }

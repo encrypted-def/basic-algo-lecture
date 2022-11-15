@@ -1,5 +1,8 @@
-import requests, os
+import os
 
+import requests
+
+pbars = []
 # ['0x11', '그리디', 'https://www.acmicpc.net/workbook/view/7320']
 def parse_links():
   attrs = []
@@ -55,6 +58,7 @@ int main(void){
   chapter_idx = 0
   for attr in attrs:
     if len(attr) < 3: # No workbook
+      pbars.append("")
       continue
     solution_num = 0
     solution_path = f'../{attr[0]}/solutions/'
@@ -87,7 +91,9 @@ int main(void){
     with open(attr[0]+'.md', 'w', encoding="UTF-8") as f:
       # progress bar
       f.write(f'# {attr[1]}\n\n')
-      f.write(f'![100%](https://progress-bar.dev/{solution_num}/?scale={len(problem_infos)}&title=progress&width=500&color=babaca&suffix=/{len(problem_infos)})\n\n')
+      pbar = f'![100%](https://progress-bar.dev/{solution_num}/?scale={len(problem_infos)}&title=progress&width=500&color=babaca&suffix=/{len(problem_infos)})'
+      pbars.append(pbar)
+      f.write(pbar + '\n\n')
       f.write(f'[문제집 링크]({attr[2]})\n\n')
       f.write(prob_table)
     chapter_idx += 1
@@ -120,16 +126,15 @@ def gen_total_workbook(attrs):
 정리하자면 문제집에서 **연습 문제**, **기본 문제✔**, **응용 문제✔** 까지 풀고 다음 단원으로 넘어가는걸 추천드립니다. **응용 문제✔**는 풀이를 참고해도 괜찮지만 **연습 문제**, **기본 문제✔**는 강의의 내용을 잘 이해했다면 풀이를 참고하지 않고 구현할 수 있기 때문에 혼자 힘으로 풀어보길 권장합니다. 만약 **응용 문제✔**를 푸는데에 어려움이 있다면 **응용 문제✔** 대신 **기본 문제**를 더 풀고 다음 단원으로 넘어가도 괜찮습니다.
 
 # 문제집
-| 번호 | 주제 |
-| :--: | :--: |\n''')
-
-    for attr in attrs:
+| 번호 | 주제 | 진행도 |
+| :--: | :--: | :--: |\n''')
+    for attr, pbar in zip(attrs, pbars):
       if len(attr) < 3: # No workbook
-        f.write(f'| {attr[0]} | {attr[1]} |\n')
+        f.write(f'| {attr[0]} | {attr[1]} | |\n')
       else:
-        f.write(f'| {attr[0]} | [{attr[1]}](workbook/{attr[0]}.md) |\n')
+        f.write(f'| {attr[0]} | [{attr[1]}](workbook/{attr[0]}.md) | {pbar} |\n')
 
 attrs = parse_links()
 category = parse_category()
-gen_total_workbook(attrs)
 gen_ind_workbook(attrs, category)
+gen_total_workbook(attrs)

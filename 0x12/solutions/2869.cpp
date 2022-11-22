@@ -1,6 +1,6 @@
 // Authored by : audwns27
 // Co-authored by : BaaaaaaaaaaarkingDog
-// http://boj.kr/a9eb8b5b0eea4c5aaa2ffd3331ec2208
+// http://boj.kr/65c57b6c6f36477caf85d1f6b9c3e206
 #include <bits/stdc++.h>
 using namespace std;
 int main(void){

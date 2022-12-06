@@ -4,51 +4,51 @@
 
 #include <bits/stdc++.h>
 
-int timetoint (string time){	// HH:MM 형태의 string을 integer 값으로 변경해주는 함수
-	int t = 0;
-	string h, m;
+using namespace std;
 
-	h = time.substr(0,2);
-	m = time.substr(3,2);
+int ttoi (string time){	// HH:MM 형태의 string을 integer 값으로 변경해주는 함수
+  int t = 0;
+  string h, m;
 
-	t = (60 * stoi(h)) + stoi(m);
-	return t;
+  h = time.substr(0,2);
+  m = time.substr(3,2);
+
+  t = (60 * stoi(h)) + stoi(m);
+  return t;
 }
 
 int main(){
-	ios::sync_with_stdio(0);
-	cin.tie(0);
+  ios::sync_with_stdio(0);
+  cin.tie(0);
+  
+  string S, E, Q;
+  cin >> S >> E >> Q;
 
-	int cnt = 0;
+  int st_t, end_t, stream_t;
+  st_t = ttoi(S);
+  end_t = ttoi(E);
+  stream_t = ttoi(Q);
 
-	string S, E, Q;
-	cin >> S >> E >> Q;
+  unordered_set<string> st_list;	// 개강총회 시작전에 입장한 학회원들
+  unordered_set<string> atd_list;	// 최종 출석자 리스트
 
-	int start_time, end_time, stream_time;
-	start_time = timetoint(S);
-	end_time = timetoint(E);
-	stream_time = timetoint(Q);
+  while(true){
+	string c_time, name;
+	cin >> c_time >> name;
+	if(cin.eof() == true) break;
 
-	unordered_set<string> start_list;	// 개강총회 시작전에 입장한 학회원들
-	unordered_set<string> attend_list;	// 최종 출석자 리스트
-
-	while(true){
-		string time, name;
-		cin >> time >> name;
-		if(cin.eof() == true) break;
-
-		if(timetoint(time) <= start_time){
-			start_list.insert(name);
-		}
-		else if(timetoint(time) >= end_time && timetoint(time) <= stream_time){
-			if(start_list.find(name) != start_list.end()) {
-				attend_list.insert(name);
-			}
-		}		
+	if(ttoi(c_time) <= st_t){
+	  st_list.insert(name);
 	}
+	else if(ttoi(c_time) >= end_t && ttoi(c_time) <= stream_t){
+	  if(st_list.find(name) != st_list.end()) {
+		atd_list.insert(name);
+	  }
+	}		
+  }
 
-	cout << attend_list.size() << "\n";
-	return 0;
+  cout << atd_list.size() << "\n";
+  return 0;
 }
 
 /*

@@ -1,6 +1,6 @@
 // Authored by : scsc3204
 // Co-authored by : -
-// http://boj.kr/47eb1e379a2848238232708726d7b53b
+// http://boj.kr/8fd2c4a42ad5491caa20c09336e319c5
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -13,10 +13,10 @@ bool vis[NMX];
 
 void trav(int cur) {
   vis[cur] = 1;
+  sc[cur]++;
+  mx = max(mx, sc[cur]);
   for(int nxt : adj[cur]) {
     if(vis[nxt]) continue;
-    sc[nxt]++;
-    mx = max(mx, sc[nxt]);
     trav(nxt);
   }
 }
@@ -31,13 +31,12 @@ int main() {
     cin >> u >> v;
     adj[u].push_back(v);
   }
-  fill(sc, sc + NMX, 1);
+  fill(sc, sc + NMX, 0);
   for(int i = 1; i <= n; i++) {
     fill(vis, vis + NMX, 0);
     trav(i);
   }
 
-  for(int i = 1; i <= n; i++) {
+  for(int i = 1; i <= n; i++)
     if(sc[i] == mx) cout << i << ' ';
-  }
 }

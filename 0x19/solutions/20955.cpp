@@ -42,8 +42,8 @@ int main() {
   int cutCnt = 0;
   for(int i = 1; i<=n; i++) {
     if(check[i]==false) {
-        groupCnt++;
-        cutCnt += bfs(i);
+      groupCnt++;
+      cutCnt += bfs(i);
     }
   }
   cout <<  groupCnt -1 + cutCnt << '\n';

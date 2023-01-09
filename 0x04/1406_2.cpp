@@ -8,7 +8,7 @@ int pre[MX];
 int nxt[MX];
 int unused = 1;
 
-void insert(int addr, int num){
+void insert(int addr, char num){
   dat[unused] = num;
   pre[unused] = addr;
   nxt[unused] = nxt[addr];

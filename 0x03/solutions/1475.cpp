@@ -1,6 +1,6 @@
 // Authored by : OceanShape
 // Co-authored by : BaaaaaaaaaaarkingDog
-// http://boj.kr/be312f0135b040c0acf8960181870067
+// http://boj.kr/a7a4aa95c4ee446990f868f926993161
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -8,8 +8,7 @@ int main() {
   ios::sync_with_stdio(0);
   cin.tie(0);
   
-  // ans = 1로 둠으로서 N = 0일때에 대한 예외처리가 자연스럽게 가능해짐
-  int N, a[10] = {}, ans = 1;
+  int N, a[10] = {}, ans = 0;
   cin >> N;
   
   // 자리수 추출

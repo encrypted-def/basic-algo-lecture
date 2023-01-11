@@ -16,10 +16,10 @@ int main() {
   cin >> a >> b >> c >> d; // a/b + c/d
 
   int l = lcm(b, d);
-  a = l / b * a; // al / bl = (al/b) / l
-  c = l / d * c; // cl / dl = (cl/d) / l
+  a = l / b * a; // al / bl = (al / b) / l
+  c = l / d * c; // cl / dl = (cl / d) / l
 
-  int sum = a + c; // {(al/b) + (cl/d)} / l
+  int sum = a + c; // {(al / b) + (cl / d)} / l
   int g = gcd(l, sum);
 
   cout << sum / g << ' ' << l / g; // 기약분수의 분자 분모 형태로 만듦

@@ -1,12 +1,12 @@
 // Authored by : Joshua-Shin
 // Co-authored by : BaaaaaaaaaaarkingDog
-// http://boj.kr/b4f58c9687dc4d7aaaef26e7574e19bc
+// http://boj.kr/03ccb739558649f5b0ecfbc2e5caaec4
 #include <bits/stdc++.h>
 using namespace std;
+
 int n, m;
 vector<int> adj[100001];
 bool vis[100001];
-int p[100001];
 
 void dfs(int cur){
   if(vis[cur]) return;

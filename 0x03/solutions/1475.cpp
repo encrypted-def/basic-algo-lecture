@@ -1,5 +1,5 @@
 // Authored by : OceanShape
-// Co-authored by : BaaaaaaaaaaarkingDog
+// Co-authored by : BaaaaaaaaaaarkingDog, kiiimiiin
 // http://boj.kr/a7a4aa95c4ee446990f868f926993161
 #include <bits/stdc++.h>
 using namespace std;

@@ -1,51 +1,42 @@
 // Authored by : Joshua-Shin
-// Co-authored by : -
-// http://boj.kr/fc8c44a625de4949b552c8f1dbb0c0a8
+// Co-authored by : BaaaaaaaaaaarkingDog
+// http://boj.kr/b4f58c9687dc4d7aaaef26e7574e19bc
 #include <bits/stdc++.h>
 using namespace std;
 int n, m;
 vector<int> adj[100001];
-bool check[100001];
+bool vis[100001];
 int p[100001];
-int bfs(int x) {
-  int cnt = 0;
-  queue<int> q;
-  check[x] = true;
-  q.push(x);
-  while(!q.empty()) {
-    x = q.front();
-    q.pop();
-    for(auto nx: adj[x]) {
-      if(nx == p[x]) continue;
-      if(check[nx]) {
-        cnt++;
-        continue;
-      }
-      check[nx] = true;
-      p[nx] = x;
-      q.push(nx);
-    }
-  }
-  return cnt/2;
+
+void dfs(int cur){
+  if(vis[cur]) return;
+  vis[cur] = true;
+  for(auto nxt : adj[cur])
+    dfs(nxt);
 }
+
 int main() {
-  cin.tie(0)->sync_with_stdio(0);
+  ios::sync_with_stdio(0);
+  cin.tie(0);
+
   cin >> n >> m;
-  while(m--) {
+  for(int i = 0; i < m; i++) {
     int a, b;
     cin >> a >> b;
     adj[a].push_back(b);
     adj[b].push_back(a);
   }
-  memset(check, false, sizeof(check));
-  int groupCnt = 0;
-  int cutCnt = 0;
-  for(int i = 1; i<=n; i++) {
-    if(check[i]==false) {
-      groupCnt++;
-      cutCnt += bfs(i);
-    }
+  int groupcnt = 0;
+  for(int i = 1; i <= n; i++){
+    if(vis[i]) continue;
+    dfs(i);
+    groupcnt++;
   }
-  cout <<  groupCnt -1 + cutCnt << '\n';
-  return 0;
+  cout << (groupcnt-1) + (m+groupcnt-1)-(n-1);
 }
+
+/*
+우선 connected component의 개수(=groupcnt)를 셉니다. groupcnt-1개의 간선을 추가해 주어진 그래프를 연결 그래프로 만듭니다.
+현재 그래프에는 m+groupcnt-1개의 간선이 있고 트리는 n-1개의 간선이 있기 때문에 (m+groupcnt-1)-(n-1)개의 간선을
+제거해야 합니다. 최종적으로 답은 (groupcnt-1) + (m+groupcnt-1)-(n-1) 입니다.
+*/

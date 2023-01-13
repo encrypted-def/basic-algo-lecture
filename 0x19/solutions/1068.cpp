@@ -1,19 +1,29 @@
 // Authored by : scsc3204
 // Co-authored by : -
-// http://boj.kr/ef0d4335c54848f8a8da8a558a1984a8
+// http://boj.kr/eb3c58e9a5e94857ba43dac40e39f9d5
 #include <bits/stdc++.h>
 using namespace std;
 
 const int MX = 50;
 
-int delnode, cnt;
-vector<int> adj[MX + 2];
+int delnode, cnt, root;
+vector<int> child[MX + 2];
 int p[MX + 2];
 
-void trav(int cur) {
-  if(cur == delnode) return;
-  if(p[cur] == -1) { cnt++; return; }
-  trav(p[cur]);
+void bfs() {
+  if(root == delnode) return;
+  queue<int> q;
+  q.push(root);
+  while(!q.empty()) {
+    int cur = q.front(); q.pop();
+    bool isleaf = 1;
+    for(int c : child[cur]) {
+      if(c == delnode) continue;
+      isleaf = 0;
+      q.push(c);
+    }
+    cnt += isleaf;
+  }
 }
 
 int main() {
@@ -23,33 +33,18 @@ int main() {
   int n; cin >> n;
   for(int i = 0; i < n; i++) {
     cin >> p[i];
-    if(p[i] == -1) continue;
-    adj[p[i]].push_back(i);
-    adj[i].push_back(p[i]);
+    if(p[i] == -1) { root = i; continue; }
+    child[p[i]].push_back(i);
   }
 
   cin >> delnode;
-  for(int cur = 0; cur < n; cur++) {
-    bool isleaf = 1;
-    for(int nxt : adj[cur])
-      if(nxt != p[cur] && nxt != delnode)
-        isleaf = 0;
-    if(isleaf) trav(cur);
-  }
+  bfs();
   cout << cnt;
 }
 /*
-트리 정보를 통해 간선 정보를 저장한다.
-
-노드 마다 간선 정보를 확인하면서
-다음 노드가 부모 노드가 아닌데
-이것이 삭제된 노드가 아니라면
-리프가 아니라고 판별한다.
-
-리프로 판별된 노드에 대해 순회를 한다.
-순회 시 현 노드가 삭제된 노드면 더이상 진행하지 않는다.
-만약 부모 노드가 -1인 루트에 도달했다면
-여전히 트리에 속한 리프 노드임이 확인된 것이기 때문에 cnt를 증가시킨다.
-
+부모 노드 정보를 역으로 활용해 자녀 노드들을 저장한다.
+너비 우선 탐색을 통해 자녀 노드들을 돌아본다.
+해당 노드에 삭제된 노드가 아닌 자녀 노드가 있는 경우, 이를 리프가 아니라 판정한다.
+해당 노드가 리프인 경우 cnt 변수를 하나 증가시킨다.
 이후 정답으로 cnt를 출력한다.
 */

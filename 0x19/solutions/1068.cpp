@@ -1,6 +1,6 @@
 // Authored by : scsc3204
 // Co-authored by : -
-// http://boj.kr/eb3c58e9a5e94857ba43dac40e39f9d5
+// http://boj.kr/60926cdce50b4a819abe165497d7c1b5
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -8,7 +8,6 @@ const int MX = 50;
 
 int delnode, cnt, root;
 vector<int> child[MX + 2];
-int p[MX + 2];
 
 void bfs() {
   if(root == delnode) return;
@@ -32,9 +31,9 @@ int main() {
 
   int n; cin >> n;
   for(int i = 0; i < n; i++) {
-    cin >> p[i];
-    if(p[i] == -1) { root = i; continue; }
-    child[p[i]].push_back(i);
+    int p; cin >> p;
+    if(p == -1) { root = i; continue; }
+    child[p].push_back(i);
   }
 
   cin >> delnode;

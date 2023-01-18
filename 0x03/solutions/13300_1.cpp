@@ -7,21 +7,21 @@ using namespace std;
 int arr[2][7];
 
 int main(){
-	ios::sync_with_stdio(0); 
-	cin.tie(0);
+  ios::sync_with_stdio(0); 
+  cin.tie(0);
 	
-	int N, K;
-	cin >> N >> K;
-	int S, Y;
-	int ct = 0;
-	for(int i = 0; i < N; ++i){
-		cin >> S >> Y;
-		arr[S][Y]++;
-		if(arr[S][Y] == 1) ct++;
-		if(arr[S][Y] >= K) arr[S][Y] = 0;
-	}
+  int N, K;
+  cin >> N >> K;
+  int S, Y;
+  int ct = 0;
+  for(int i = 0; i < N; ++i){
+    cin >> S >> Y;
+    arr[S][Y]++;
+    if(arr[S][Y] == 1) ct++;
+    if(arr[S][Y] >= K) arr[S][Y] = 0;
+  }
 	
-	cout << ct << '\n';
+  cout << ct << '\n';
 	
-	return 0;
+  return 0;
 }

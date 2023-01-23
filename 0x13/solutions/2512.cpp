@@ -1,6 +1,6 @@
 // Authored by : scsc3204
-// Co-authored by : -
-// http://boj.kr/71f2b814254447fb9efa07dbf0e96768
+// Co-authored by : BaaaaaaaaaaarkingDog
+// http://boj.kr/339693b81eda4095a2520f89099c77d9
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -27,7 +27,7 @@ int main() {
   cin >> budget;
 
   while(st < en) {
-    int mid = (st + en) / 2 + 1;
+    int mid = (st + en + 1) / 2;
     if(solve(mid)) st = mid;
     else en = mid - 1;
   }

@@ -1,6 +1,6 @@
 // Authored by : scsc3204
 // Co-authored by : -
-// http://boj.kr/d55463033b7040acaef066ddc627096d
+// http://boj.kr/70a654102a304d8faa01b9e6866f8e66
 #include <bits/stdc++.h>
 using namespace std;
 using ll = long long;
@@ -22,12 +22,7 @@ bool solve(ll lim) {
   memset(dist, 0x3f, sizeof(dist));
 
   dist[st] = 0;
-  for(auto [cost, nxt] : adj[st]) {
-    if(cost > lim) continue;
-    pq.push({cost, nxt});
-    dist[nxt] = cost;
-  }
-
+  pq.push({0, st});
   while(!pq.empty()) {
     auto [co, cur] = pq.top(); pq.pop();
     if(dist[cur] != co) continue;
@@ -68,12 +63,12 @@ int main() {
   else cout << -1;
 }
 /*
-최대 요금의 최솟값을 찾는 매개변수 탐색을 수행합니다(61-65번째 줄).
+최대 요금의 최솟값을 찾는 매개변수 탐색을 수행합니다(56-60번째 줄).
 
 다익스트라 알고리즘을 통해 최단거리를 찾으면서
-간선 비용 상한보다 큰 비용의 간선은 사용하지 않도록 구현합니다(26, 35번째 줄).
+간선 비용 상한보다 큰 비용의 간선은 사용하지 않도록 구현합니다(30번째 줄).
 
 다익스트라 알고리즘을 수행한 후,
 목적지의 최소 비용과 가진 돈 C를 비교해
-성공, 실패를 구분합니다(43-44번째 줄).
+성공, 실패를 구분합니다(38-39번째 줄).
 */

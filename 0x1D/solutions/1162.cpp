@@ -10,7 +10,7 @@ const int NMX = 10'000;
 
 int n, m, k;
 ll dist[KMX + 2][NMX + 2];
-vector<tuple<ll, int, int>> adj[NMX + 2]; // adj[u] = {cost, k, v}
+vector<tuple<ll, int, int>> adj[NMX + 2]; // adj[u] = {cost, dk, v}
 
 int main() {
   ios::sync_with_stdio(0);
@@ -30,7 +30,7 @@ int main() {
 
   priority_queue< tuple<ll, int, int>,
       vector<tuple<ll, int, int>>, 
-      greater<tuple<ll, int, int>> > pq; // {cost, k, v}
+      greater<tuple<ll, int, int>> > pq; // {cost, ck, v}
 
   for(int i = 0; i <= k; i++)
     dist[i][1] = 0;
@@ -59,12 +59,13 @@ int main() {
 최단 거리는 long long 변수로 선언합니다.
 
 최단 거리 테이블을 포장 횟수에 따라 구분해 기록합니다.
-이를 위해 간선 정보, 힙 모두 포장 횟수를 기록합니다.
+이를 위해 간선 정보에는 포장 횟수 증가량(dk)을,
+힙에는 현재까지 포장한 횟수(ck)를 기록합니다.
 
 간선의 경우 포장을 수행하면 비용이 0이 되기 때문에
-비용은 0, k 증가량은 1인 간선이라 기록합니다(27-28번째 줄).
+비용은 0, 포장 횟수 증가량(dk)은 1인 간선이라 기록합니다(27-28번째 줄).
 
 이후 다익스트라 알고리즘을 활용해 최단 거리 테이블을 채웁니다.
-힙에는 포장횟수가 기록되기 때문에, 포장횟수 제한 값을 넘기는 경우
-해당 간선 정보는 무시하도록 구현합니다(46번째 줄).
+힙에는 현재까지 포장한 횟수(ck)가 기록되기 때문에, 포장횟수 제한 값(k)을 초과하는 경우
+해당 간선 정보를 무시하도록 구현합니다(46번째 줄).
 */

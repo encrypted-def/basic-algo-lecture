@@ -1,6 +1,6 @@
 // Authored by : scsc3204
 // Co-authored by : -
-// http://boj.kr/fe4f1f02ede64cb5961c176b30caa945
+// http://boj.kr/7ea13fdf01044049950a56fec972210c
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -18,6 +18,9 @@ int main() {
 
   for(int i = 1; i <= n; i++)
     fill(h[i], h[i] + MX + 1, INF);
+
+  for(int i = 1; i <= n; i++)
+    h[i][i] = 0;
 
   while(m--) {
     int u, v, height; 

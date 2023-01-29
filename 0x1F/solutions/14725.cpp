@@ -1,9 +1,9 @@
 // Authored by : Joshua-Shin
 // Co-authored by : -
 // http://boj.kr/05e6530bfdb74e16bcedecd7da39b0f9
-
 #include <bits/stdc++.h>
 using namespace std;
+
 const int MX = 1000 * 15 + 5;
 map<string, int> nxt[MX];
 int root = 1;

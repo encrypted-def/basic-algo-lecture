@@ -49,7 +49,7 @@
 | 0x15 | [해시](workbook/0x15.md) | ![100%](https://progress-bar.dev/8/?scale=10&title=progress&width=500&color=babaca&suffix=/10) |
 | 0x16 | [이진 검색 트리](workbook/0x16.md) | ![100%](https://progress-bar.dev/5/?scale=7&title=progress&width=500&color=babaca&suffix=/7) |
 | 0x17 | [우선순위 큐](workbook/0x17.md) | ![100%](https://progress-bar.dev/8/?scale=8&title=progress&width=500&color=babaca&suffix=/8) |
-| 0x18 | [그래프](workbook/0x18.md) | ![100%](https://progress-bar.dev/12/?scale=13&title=progress&width=500&color=babaca&suffix=/13) |
+| 0x18 | [그래프](workbook/0x18.md) | ![100%](https://progress-bar.dev/13/?scale=13&title=progress&width=500&color=babaca&suffix=/13) |
 | 0x19 | [트리](workbook/0x19.md) | ![100%](https://progress-bar.dev/13/?scale=13&title=progress&width=500&color=babaca&suffix=/13) |
 | 0x1A | [위상 정렬](workbook/0x1A.md) | ![100%](https://progress-bar.dev/7/?scale=7&title=progress&width=500&color=babaca&suffix=/7) |
 | 0x1B | [최소 신장 트리](workbook/0x1B.md) | ![100%](https://progress-bar.dev/9/?scale=9&title=progress&width=500&color=babaca&suffix=/9) |

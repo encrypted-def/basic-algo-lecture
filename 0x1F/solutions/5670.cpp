@@ -7,8 +7,7 @@ using namespace std;
 const int ROOT = 1, MX = 1e6 + 10;
 int unused, keystroke_total;
 bool chk[MX];
-// 분기점 유무를 쉽기 확인하기 위해 vector로 트라이를 관리합니다.
-vector<pair<int, int>> nxt[MX];
+vector<pair<int, int>> nxt[MX]; // 자식을 동적 배열로 관리
 
 // node의 자손 중, c에 해당하는 자손이 있는지 체크합니다.
 int getchild(int node, char c) {
@@ -66,4 +65,7 @@ int main(void) {
 
 유의점: 처음 한 번은 무조건 누르게 되어있으므로,
 ROOT의 각 자식에서부터 탐색을 시작해야 합니다.
+
+메모리 절약을 위해 동적 배열로 구현했지만 자식을 26칸 배열로 두어도
+아마 통과에는 문제가 없을 것입니다.
 */

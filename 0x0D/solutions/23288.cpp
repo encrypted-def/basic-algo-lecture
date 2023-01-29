@@ -1,40 +1,36 @@
 // Authored by : HJPark
-// http://boj.kr/cc1b19ec95a54e04943a8204a5b34022
-
+// Co-authored by : BaaaaaaaaaaarkingDog
+// http://boj.kr/0b99159aaaba43379606d5aefce0b753
 #include <bits/stdc++.h>
 using namespace std;
 
 int n, m, k;
 int board[22][22];
-int dxs[4] = {0, 1, 0, -1};
-int dys[4] = {1, 0, -1, 0};
+int dx[4] = {0, 1, 0, -1};
+int dy[4] = {1, 0, -1, 0};
 int dir = 0;               // 동 남 서 북
 int cur_r = 1, cur_c = 1;  // 현 위치
 int dice[6] = {1, 2, 3, 4, 5, 6};
 int ans = 0;
 
-bool inbound(int r, int c) {
-  if ((r > 0) && (r <= n) && (c > 0) && (c <= m))
-    return true;
-  else
-    return false;
+bool OOB(int r, int c) {
+  return r <= 0 || r > n || c <= 0 || c > m;
 }
 
 void next_dir() {
   int dice_bottom = dice[5];
-
   if (board[cur_r][cur_c] < dice_bottom)
     dir = (dir + 1) % 4;
   else if (board[cur_r][cur_c] > dice_bottom)
     dir = (dir + 3) % 4;
-  if (!inbound(cur_r + dxs[dir], cur_c + dys[dir]))
+  
+  if (OOB(cur_r + dx[dir], cur_c + dy[dir]))
     dir = (dir + 2) % 4;
 }
 
 void get_score() {
   int tile = 1;
-  bool vis[22][22];
-  fill(&vis[0][0], &vis[22][22], 0);
+  bool vis[22][22] = {};
   queue<pair<int, int>> q;
   q.push({cur_r, cur_c});
   vis[cur_r][cur_c] = 1;
@@ -43,9 +39,9 @@ void get_score() {
     pair<int, int> pos = q.front();
     q.pop();
     for (int i = 0; i < 4; i++) {
-      int nxt_r = pos.first + dxs[i];
-      int nxt_c = pos.second + dys[i];
-      if (inbound(nxt_r, nxt_c) && !vis[nxt_r][nxt_c] && board[nxt_r][nxt_c] == board[cur_r][cur_c]) {
+      int nxt_r = pos.first + dx[i];
+      int nxt_c = pos.second + dy[i];
+      if (!OOB(nxt_r, nxt_c) && !vis[nxt_r][nxt_c] && board[nxt_r][nxt_c] == board[cur_r][cur_c]) {
         q.push({nxt_r, nxt_c});
         vis[nxt_r][nxt_c] = 1;
         tile++;
@@ -82,8 +78,8 @@ void move() {
     dice[1] = tmp[0];
   }
 
-  cur_r += dxs[dir];
-  cur_c += dys[dir];
+  cur_r += dx[dir];
+  cur_c += dy[dir];
 }
 
 int main(void) {

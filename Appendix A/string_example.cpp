@@ -37,7 +37,7 @@ int main(){
   // welcome/to/the/black/parade/
   for(auto chunk : chunks1) cout << chunk << '/';
   cout << '\n';
-  vector<string> chunks2 = split("b*!*ac*!*e*!*y*!*", "*!*");
+  vector<string> chunks2 = split("b*!*ac*!**!*e*!*y*!*", "*!*");
   // b/ac/a/y/
   for(auto chunk : chunks2) cout << chunk << '/';
 }

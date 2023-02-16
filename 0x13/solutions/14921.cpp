@@ -1,6 +1,6 @@
 // Authored by : HJPark
 // Co-authored by : -
-// http://boj.kr/91b2c27d5f1e4ff6956c2040eb9bab96
+// http://boj.kr/9860ebd898414f679526cd129ac73c63
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -27,6 +27,7 @@ int main(void) {
 }
 
 /*
+투포인터를 이용한 풀이
 st, en이 입력된 배열의 양 끝을 가르킨다.
 a[st]와 a[en]을 혼합한 특성값의 절대값이 ans의 절대값보다 낮을 경우 ans를 갱신한다.
 만약 혼합한 특성값이 0보다 작은 경우 st를 1만큼 증가시키고

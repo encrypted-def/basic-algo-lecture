@@ -1,6 +1,6 @@
 // Authored by : HJPark
 // Co-authored by : -
-// http://boj.kr/9860ebd898414f679526cd129ac73c63
+// http://boj.kr/3b73c9a75b7c4d44be56fd6af6fc9fed
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -9,21 +9,21 @@ int a[100005];
 int ans = 1e9 + 1;
 
 int main(void) {
-    ios::sync_with_stdio(0);
-    cin.tie(0);
+  ios::sync_with_stdio(0);
+  cin.tie(0);
 
-    cin >> n;
-    for (int i = 0; i < n; i++) cin >> a[i];
+  cin >> n;
+  for (int i = 0; i < n; i++) cin >> a[i];
 
-    int st = 0, en = n - 1;
-    while (st < en) {
-        int val = a[st] + a[en];
-        if (abs(val) < abs(ans)) ans = val;
-        if (val < 0) st++;
-        else en--;
-    }
+  int st = 0, en = n - 1;
+  while (st < en) {
+    int val = a[st] + a[en];
+    if (abs(val) < abs(ans)) ans = val;
+    if (val < 0) st++;
+    else en--;
+  }
 
-    cout << ans;
+  cout << ans;
 }
 
 /*

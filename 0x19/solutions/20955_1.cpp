@@ -1,5 +1,5 @@
 // Authored by : scsc3204
-// Co-authored by : -
+// Co-authored by : BaaaaaaaaaaarkingDog
 // http://boj.kr/ae6be2f242b44089a06fe25b5700ac0b
 #include <bits/stdc++.h>
 using namespace std;
@@ -26,9 +26,8 @@ int main() {
   ios::sync_with_stdio(0);
   cin.tie(0);
 
-  memset(p, -1, sizeof(p));
-
   cin >> n >> m;
+  fill(p, p+n+1, -1);
   for(int i = 0; i < m; i++) {
     int u, v; cin >> u >> v;
     try_merge(u, v);

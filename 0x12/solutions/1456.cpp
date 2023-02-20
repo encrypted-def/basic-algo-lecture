@@ -32,3 +32,9 @@ int main(void) {
   }
   cout << cnt;
 }
+/*
+p가 10^7 언저리이면 p^2는 a와 b 사이이나 p^3이 long long 범위를 벗어날 수 있다.
+integer overflow 방지를 위해 i = p, p^2, p^3, ... 으로 두고 이 때 i*p가 거의 소수인데
+i <= b / p 이 아니면(i*p <= b가 아니면) break를 하는 방식을 사용해 i*p를 계산할 때
+overflow가 발생하지 않도록 한다.
+*/

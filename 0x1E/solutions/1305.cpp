@@ -1,6 +1,6 @@
 // Authored by : scsc3204
-// Co-authored by : -
-// http://boj.kr/f68f0ddb03c6401aab2ea0795a056ca5
+// Co-authored by : BaaaaaaaaaaarkingDog
+// http://boj.kr/7e3f016c180b446fb38f8ae6b60291a6
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -14,8 +14,8 @@ int main() {
   int n; string s;
   cin >> n >> s;
 
+  int j = 0;
   for(int i = 1; i < n; i++) {
-    int j = f[i - 1];
     while(j > 0 && s[i] != s[j]) j = f[j - 1];
     if(s[i] == s[j]) f[i] = ++j;
   }

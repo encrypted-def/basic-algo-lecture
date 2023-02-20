@@ -84,7 +84,7 @@ int main(void) {
 /*
 bfs를 2번만 사용해 O(n^2) 문제를 풀어내는 풀이. 자세한 설명글은
 
-http://www.secmem.org/blog/2019/03/07/코딩테스트-대비-특강/
+https://infossm.github.io/blog/2019/03/07/%EC%BD%94%EB%94%A9%ED%85%8C%EC%8A%A4%ED%8A%B8-%EB%8C%80%EB%B9%84-%ED%8A%B9%EA%B0%95/
 
 의 52p부터 확인하면 된다.
 */

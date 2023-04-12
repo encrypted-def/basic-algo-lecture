@@ -56,4 +56,4 @@
 | 0x1C | [플로이드 알고리즘](workbook/0x1C.md) | ![100%](https://progress-bar.dev/13/?scale=15&title=progress&width=500&color=babaca&suffix=/15) |
 | 0x1D | [다익스트라 알고리즘](workbook/0x1D.md) | ![100%](https://progress-bar.dev/9/?scale=14&title=progress&width=500&color=babaca&suffix=/14) |
 | 0x1E | [KMP](workbook/0x1E.md) | ![100%](https://progress-bar.dev/8/?scale=8&title=progress&width=500&color=babaca&suffix=/8) |
-| 0x1F | [트라이](workbook/0x1F.md) | ![100%](https://progress-bar.dev/9/?scale=10&title=progress&width=500&color=babaca&suffix=/10) |
+| 0x1F | [트라이](workbook/0x1F.md) | ![100%](https://progress-bar.dev/10/?scale=10&title=progress&width=500&color=babaca&suffix=/10) |

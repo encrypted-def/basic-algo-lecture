@@ -1,28 +1,35 @@
 // Authored by : syoh0708
-// Co-authored by : -
-// http://boj.kr/506e6d8e06d4409c9f52188587ce06f8
+// Co-authored by : BaaaaaaaaaaarkingDog
+// http://boj.kr/c50bcbc8af2f4462869639fe0f5b17da
 #include <bits/stdc++.h>
-
 using namespace std;
 
 int n, diam;
-vector<pair<int, int>> e[10005];
+vector<pair<int, int>> adj[10005];
 
-pair<int, int> dfs(int cur) {
-  int x = 0, y = 0;
-  vector<int> dist;
+// cur의 subtree에서 cur와 가장 거리가 먼 정점까지의 거리
+int dfs(int cur) {
+  vector<int> dist; 
 
-  for (auto nxt : e[cur]) {
-    pair<int, int> d = dfs(nxt.first);
-    dist.push_back(d.first + nxt.second);
+  int first = 0; // cur를 root로 하는 subtree에 속한 정점 중 cur와 가장 거리가 먼 정점까지의 거리
+  int second = 0; // cur를 root로 하는 subtree에 속한 정점 중 cur와 두번째로 먼 정점까지의 거리
+  // first + second가 트리의 지름 후보임
+
+  for (auto nxt : adj[cur]) {
+    // dist : cur의 자식인 nxt을 root로 하는 subtree에 있는 정점 중 cur와 가장 거리가 먼 정점까지의 거리
+    int dist = dfs(nxt.first) + nxt.second;
+    if(dist > first){ // 제일 긴게 갱신된다면
+      second = first;
+      first = dist;
+    }
+    else if(dist > second){ // 두번째로 긴게 갱신된다면
+      second = dist;
+    }
   }
+  // 설령 자식이 1명이라도 second에 0이 들어있어 처리가 자연스럽게 가능
+  diam = max(diam, first + second);
 
-  sort(dist.begin(), dist.end(), greater<int>());
-  if (dist.size() > 0) x = dist[0];
-  if (dist.size() > 1) y = dist[1];
-  diam = max(diam, x + y);
-
-  return {x, y};
+  return first;
 }
 
 int main() {
@@ -34,16 +41,14 @@ int main() {
   for (int i = 0; i < n - 1; i++) {
     int u, v, d; cin >> u >> v >> d;
         
-    e[u].push_back({v, d});
+    adj[u].push_back({v, d});
   }
 
   dfs(1);
-
   cout << diam;
 }
 
 /**
- * 트리의 지름을 그렸을 때 가장 루트에 가까운 노드를 a라 하자(문제의 예제에서 3번 노드)
- * 노드 a 입장에서 봤을 때 a의 자식 노드 c_i에 대해서 a에서 c_i를 지나는 리프까지의 최대 거리를 d_i라고 하면
- * 트리의 지름은 d_i 중 가장 긴 원소와 과 두 번째로 긴 원소를 더한 것과 같다.
+ * 각 정점 x를 루트로 잡고 최대한 길게 내려가는 두 양갈래 정점 a, b를 구하고나면
+ * a -> x -> b를 트리의 지름 후보로 생각할 수 있다. 이를 재귀적으로 구하면 된다.
 */

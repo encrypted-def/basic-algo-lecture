@@ -6,7 +6,7 @@ int main(void){
   DQ.push_front(10); // 10
   DQ.push_back(50); // 10 50
   DQ.push_front(24); // 24 10 50
-  for(auto x : DQ)cout<<x;
+  for(auto x : DQ) cout << x << ' ';
   cout << DQ.size() << '\n'; // 3
   if(DQ.empty()) cout << "DQ is empty\n";
   else cout << "DQ is not empty\n"; // DQ is not empty

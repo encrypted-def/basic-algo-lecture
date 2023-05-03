@@ -132,7 +132,7 @@ def gen_total_workbook(attrs):
       if len(attr) < 3: # No workbook
         f.write(f'| {attr[0]} | {attr[1]} | |\n')
       else:
-        f.write(f'| {attr[0]} | [{attr[1]}](workbook/{attr[0]}.md) | {pbar} |\n')
+        f.write(f'| {attr[0]} | [{attr[1]}](workbook/{attr[0].replace(' ', '%20')}.md) | {pbar} |\n')
 
 attrs = parse_links()
 category = parse_category()

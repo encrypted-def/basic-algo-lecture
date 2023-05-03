@@ -82,7 +82,7 @@ int main(void){
         prob_table += f'| {CATEGORY[category_idx]} | {prob_id} | [{prob_name}](https://www.acmicpc.net/problem/{prob_id}) | - |\n'
       else:
         solution_num += 1
-        code_attr = f'[정답 코드]({file_path}.cpp)'
+        code_attr = f'[정답 코드]({file_path.replace(" ", "%20"}.cpp)'
         MAX_DIFFERENT_SOLUTION = 9
         for i in range(1, MAX_DIFFERENT_SOLUTION+1):
           if os.path.exists(file_path+'_'+str(i)+'.cpp'):

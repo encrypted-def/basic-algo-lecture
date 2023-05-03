@@ -30,3 +30,4 @@
 0x1D,다익스트라 알고리즘,https://www.acmicpc.net/workbook/view/10433
 0x1E,KMP,https://www.acmicpc.net/workbook/view/12205
 0x1F,트라이,https://www.acmicpc.net/workbook/view/12649
+Appendix A,문자열 기초,https://www.acmicpc.net/workbook/view/14409

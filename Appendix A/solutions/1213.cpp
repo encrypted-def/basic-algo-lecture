@@ -1,4 +1,4 @@
-// Authored by : BaaaaaaaaaaarkingDog
+// Authored by : scsc3204
 // Co-authored by : -
 // http://boj.kr/145ce16e207d42008ec94abf8489ec73
 #include <bits/stdc++.h>

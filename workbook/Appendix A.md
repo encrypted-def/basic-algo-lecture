@@ -13,7 +13,7 @@
 | 기본 문제✔ | 2870 | [수학숙제](https://www.acmicpc.net/problem/2870) | [정답 코드](../Appendix%20A/solutions/2870.cpp) |
 | 기본 문제✔ | 1969 | [DNA](https://www.acmicpc.net/problem/1969) | [정답 코드](../Appendix%20A/solutions/1969.cpp) |
 | 기본 문제✔ | 2999 | [비밀 이메일](https://www.acmicpc.net/problem/2999) | [정답 코드](../Appendix%20A/solutions/2999.cpp) |
-| 기본 문제✔ | 9536 | [여우는 어떻게 울지?](https://www.acmicpc.net/problem/9536) | [정답 코드](../Appendix%20A/solutions/9536.cpp) |
+| 기본 문제✔ | 9536 | [여우는 어떻게 울지?](https://www.acmicpc.net/problem/9536) | [정답 코드](../Appendix%20A/solutions/9536.cpp), [별해 1](../Appendix A/solutions/9536_1.cpp) |
 | 기본 문제✔ | 15312 | [이름 궁합](https://www.acmicpc.net/problem/15312) | - |
 | 기본 문제 | 3107 | [IPv6](https://www.acmicpc.net/problem/3107) | - |
 | 기본 문제 | 16719 | [ZOAC](https://www.acmicpc.net/problem/16719) | - |

@@ -1,6 +1,6 @@
 # 문자열 기초
 
-![100%](https://progress-bar.dev/12/?scale=16&title=progress&width=500&color=babaca&suffix=/16)
+![100%](https://progress-bar.dev/13/?scale=16&title=progress&width=500&color=babaca&suffix=/16)
 
 [문제집 링크](https://www.acmicpc.net/workbook/view/14409)
 
@@ -19,6 +19,6 @@
 | 기본 문제 | 16719 | [ZOAC](https://www.acmicpc.net/problem/16719) | - |
 | 기본 문제 | 16113 | [시그널](https://www.acmicpc.net/problem/16113) | [정답 코드](../Appendix%20A/solutions/16113.cpp) |
 | 기본 문제 | 23304 | [아카라카](https://www.acmicpc.net/problem/23304) | [정답 코드](../Appendix%20A/solutions/23304.cpp) |
-| 기본 문제 | 6581 | [HTML](https://www.acmicpc.net/problem/6581) | - |
+| 기본 문제 | 6581 | [HTML](https://www.acmicpc.net/problem/6581) | [정답 코드](../Appendix%20A/solutions/6581.cpp) |
 | 기본 문제 | 17413 | [단어 뒤집기 2](https://www.acmicpc.net/problem/17413) | - |
 | 기본 문제 | 1213 | [팰린드롬 만들기](https://www.acmicpc.net/problem/1213) | [정답 코드](../Appendix%20A/solutions/1213.cpp) |

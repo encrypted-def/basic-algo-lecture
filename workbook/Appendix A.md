@@ -1,6 +1,6 @@
 # 문자열 기초
 
-![100%](https://progress-bar.dev/8/?scale=16&title=progress&width=500&color=babaca&suffix=/16)
+![100%](https://progress-bar.dev/10/?scale=16&title=progress&width=500&color=babaca&suffix=/16)
 
 [문제집 링크](https://www.acmicpc.net/workbook/view/14409)
 
@@ -14,10 +14,10 @@
 | 기본 문제✔ | 1969 | [DNA](https://www.acmicpc.net/problem/1969) | [정답 코드](../Appendix%20A/solutions/1969.cpp) |
 | 기본 문제✔ | 2999 | [비밀 이메일](https://www.acmicpc.net/problem/2999) | [정답 코드](../Appendix%20A/solutions/2999.cpp) |
 | 기본 문제✔ | 9536 | [여우는 어떻게 울지?](https://www.acmicpc.net/problem/9536) | [정답 코드](../Appendix%20A/solutions/9536.cpp), [별해 1](../Appendix A/solutions/9536_1.cpp) |
-| 기본 문제✔ | 15312 | [이름 궁합](https://www.acmicpc.net/problem/15312) | - |
+| 기본 문제✔ | 15312 | [이름 궁합](https://www.acmicpc.net/problem/15312) | [정답 코드](../Appendix%20A/solutions/15312.cpp) |
 | 기본 문제 | 3107 | [IPv6](https://www.acmicpc.net/problem/3107) | - |
 | 기본 문제 | 16719 | [ZOAC](https://www.acmicpc.net/problem/16719) | - |
-| 기본 문제 | 16113 | [시그널](https://www.acmicpc.net/problem/16113) | - |
+| 기본 문제 | 16113 | [시그널](https://www.acmicpc.net/problem/16113) | [정답 코드](../Appendix%20A/solutions/16113.cpp) |
 | 기본 문제 | 23304 | [아카라카](https://www.acmicpc.net/problem/23304) | - |
 | 기본 문제 | 6581 | [HTML](https://www.acmicpc.net/problem/6581) | - |
 | 기본 문제 | 17413 | [단어 뒤집기 2](https://www.acmicpc.net/problem/17413) | - |

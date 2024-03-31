@@ -59,3 +59,4 @@
 | 0x1F | [트라이](workbook/0x1F.md) | ![100%](https://progress-bar.dev/10/?scale=10&title=progress&width=500&color=babaca&suffix=/10) |
 | Appendix A | [문자열 기초](workbook/Appendix%20A.md) | ![100%](https://progress-bar.dev/13/?scale=16&title=progress&width=500&color=babaca&suffix=/16) |
 | Appendix B | 동적 배열 (문제집 X) | |
+| Appendix C | [비트마스킹](workbook/Appendix%20C.md) | ![100%](https://progress-bar.dev/1/?scale=7&title=progress&width=500&color=babaca&suffix=/7) |

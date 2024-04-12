@@ -1,6 +1,6 @@
 // Authored by : BaaaaaaaaaaarkingDog
 // Co-authored by : -
-// http://boj.kr/693d1ccff5ef479e848979c746b404b1
+// http://boj.kr/c472fdbf8dbb4b91ada365258587bc06
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -13,7 +13,7 @@ int board[502][502];
 vector<vector<pair<int,int>>> tetro;
 
 // a, b가 상하좌우로 인접한 칸인지 확인하는 함수
-bool isadj(pair<int, int> a, pair<int, int> b){
+bool isadj(pair<int, int>& a, pair<int, int>& b){
   if(a.X == b.X) return abs(a.Y - b.Y) == 1;
   if(a.Y == b.Y) return abs(a.X - b.X) == 1;
   return false;

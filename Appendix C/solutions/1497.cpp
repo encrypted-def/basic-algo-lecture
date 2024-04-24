@@ -1,6 +1,6 @@
 // Authored by : BaaaaaaaaaaarkingDog
 // Co-authored by : -
-// http://boj.kr/2532d97629b04d7c86f15db6bee08772
+// http://boj.kr/8b88c60fcf17452a9e602ef1bc17adde
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -9,7 +9,7 @@ long long state[10];
 
 int bit_cnt(long long x){
   int ret = 0;
-  for(int i = 0; i < m; i++){
+  for(int i = 0; i < max(n, m); i++){
     ret += (x >> i) & 1;
   }
   return ret;
@@ -31,7 +31,7 @@ int main(){
   pair<int, int> ans = {0, -1}; // {연주할 수 있는 곡의 수, 필요한 기타의 수}
   for(int tmp = 0; tmp < (1 << n); tmp++){
     long long comb = 0; // 조합한 결과
-    for(int i = 0; i < m; i++){
+    for(int i = 0; i < n; i++){
       if((tmp & (1LL << i)) == 0)
         continue;
       comb |= state[i];

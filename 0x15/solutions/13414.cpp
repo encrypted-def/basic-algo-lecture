@@ -1,6 +1,6 @@
 // Authored by : diyamea
 // Co-authored by : BaaaaaaaaaaarkingDog
-// http://boj.kr/848301746aac4a92872d58a8a5e8d596
+// http://boj.kr/ccd33d92a6564257b16e6503e29f7400
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -17,12 +17,7 @@ int main(void){
   for(int i=0; i<l; ++i) {
     string student_num;
     cin >> student_num;
-    if(signup.find(student_num) != signup.end()) {
-      signup.erase(student_num);
-      signup[student_num] = i;
-    }
-    else
-      signup[student_num] = i;
+    signup[student_num] = i;
   }
   vector<pair<string,int>> slist (signup.begin(), signup.end());
   // 이 문법이 익숙하지 않으면 익명 함수 or 람다 식 검색

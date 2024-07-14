@@ -1,6 +1,6 @@
 // Authored by : yongjunleeme
 // Co-authored by : -
-// http://boj.kr/5c5193d29eee450394adefa11f8c8f23
+// http://boj.kr/eee7356385264e9195a2b641b856fe67
 #include <bits/stdc++.h>
 using namespace std;
 const int MX = 31;
@@ -57,7 +57,6 @@ int main(void){
         Q.push({nh,nx,ny});
       }
     }
-    while(!Q.empty()) Q.pop();
     if(!isEscape) cout << "Trapped!" << "\n";
   }
 }

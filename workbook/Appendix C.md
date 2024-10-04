@@ -1,6 +1,6 @@
 # 비트마스킹
 
-![100%](https://progress-bar.dev/2/?scale=7&title=progress&width=500&color=babaca&suffix=/7)
+![100%](https://progress-bar.xyz/2/?scale=7&title=progress&width=500&color=babaca&suffix=/7)
 
 [문제집 링크](https://www.acmicpc.net/workbook/view/18875)
 

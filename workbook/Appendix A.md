@@ -1,6 +1,6 @@
 # 문자열 기초
 
-![100%](https://progress-bar.dev/13/?scale=16&title=progress&width=500&color=babaca&suffix=/16)
+![100%](https://progress-bar.xyz/13/?scale=16&title=progress&width=500&color=babaca&suffix=/16)
 
 [문제집 링크](https://www.acmicpc.net/workbook/view/14409)
 

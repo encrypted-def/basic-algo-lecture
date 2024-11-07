@@ -89,7 +89,7 @@
 0x1D강 - 다익스트라 알고리즘
 0x1E강 - KMP 알고리즘 
 0x1F강 - 트라이
-부록 D - Union Find
+부록 D - Union-Find
 부록 E - 다이나믹 프로그래밍 심화
 ```
 

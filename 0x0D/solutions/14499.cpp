@@ -1,16 +1,16 @@
 // Authored by : OceanShape
 // Co-authored by : BaaaaaaaaaaarkingDog
-// http://boj.kr/f4d1f744e8284036b39106a41f13ffe2
+// http://boj.kr/01b6c6b9fd7b4bc1af01120310073c33
 #include <bits/stdc++.h>
 using namespace std;
 
 int N, M, x, y, K, command;
 int board[21][21];  // 지도
 int dice[7];        // 주사위
-//  윗면이 2이고, 동쪽을 바라보는 방향이 6
-//     [1]
-//  [5][2][6]
+//  윗면이 2이고, 동쪽을 바라보는 방향이 5
 //     [3]
+//  [6][2][5]
+//     [1]
 //     [4]
 
 int idx[5][4] = {

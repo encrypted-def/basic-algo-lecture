@@ -1,39 +1,44 @@
-// Authored by : jimi567
+// Authored by : keyboardmunji
 // Co-authored by : -
-// http://boj.kr/7d30341579424e59a3868fc91e1980d6
-#include <bits/stdc++.h>
-using namespace std;
+// http://boj.kr/e0c5f4a5d5fc4c8bae9107590e538eae
+#include<bits/stdc++.h>
 #define X first
 #define Y second
-#define ll long long
-int n, m;
-int arr[1005][1005];
-int ans = 0x7f7f7f7f;
-vector<int> idx;  //각 팀들의 현재 인덱스를 저장하는 벡터.
+
+using namespace std;
+int n, m, cnt, en, ans = 0x7f7f7f7f;
+int chk[1005]; // 각 팀이 구간속에 모두 있는지 확인하는 벡터
+vector<pair<int, int>> a; // 능력치와 각팀의 인덱스를 저장하는 벡터
+
 int main(void) {
-  ios::sync_with_stdio(0);
-  cin.tie(0);
-  cin >> n >> m;
-  for (int i = 0; i < n; i++) {
-    idx.push_back(0);
-    for (int j = 0; j < m; j++) cin >> arr[i][j];
-  }
-  for (int i = 0; i < n; i++) sort(arr[i], arr[i] + m);
-  while (1) {
-    int mntm;
-    int mx = -1;
-    int mn = 0x7f7f7f7f;
-    for (int i = 0; i < n; i++) {
-      if (mn > arr[i][idx[i]]) {  //최솟값 갱신, 최솟값을 가지는 팀 갱신
-        mn = arr[i][idx[i]];
-        mntm = i;
-      }
-      if (mx < arr[i][idx[i]]) mx = arr[i][idx[i]];  //최댓값 갱신
+    ios::sync_with_stdio(false);
+    cin.tie(NULL);
+
+    cin >> n >> m;
+    for (int i = 0;i < n;i++) {
+        for (int j = 0;j < m;j++) {
+            int num;
+            cin >> num;
+            a.push_back({ num, i });
+        }
     }
-    ans = min(ans, mx - mn);
-    idx[mntm] += 1;
-    if (idx[mntm] == m)
-      break;  //만약 최솟값을 가지는 팀이 마지막 인덱스에 해당하면 종료.
-  }
-  cout << ans;
+    sort(a.begin(), a.end());
+
+    for (int st = 0;st < n * m;st++) {
+        // 구간 속에 각 팀이 모두 포함되게 en을 증가
+        while (cnt < n && en < n * m) {
+            if (chk[a[en].Y] == 0)
+                cnt++;
+            chk[a[en].Y]++;
+            en++;
+        }
+        if (cnt != n)
+            break;
+        ans = min(ans, a[en - 1].X - a[st].X);
+        chk[a[st].Y]--;
+        if (chk[a[st].Y] == 0)
+            cnt--;
+    }
+    cout << ans;
+    return 0;
 }

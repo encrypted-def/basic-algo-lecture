@@ -1,6 +1,6 @@
 // Authored by : H2ll0World
 // Co-authored by : -
-// http://boj.kr/2c028878405043a6b1edb0ac2ab67f07
+// http://boj.kr/b3c853360b644b44b76397387d1062c0
 
 // 어른 상어
 #include <bits/stdc++.h>

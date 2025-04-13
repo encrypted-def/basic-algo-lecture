@@ -1,8 +1,6 @@
 // Authored by : H2ll0World
 // Co-authored by : -
 // http://boj.kr/b3c853360b644b44b76397387d1062c0
-
-// 어른 상어
 #include <bits/stdc++.h>
 using namespace std;
 

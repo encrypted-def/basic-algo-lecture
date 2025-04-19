@@ -34,3 +34,4 @@ Appendix A,문자열 기초,https://www.acmicpc.net/workbook/view/14409
 Appendix B,동적 배열 (문제집 X)
 Appendix C,비트마스킹,https://www.acmicpc.net/workbook/view/18875
 Appendix D,Union-Find,https://www.acmicpc.net/workbook/view/21218
+Appendix E,다이나믹 프로그래밍 심화,https://www.acmicpc.net/workbook/view/23049

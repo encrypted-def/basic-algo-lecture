@@ -1,6 +1,6 @@
 // Authored by : erick12(BOJ)/Erickk1212(Github)
 // Co-authored by : -
-// http://boj.kr/53c3baf12cb8446699fe398d0b171654
+// http://boj.kr/80ae0844bf6e44558f48685b94f1dfd1
 #include<bits/stdc++.h>
 using namespace std;
 int parent[100000];

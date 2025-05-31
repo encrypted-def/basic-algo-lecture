@@ -1,6 +1,6 @@
 ﻿// Authored by : -
 // Co-authored by : -
-//http://boj.kr/4b1e161ffc9b4281ab7dad4d1b6cbbd9
+//http://boj.kr/c90b49f6a233442f8d300e0e4cd3a2e2
 #include <bits/stdc++.h>
 using namespace std;
 

@@ -18,7 +18,7 @@
 | 기본 문제✔ | 1699 | [제곱수의 합](https://www.acmicpc.net/problem/1699) | [정답 코드](../Appendix%20E/solutions/1699.cpp) |
 | 기본 문제✔ | 9657 | [돌 게임 3](https://www.acmicpc.net/problem/9657) | [정답 코드](../Appendix%20E/solutions/9657.cpp) |
 | 기본 문제✔ | 11660 | [구간 합 구하기 5](https://www.acmicpc.net/problem/11660) | [정답 코드](../Appendix%20E/solutions/11660.cpp) |
-| 기본 문제✔ | 9665 | [GMO](https://www.acmicpc.net/problem/9665) | - |
+| 기본 문제✔ | 9665 | [GMO](https://www.acmicpc.net/problem/9665) | - | [정답 코드](../Appendix%20E/solutions/9665.cpp) |
 | 기본 문제✔ | 2011 | [암호코드](https://www.acmicpc.net/problem/2011) | [정답 코드](../Appendix%20E/solutions/2011.cpp) |
 | 기본 문제✔ | 12784 | [인하니카 공화국](https://www.acmicpc.net/problem/12784) | - |
 | 기본 문제✔ | 25515 | [트리 노드 합의 최댓값](https://www.acmicpc.net/problem/25515) | - |

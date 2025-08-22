@@ -28,9 +28,9 @@ int main() {
   dna['T'] = T;
   
   // string2 전체를 만드는 데 드는 총 비용 계산
-  for (int i = 0; i < string2.length(); i++) {
+  for (int i = 0; i < string2.length(); i++) 
     total += dna[string2[i]];
-  }
+  
   
   // string1의 모든 연속 부분 문자열을 확인하면서,
   // string2의 부분 문자열이 될 수 있는 경우의 비용 합을 구함

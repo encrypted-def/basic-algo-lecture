@@ -61,4 +61,4 @@
 | Appendix B | 동적 배열 (문제집 X) | |
 | Appendix C | [비트마스킹](workbook/Appendix%20C.md) | ![100%](https://progress-bar.xyz/2/?scale=7&title=progress&width=500&color=babaca&suffix=/7) |
 | Appendix D | [Union-Find](workbook/Appendix%20D.md) | ![100%](https://progress-bar.xyz/2/?scale=9&title=progress&width=500&color=babaca&suffix=/9) |
-| Appendix E | [다이나믹 프로그래밍 심화](workbook/Appendix%20E.md) | ![100%](https://progress-bar.xyz/17/?scale=25&title=progress&width=500&color=babaca&suffix=/25) |
+| Appendix E | [다이나믹 프로그래밍 심화](workbook/Appendix%20E.md) | ![100%](https://progress-bar.xyz/16/?scale=25&title=progress&width=500&color=babaca&suffix=/24) |

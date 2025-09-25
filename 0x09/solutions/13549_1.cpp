@@ -33,4 +33,7 @@ int main(void) {
 
 /*
 0-1 BFS로 해결한 풀이
+
+-1, +1 순이 아닌 +1, -1 순으로 탐색할 경우에는 4 6에 대해 오답 발생 (https://www.acmicpc.net/board/view/144960).
+추후 관련 설명 보강 예정
 */

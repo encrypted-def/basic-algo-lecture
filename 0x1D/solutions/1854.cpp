@@ -1,10 +1,10 @@
 // Authored by : uhwan0723
 // Co-authored by : -
-// http://boj.kr/b65501cb42b24247997604ce3d94be7c
+// http://boj.kr/2e7aad928479422d845f500c2c77609b
 #include <bits/stdc++.h>
 using namespace std;
 
-const int mn = 1e4+5, md = 1e7+5;
+const int mn = 1e4+5;
 int n, m, k;
 vector<int> d[mn];
 vector<pair<int, int>> adj[mn];
